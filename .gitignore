@@ -1,0 +1,26 @@
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+/static/
+/media/
+
+# Virtualenv
+venv/
+.env
+*.env
+
+# IDEs
+.vscode/
+*.swp
+
+# Ignore environment files
+.env
+*.env
+secrets.json
+
+
+# Optional: ignore other secrets
+*.key
+*.pem
+*.sqlite3

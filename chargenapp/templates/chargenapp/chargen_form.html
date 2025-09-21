@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG Character Creator</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+    <style>
+        .form-columns {
+            display: flex;
+            gap: 20px;
+        }
+        .form-col {
+            flex: 1;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position: relative;">
+    <div style="
+        background-image: url('{% static "images/dragon.png" %}');
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-position: top center;
+        background-attachment: fixed;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        z-index: 1;
+        pointer-events: none;">
+    </div>
+
+    <div id="parchment-form">
+        <h1>Create Your Character</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-columns">
+                <div class="form-col">
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.race.label }}</div>
+                        <div class="form-field-wrapper">{{ form.race }}</div>
+                    </div>
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.char_class.label }}</div>
+                        <div class="form-field-wrapper">{{ form.char_class }}</div>
+                    </div>
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.background.label }}</div>
+                        <div class="form-field-wrapper two-column-options">
+                            {% for radio in form.background %}
+                                <label>{{ radio.tag }} {{ radio.choice_label }}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-col">
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.alignment.label }}</div>
+                        <div class="form-field-wrapper">{{ form.alignment }}</div>
+                    </div>
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.level.label }}</div>
+                        <div class="form-field-wrapper three-column-options">
+                            {% for radio in form.level %}
+                                <label>{{ radio.tag }} {{ radio.choice_label }}</label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-col">
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.char_name.label }}</div>
+                        <div class="form-field-wrapper no-inner-border">{{ form.char_name }}</div>
+                    </div>
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.player_name.label }}</div>
+                        <div class="form-field-wrapper no-inner-border">{{ form.player_name }}</div>
+                    </div>
+                    <div class="form-field-group">
+                        <div class="field-label">{{ form.sex.label }}</div>
+                        <div class="form-field-wrapper">{{ form.sex }}</div>
+                    </div>
+                    <button type="submit">Craft my character</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

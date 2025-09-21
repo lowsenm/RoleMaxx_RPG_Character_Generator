@@ -1,0 +1,12 @@
+Django>=5.0,<6.0
+gunicorn
+python-dotenv
+psycopg2-binary
+whitenoise
+pdfrw
+reportlab
+requests
+PyPDF2
+openai
+borb==3.0.2
+fonttools==4.59.0

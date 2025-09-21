@@ -1,0 +1,1978 @@
+{
+  "1": {
+    "Index": 1,
+    "Name": "Abacus",
+    "Slug": "abacus",
+    "URL": "/api/2014/equipment/abacus",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "2": {
+    "Index": 2,
+    "Name": "Acid (vial)",
+    "Slug": "acid-vial",
+    "URL": "/api/2014/equipment/acid-vial",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "3": {
+    "Index": 3,
+    "Name": "Alchemist's fire (flask)",
+    "Slug": "alchemists-fire-flask",
+    "URL": "/api/2014/equipment/alchemists-fire-flask",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "4": {
+    "Index": 4,
+    "Name": "Alchemist's Supplies",
+    "Slug": "alchemists-supplies",
+    "URL": "/api/2014/equipment/alchemists-supplies",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "5": {
+    "Index": 5,
+    "Name": "Alms box",
+    "Slug": "alms-box",
+    "URL": "/api/2014/equipment/alms-box",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "6": {
+    "Index": 6,
+    "Name": "Amulet",
+    "Slug": "amulet",
+    "URL": "/api/2014/equipment/amulet",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "7": {
+    "Index": 7,
+    "Name": "Animal Feed (1 day)",
+    "Slug": "animal-feed-1-day",
+    "URL": "/api/2014/equipment/animal-feed-1-day",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "8": {
+    "Index": 8,
+    "Name": "Antitoxin (vial)",
+    "Slug": "antitoxin-vial",
+    "URL": "/api/2014/equipment/antitoxin-vial",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "9": {
+    "Index": 9,
+    "Name": "Arrow",
+    "Slug": "arrow",
+    "URL": "/api/2014/equipment/arrow",
+    "IsWeapon": false,
+    "ItemType": "ammo"
+  },
+  "10": {
+    "Index": 10,
+    "Name": "Backpack",
+    "Slug": "backpack",
+    "URL": "/api/2014/equipment/backpack",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "11": {
+    "Index": 11,
+    "Name": "Bagpipes",
+    "Slug": "bagpipes",
+    "URL": "/api/2014/equipment/bagpipes",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "12": {
+    "Index": 12,
+    "Name": "Ball bearings (bag of 1,000)",
+    "Slug": "ball-bearings-bag-of-1000",
+    "URL": "/api/2014/equipment/ball-bearings-bag-of-1000",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "13": {
+    "Index": 13,
+    "Name": "Barding: Breastplate",
+    "Slug": "barding-breastplate",
+    "URL": "/api/2014/equipment/barding-breastplate",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "14": {
+    "Index": 14,
+    "Name": "Barding: Chain mail",
+    "Slug": "barding-chain-mail",
+    "URL": "/api/2014/equipment/barding-chain-mail",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "15": {
+    "Index": 15,
+    "Name": "Barding: Chain shirt",
+    "Slug": "barding-chain-shirt",
+    "URL": "/api/2014/equipment/barding-chain-shirt",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "16": {
+    "Index": 16,
+    "Name": "Barding: Half plate",
+    "Slug": "barding-half-plate",
+    "URL": "/api/2014/equipment/barding-half-plate",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "17": {
+    "Index": 17,
+    "Name": "Barding: Hide",
+    "Slug": "barding-hide",
+    "URL": "/api/2014/equipment/barding-hide",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "18": {
+    "Index": 18,
+    "Name": "Barding: Leather",
+    "Slug": "barding-leather",
+    "URL": "/api/2014/equipment/barding-leather",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "19": {
+    "Index": 19,
+    "Name": "Barding: Padded",
+    "Slug": "barding-padded",
+    "URL": "/api/2014/equipment/barding-padded",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "20": {
+    "Index": 20,
+    "Name": "Barding: Plate",
+    "Slug": "barding-plate",
+    "URL": "/api/2014/equipment/barding-plate",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "21": {
+    "Index": 21,
+    "Name": "Barding: Ring mail",
+    "Slug": "barding-ring-mail",
+    "URL": "/api/2014/equipment/barding-ring-mail",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "22": {
+    "Index": 22,
+    "Name": "Barding: Scale mail",
+    "Slug": "barding-scale-mail",
+    "URL": "/api/2014/equipment/barding-scale-mail",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "23": {
+    "Index": 23,
+    "Name": "Barding: Splint",
+    "Slug": "barding-splint",
+    "URL": "/api/2014/equipment/barding-splint",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "24": {
+    "Index": 24,
+    "Name": "Barding: Studded Leather",
+    "Slug": "barding-studded-leather",
+    "URL": "/api/2014/equipment/barding-studded-leather",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "25": {
+    "Index": 25,
+    "Name": "Barrel",
+    "Slug": "barrel",
+    "URL": "/api/2014/equipment/barrel",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "26": {
+    "Index": 26,
+    "Name": "Basket",
+    "Slug": "basket",
+    "URL": "/api/2014/equipment/basket",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "27": {
+    "Index": 27,
+    "Name": "Battleaxe",
+    "Slug": "battleaxe",
+    "URL": "/api/2014/equipment/battleaxe",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "28": {
+    "Index": 28,
+    "Name": "Bedroll",
+    "Slug": "bedroll",
+    "URL": "/api/2014/equipment/bedroll",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "29": {
+    "Index": 29,
+    "Name": "Bell",
+    "Slug": "bell",
+    "URL": "/api/2014/equipment/bell",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "30": {
+    "Index": 30,
+    "Name": "Bit and bridle",
+    "Slug": "bit-and-bridle",
+    "URL": "/api/2014/equipment/bit-and-bridle",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "31": {
+    "Index": 31,
+    "Name": "Blanket",
+    "Slug": "blanket",
+    "URL": "/api/2014/equipment/blanket",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "32": {
+    "Index": 32,
+    "Name": "Block and tackle",
+    "Slug": "block-and-tackle",
+    "URL": "/api/2014/equipment/block-and-tackle",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "33": {
+    "Index": 33,
+    "Name": "Block of incense",
+    "Slug": "block-of-incense",
+    "URL": "/api/2014/equipment/block-of-incense",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "34": {
+    "Index": 34,
+    "Name": "Blowgun",
+    "Slug": "blowgun",
+    "URL": "/api/2014/equipment/blowgun",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "35": {
+    "Index": 35,
+    "Name": "Blowgun needle",
+    "Slug": "blowgun-needle",
+    "URL": "/api/2014/equipment/blowgun-needle",
+    "IsWeapon": false,
+    "ItemType": "ammo"
+  },
+  "36": {
+    "Index": 36,
+    "Name": "Book",
+    "Slug": "book",
+    "URL": "/api/2014/equipment/book",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "37": {
+    "Index": 37,
+    "Name": "Bottle, glass",
+    "Slug": "bottle-glass",
+    "URL": "/api/2014/equipment/bottle-glass",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "38": {
+    "Index": 38,
+    "Name": "Breastplate",
+    "Slug": "breastplate",
+    "URL": "/api/2014/equipment/breastplate",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "39": {
+    "Index": 39,
+    "Name": "Brewer's Supplies",
+    "Slug": "brewers-supplies",
+    "URL": "/api/2014/equipment/brewers-supplies",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "40": {
+    "Index": 40,
+    "Name": "Bucket",
+    "Slug": "bucket",
+    "URL": "/api/2014/equipment/bucket",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "41": {
+    "Index": 41,
+    "Name": "Burglar's Pack",
+    "Slug": "burglars-pack",
+    "URL": "/api/2014/equipment/burglars-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "42": {
+    "Index": 42,
+    "Name": "Calligrapher's Supplies",
+    "Slug": "calligraphers-supplies",
+    "URL": "/api/2014/equipment/calligraphers-supplies",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "43": {
+    "Index": 43,
+    "Name": "Caltrops",
+    "Slug": "caltrops",
+    "URL": "/api/2014/equipment/caltrops",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "44": {
+    "Index": 44,
+    "Name": "Camel",
+    "Slug": "camel",
+    "URL": "/api/2014/equipment/camel",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "45": {
+    "Index": 45,
+    "Name": "Candle",
+    "Slug": "candle",
+    "URL": "/api/2014/equipment/candle",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "46": {
+    "Index": 46,
+    "Name": "Carpenter's Tools",
+    "Slug": "carpenters-tools",
+    "URL": "/api/2014/equipment/carpenters-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "47": {
+    "Index": 47,
+    "Name": "Carriage",
+    "Slug": "carriage",
+    "URL": "/api/2014/equipment/carriage",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "48": {
+    "Index": 48,
+    "Name": "Cart",
+    "Slug": "cart",
+    "URL": "/api/2014/equipment/cart",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "49": {
+    "Index": 49,
+    "Name": "Cartographer's Tools",
+    "Slug": "cartographers-tools",
+    "URL": "/api/2014/equipment/cartographers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "50": {
+    "Index": 50,
+    "Name": "Case, crossbow bolt",
+    "Slug": "case-crossbow-bolt",
+    "URL": "/api/2014/equipment/case-crossbow-bolt",
+    "IsWeapon": false,
+    "ItemType": "ammo"
+  },
+  "51": {
+    "Index": 51,
+    "Name": "Case, map or scroll",
+    "Slug": "case-map-or-scroll",
+    "URL": "/api/2014/equipment/case-map-or-scroll",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "52": {
+    "Index": 52,
+    "Name": "Censer",
+    "Slug": "censer",
+    "URL": "/api/2014/equipment/censer",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "53": {
+    "Index": 53,
+    "Name": "Chain (10 feet)",
+    "Slug": "chain-10-feet",
+    "URL": "/api/2014/equipment/chain-10-feet",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "54": {
+    "Index": 54,
+    "Name": "Chain Mail",
+    "Slug": "chain-mail",
+    "URL": "/api/2014/equipment/chain-mail",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "55": {
+    "Index": 55,
+    "Name": "Chain Shirt",
+    "Slug": "chain-shirt",
+    "URL": "/api/2014/equipment/chain-shirt",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "56": {
+    "Index": 56,
+    "Name": "Chalk (1 piece)",
+    "Slug": "chalk-1-piece",
+    "URL": "/api/2014/equipment/chalk-1-piece",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "57": {
+    "Index": 57,
+    "Name": "Chariot",
+    "Slug": "chariot",
+    "URL": "/api/2014/equipment/chariot",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "58": {
+    "Index": 58,
+    "Name": "Chest",
+    "Slug": "chest",
+    "URL": "/api/2014/equipment/chest",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "59": {
+    "Index": 59,
+    "Name": "Climber's Kit",
+    "Slug": "climbers-kit",
+    "URL": "/api/2014/equipment/climbers-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "60": {
+    "Index": 60,
+    "Name": "Clothes, common",
+    "Slug": "clothes-common",
+    "URL": "/api/2014/equipment/clothes-common",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "61": {
+    "Index": 61,
+    "Name": "Clothes, costume",
+    "Slug": "clothes-costume",
+    "URL": "/api/2014/equipment/clothes-costume",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "62": {
+    "Index": 62,
+    "Name": "Clothes, fine",
+    "Slug": "clothes-fine",
+    "URL": "/api/2014/equipment/clothes-fine",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "63": {
+    "Index": 63,
+    "Name": "Clothes, traveler's",
+    "Slug": "clothes-travelers",
+    "URL": "/api/2014/equipment/clothes-travelers",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "64": {
+    "Index": 64,
+    "Name": "Club",
+    "Slug": "club",
+    "URL": "/api/2014/equipment/club",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "65": {
+    "Index": 65,
+    "Name": "Cobbler's Tools",
+    "Slug": "cobblers-tools",
+    "URL": "/api/2014/equipment/cobblers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "66": {
+    "Index": 66,
+    "Name": "Component pouch",
+    "Slug": "component-pouch",
+    "URL": "/api/2014/equipment/component-pouch",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "67": {
+    "Index": 67,
+    "Name": "Cook's utensils",
+    "Slug": "cooks-utensils",
+    "URL": "/api/2014/equipment/cooks-utensils",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "68": {
+    "Index": 68,
+    "Name": "Crossbow bolt",
+    "Slug": "crossbow-bolt",
+    "URL": "/api/2014/equipment/crossbow-bolt",
+    "IsWeapon": true,
+    "ItemType": "ammo"
+  },
+  "69": {
+    "Index": 69,
+    "Name": "Crossbow, hand",
+    "Slug": "crossbow-hand",
+    "URL": "/api/2014/equipment/crossbow-hand",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "70": {
+    "Index": 70,
+    "Name": "Crossbow, heavy",
+    "Slug": "crossbow-heavy",
+    "URL": "/api/2014/equipment/crossbow-heavy",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "71": {
+    "Index": 71,
+    "Name": "Crossbow, light",
+    "Slug": "crossbow-light",
+    "URL": "/api/2014/equipment/crossbow-light",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "72": {
+    "Index": 72,
+    "Name": "Crowbar",
+    "Slug": "crowbar",
+    "URL": "/api/2014/equipment/crowbar",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "73": {
+    "Index": 73,
+    "Name": "Crystal",
+    "Slug": "crystal",
+    "URL": "/api/2014/equipment/crystal",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "74": {
+    "Index": 74,
+    "Name": "Dagger",
+    "Slug": "dagger",
+    "URL": "/api/2014/equipment/dagger",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "75": {
+    "Index": 75,
+    "Name": "Dart",
+    "Slug": "dart",
+    "URL": "/api/2014/equipment/dart",
+    "IsWeapon": true,
+    "ItemType": "ammo"
+  },
+  "76": {
+    "Index": 76,
+    "Name": "Dice Set",
+    "Slug": "dice-set",
+    "URL": "/api/2014/equipment/dice-set",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "77": {
+    "Index": 77,
+    "Name": "Diplomat's Pack",
+    "Slug": "diplomats-pack",
+    "URL": "/api/2014/equipment/diplomats-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "78": {
+    "Index": 78,
+    "Name": "Disguise Kit",
+    "Slug": "disguise-kit",
+    "URL": "/api/2014/equipment/disguise-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "79": {
+    "Index": 79,
+    "Name": "Donkey",
+    "Slug": "donkey",
+    "URL": "/api/2014/equipment/donkey",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "80": {
+    "Index": 80,
+    "Name": "Drum",
+    "Slug": "drum",
+    "URL": "/api/2014/equipment/drum",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "81": {
+    "Index": 81,
+    "Name": "Dulcimer",
+    "Slug": "dulcimer",
+    "URL": "/api/2014/equipment/dulcimer",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "82": {
+    "Index": 82,
+    "Name": "Dungeoneer's Pack",
+    "Slug": "dungeoneers-pack",
+    "URL": "/api/2014/equipment/dungeoneers-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "83": {
+    "Index": 83,
+    "Name": "Elephant",
+    "Slug": "elephant",
+    "URL": "/api/2014/equipment/elephant",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "84": {
+    "Index": 84,
+    "Name": "Emblem",
+    "Slug": "emblem",
+    "URL": "/api/2014/equipment/emblem",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "85": {
+    "Index": 85,
+    "Name": "Entertainer's Pack",
+    "Slug": "entertainers-pack",
+    "URL": "/api/2014/equipment/entertainers-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "86": {
+    "Index": 86,
+    "Name": "Explorer's Pack",
+    "Slug": "explorers-pack",
+    "URL": "/api/2014/equipment/explorers-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "87": {
+    "Index": 87,
+    "Name": "Fishing tackle",
+    "Slug": "fishing-tackle",
+    "URL": "/api/2014/equipment/fishing-tackle",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "88": {
+    "Index": 88,
+    "Name": "Flail",
+    "Slug": "flail",
+    "URL": "/api/2014/equipment/flail",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "89": {
+    "Index": 89,
+    "Name": "Flask or tankard",
+    "Slug": "flask-or-tankard",
+    "URL": "/api/2014/equipment/flask-or-tankard",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "90": {
+    "Index": 90,
+    "Name": "Flute",
+    "Slug": "flute",
+    "URL": "/api/2014/equipment/flute",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "91": {
+    "Index": 91,
+    "Name": "Forgery Kit",
+    "Slug": "forgery-kit",
+    "URL": "/api/2014/equipment/forgery-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "92": {
+    "Index": 92,
+    "Name": "Galley",
+    "Slug": "galley",
+    "URL": "/api/2014/equipment/galley",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "93": {
+    "Index": 93,
+    "Name": "Glaive",
+    "Slug": "glaive",
+    "URL": "/api/2014/equipment/glaive",
+    "IsWeapon": false,
+    "ItemType": "weapon"
+  },
+  "94": {
+    "Index": 94,
+    "Name": "Glassblower's Tools",
+    "Slug": "glassblowers-tools",
+    "URL": "/api/2014/equipment/glassblowers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "95": {
+    "Index": 95,
+    "Name": "Grappling hook",
+    "Slug": "grappling-hook",
+    "URL": "/api/2014/equipment/grappling-hook",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "96": {
+    "Index": 96,
+    "Name": "Greataxe",
+    "Slug": "greataxe",
+    "URL": "/api/2014/equipment/greataxe",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "97": {
+    "Index": 97,
+    "Name": "Greatclub",
+    "Slug": "greatclub",
+    "URL": "/api/2014/equipment/greatclub",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "98": {
+    "Index": 98,
+    "Name": "Greatsword",
+    "Slug": "greatsword",
+    "URL": "/api/2014/equipment/greatsword",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "99": {
+    "Index": 99,
+    "Name": "Halberd",
+    "Slug": "halberd",
+    "URL": "/api/2014/equipment/halberd",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "100": {
+    "Index": 100,
+    "Name": "Half Plate Armor",
+    "Slug": "half-plate-armor",
+    "URL": "/api/2014/equipment/half-plate-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "101": {
+    "Index": 101,
+    "Name": "Hammer",
+    "Slug": "hammer",
+    "URL": "/api/2014/equipment/hammer",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "102": {
+    "Index": 102,
+    "Name": "Hammer, sledge",
+    "Slug": "hammer-sledge",
+    "URL": "/api/2014/equipment/hammer-sledge",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "103": {
+    "Index": 103,
+    "Name": "Handaxe",
+    "Slug": "handaxe",
+    "URL": "/api/2014/equipment/handaxe",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "104": {
+    "Index": 104,
+    "Name": "Healer's Kit",
+    "Slug": "healers-kit",
+    "URL": "/api/2014/equipment/healers-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "105": {
+    "Index": 105,
+    "Name": "Herbalism Kit",
+    "Slug": "herbalism-kit",
+    "URL": "/api/2014/equipment/herbalism-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "106": {
+    "Index": 106,
+    "Name": "Hide Armor",
+    "Slug": "hide-armor",
+    "URL": "/api/2014/equipment/hide-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "107": {
+    "Index": 107,
+    "Name": "Holy water (flask)",
+    "Slug": "holy-water-flask",
+    "URL": "/api/2014/equipment/holy-water-flask",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "108": {
+    "Index": 108,
+    "Name": "Horn",
+    "Slug": "horn",
+    "URL": "/api/2014/equipment/horn",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "109": {
+    "Index": 109,
+    "Name": "Horse, draft",
+    "Slug": "horse-draft",
+    "URL": "/api/2014/equipment/horse-draft",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "110": {
+    "Index": 110,
+    "Name": "Horse, riding",
+    "Slug": "horse-riding",
+    "URL": "/api/2014/equipment/horse-riding",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "111": {
+    "Index": 111,
+    "Name": "Hourglass",
+    "Slug": "hourglass",
+    "URL": "/api/2014/equipment/hourglass",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "112": {
+    "Index": 112,
+    "Name": "Hunting trap",
+    "Slug": "hunting-trap",
+    "URL": "/api/2014/equipment/hunting-trap",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "113": {
+    "Index": 113,
+    "Name": "Ink (1 ounce bottle)",
+    "Slug": "ink-1-ounce-bottle",
+    "URL": "/api/2014/equipment/ink-1-ounce-bottle",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "114": {
+    "Index": 114,
+    "Name": "Ink pen",
+    "Slug": "ink-pen",
+    "URL": "/api/2014/equipment/ink-pen",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "115": {
+    "Index": 115,
+    "Name": "Javelin",
+    "Slug": "javelin",
+    "URL": "/api/2014/equipment/javelin",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "116": {
+    "Index": 116,
+    "Name": "Jeweler's Tools",
+    "Slug": "jewelers-tools",
+    "URL": "/api/2014/equipment/jewelers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "117": {
+    "Index": 117,
+    "Name": "Jug or pitcher",
+    "Slug": "jug-or-pitcher",
+    "URL": "/api/2014/equipment/jug-or-pitcher",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "118": {
+    "Index": 118,
+    "Name": "Keelboat",
+    "Slug": "keelboat",
+    "URL": "/api/2014/equipment/keelboat",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "119": {
+    "Index": 119,
+    "Name": "Ladder (10-foot)",
+    "Slug": "ladder-10-foot",
+    "URL": "/api/2014/equipment/ladder-10-foot",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "120": {
+    "Index": 120,
+    "Name": "Lamp",
+    "Slug": "lamp",
+    "URL": "/api/2014/equipment/lamp",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "121": {
+    "Index": 121,
+    "Name": "Lance",
+    "Slug": "lance",
+    "URL": "/api/2014/equipment/lance",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "122": {
+    "Index": 122,
+    "Name": "Lantern, bullseye",
+    "Slug": "lantern-bullseye",
+    "URL": "/api/2014/equipment/lantern-bullseye",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "123": {
+    "Index": 123,
+    "Name": "Lantern, hooded",
+    "Slug": "lantern-hooded",
+    "URL": "/api/2014/equipment/lantern-hooded",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "124": {
+    "Index": 124,
+    "Name": "Leather Armor",
+    "Slug": "leather-armor",
+    "URL": "/api/2014/equipment/leather-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "125": {
+    "Index": 125,
+    "Name": "Leatherworker's Tools",
+    "Slug": "leatherworkers-tools",
+    "URL": "/api/2014/equipment/leatherworkers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "126": {
+    "Index": 126,
+    "Name": "Light hammer",
+    "Slug": "light-hammer",
+    "URL": "/api/2014/equipment/light-hammer",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "127": {
+    "Index": 127,
+    "Name": "Little bag of sand",
+    "Slug": "little-bag-of-sand",
+    "URL": "/api/2014/equipment/little-bag-of-sand",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "128": {
+    "Index": 128,
+    "Name": "Lock",
+    "Slug": "lock",
+    "URL": "/api/2014/equipment/lock",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "129": {
+    "Index": 129,
+    "Name": "Longbow",
+    "Slug": "longbow",
+    "URL": "/api/2014/equipment/longbow",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "130": {
+    "Index": 130,
+    "Name": "Longship",
+    "Slug": "longship",
+    "URL": "/api/2014/equipment/longship",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "131": {
+    "Index": 131,
+    "Name": "Longsword",
+    "Slug": "longsword",
+    "URL": "/api/2014/equipment/longsword",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "132": {
+    "Index": 132,
+    "Name": "Lute",
+    "Slug": "lute",
+    "URL": "/api/2014/equipment/lute",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "133": {
+    "Index": 133,
+    "Name": "Lyre",
+    "Slug": "lyre",
+    "URL": "/api/2014/equipment/lyre",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "134": {
+    "Index": 134,
+    "Name": "Mace",
+    "Slug": "mace",
+    "URL": "/api/2014/equipment/mace",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "135": {
+    "Index": 135,
+    "Name": "Magnifying glass",
+    "Slug": "magnifying-glass",
+    "URL": "/api/2014/equipment/magnifying-glass",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "136": {
+    "Index": 136,
+    "Name": "Manacles",
+    "Slug": "manacles",
+    "URL": "/api/2014/equipment/manacles",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "137": {
+    "Index": 137,
+    "Name": "Mason's Tools",
+    "Slug": "masons-tools",
+    "URL": "/api/2014/equipment/masons-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "138": {
+    "Index": 138,
+    "Name": "Mastiff",
+    "Slug": "mastiff",
+    "URL": "/api/2014/equipment/mastiff",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "139": {
+    "Index": 139,
+    "Name": "Maul",
+    "Slug": "maul",
+    "URL": "/api/2014/equipment/maul",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "140": {
+    "Index": 140,
+    "Name": "Mess Kit",
+    "Slug": "mess-kit",
+    "URL": "/api/2014/equipment/mess-kit",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "141": {
+    "Index": 141,
+    "Name": "Mirror, steel",
+    "Slug": "mirror-steel",
+    "URL": "/api/2014/equipment/mirror-steel",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "142": {
+    "Index": 142,
+    "Name": "Morningstar",
+    "Slug": "morningstar",
+    "URL": "/api/2014/equipment/morningstar",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "143": {
+    "Index": 143,
+    "Name": "Mule",
+    "Slug": "mule",
+    "URL": "/api/2014/equipment/mule",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "144": {
+    "Index": 144,
+    "Name": "Navigator's Tools",
+    "Slug": "navigators-tools",
+    "URL": "/api/2014/equipment/navigators-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "145": {
+    "Index": 145,
+    "Name": "Net",
+    "Slug": "net",
+    "URL": "/api/2014/equipment/net",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "146": {
+    "Index": 146,
+    "Name": "Oil (flask)",
+    "Slug": "oil-flask",
+    "URL": "/api/2014/equipment/oil-flask",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "147": {
+    "Index": 147,
+    "Name": "Orb",
+    "Slug": "orb",
+    "URL": "/api/2014/equipment/orb",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "148": {
+    "Index": 148,
+    "Name": "Padded Armor",
+    "Slug": "padded-armor",
+    "URL": "/api/2014/equipment/padded-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "149": {
+    "Index": 149,
+    "Name": "Painter's Supplies",
+    "Slug": "painters-supplies",
+    "URL": "/api/2014/equipment/painters-supplies",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "150": {
+    "Index": 150,
+    "Name": "Pan flute",
+    "Slug": "pan-flute",
+    "URL": "/api/2014/equipment/pan-flute",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "151": {
+    "Index": 151,
+    "Name": "Paper (one sheet)",
+    "Slug": "paper-one-sheet",
+    "URL": "/api/2014/equipment/paper-one-sheet",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "152": {
+    "Index": 152,
+    "Name": "Parchment (one sheet)",
+    "Slug": "parchment-one-sheet",
+    "URL": "/api/2014/equipment/parchment-one-sheet",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "153": {
+    "Index": 153,
+    "Name": "Perfume (vial)",
+    "Slug": "perfume-vial",
+    "URL": "/api/2014/equipment/perfume-vial",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "154": {
+    "Index": 154,
+    "Name": "Pick, miner's",
+    "Slug": "pick-miners",
+    "URL": "/api/2014/equipment/pick-miners",
+    "IsWeapon": true,
+    "ItemType": "gear"
+  },
+  "155": {
+    "Index": 155,
+    "Name": "Pike",
+    "Slug": "pike",
+    "URL": "/api/2014/equipment/pike",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "156": {
+    "Index": 156,
+    "Name": "Piton",
+    "Slug": "piton",
+    "URL": "/api/2014/equipment/piton",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "157": {
+    "Index": 157,
+    "Name": "Plate Armor",
+    "Slug": "plate-armor",
+    "URL": "/api/2014/equipment/plate-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "158": {
+    "Index": 158,
+    "Name": "Playing Card Set",
+    "Slug": "playing-card-set",
+    "URL": "/api/2014/equipment/playing-card-set",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "159": {
+    "Index": 159,
+    "Name": "Poison, basic (vial)",
+    "Slug": "poison-basic-vial",
+    "URL": "/api/2014/equipment/poison-basic-vial",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "160": {
+    "Index": 160,
+    "Name": "Poisoner's Kit",
+    "Slug": "poisoners-kit",
+    "URL": "/api/2014/equipment/poisoners-kit",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "161": {
+    "Index": 161,
+    "Name": "Pole (10-foot)",
+    "Slug": "pole-10-foot",
+    "URL": "/api/2014/equipment/pole-10-foot",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "162": {
+    "Index": 162,
+    "Name": "Pony",
+    "Slug": "pony",
+    "URL": "/api/2014/equipment/pony",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "163": {
+    "Index": 163,
+    "Name": "Pot, iron",
+    "Slug": "pot-iron",
+    "URL": "/api/2014/equipment/pot-iron",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "164": {
+    "Index": 164,
+    "Name": "Potter's Tools",
+    "Slug": "potters-tools",
+    "URL": "/api/2014/equipment/potters-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "165": {
+    "Index": 165,
+    "Name": "Pouch",
+    "Slug": "pouch",
+    "URL": "/api/2014/equipment/pouch",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "166": {
+    "Index": 166,
+    "Name": "Priest's Pack",
+    "Slug": "priests-pack",
+    "URL": "/api/2014/equipment/priests-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "167": {
+    "Index": 167,
+    "Name": "Quarterstaff",
+    "Slug": "quarterstaff",
+    "URL": "/api/2014/equipment/quarterstaff",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "168": {
+    "Index": 168,
+    "Name": "Quiver",
+    "Slug": "quiver",
+    "URL": "/api/2014/equipment/quiver",
+    "IsWeapon": false,
+    "ItemType": "ammo"
+  },
+  "169": {
+    "Index": 169,
+    "Name": "Ram, portable",
+    "Slug": "ram-portable",
+    "URL": "/api/2014/equipment/ram-portable",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "170": {
+    "Index": 170,
+    "Name": "Rapier",
+    "Slug": "rapier",
+    "URL": "/api/2014/equipment/rapier",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "171": {
+    "Index": 171,
+    "Name": "Rations (1 day)",
+    "Slug": "rations-1-day",
+    "URL": "/api/2014/equipment/rations-1-day",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "172": {
+    "Index": 172,
+    "Name": "Reliquary",
+    "Slug": "reliquary",
+    "URL": "/api/2014/equipment/reliquary",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "173": {
+    "Index": 173,
+    "Name": "Ring Mail",
+    "Slug": "ring-mail",
+    "URL": "/api/2014/equipment/ring-mail",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "174": {
+    "Index": 174,
+    "Name": "Robes",
+    "Slug": "robes",
+    "URL": "/api/2014/equipment/robes",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "175": {
+    "Index": 175,
+    "Name": "Rod",
+    "Slug": "rod",
+    "URL": "/api/2014/equipment/rod",
+    "IsWeapon": true,
+    "ItemType": ""
+  },
+  "176": {
+    "Index": 176,
+    "Name": "Rope, hempen (50 feet)",
+    "Slug": "rope-hempen-50-feet",
+    "URL": "/api/2014/equipment/rope-hempen-50-feet",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "177": {
+    "Index": 177,
+    "Name": "Rope, silk (50 feet)",
+    "Slug": "rope-silk-50-feet",
+    "URL": "/api/2014/equipment/rope-silk-50-feet",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "178": {
+    "Index": 178,
+    "Name": "Rowboat",
+    "Slug": "rowboat",
+    "URL": "/api/2014/equipment/rowboat",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "179": {
+    "Index": 179,
+    "Name": "Sack",
+    "Slug": "sack",
+    "URL": "/api/2014/equipment/sack",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "180": {
+    "Index": 180,
+    "Name": "Saddle, Exotic",
+    "Slug": "saddle-exotic",
+    "URL": "/api/2014/equipment/saddle-exotic",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "181": {
+    "Index": 181,
+    "Name": "Saddle, Military",
+    "Slug": "saddle-military",
+    "URL": "/api/2014/equipment/saddle-military",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "182": {
+    "Index": 182,
+    "Name": "Saddle, Pack",
+    "Slug": "saddle-pack",
+    "URL": "/api/2014/equipment/saddle-pack",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "183": {
+    "Index": 183,
+    "Name": "Saddle, Riding",
+    "Slug": "saddle-riding",
+    "URL": "/api/2014/equipment/saddle-riding",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "184": {
+    "Index": 184,
+    "Name": "Saddlebags",
+    "Slug": "saddlebags",
+    "URL": "/api/2014/equipment/saddlebags",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "185": {
+    "Index": 185,
+    "Name": "Sailing ship",
+    "Slug": "sailing-ship",
+    "URL": "/api/2014/equipment/sailing-ship",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "186": {
+    "Index": 186,
+    "Name": "Scale Mail",
+    "Slug": "scale-mail",
+    "URL": "/api/2014/equipment/scale-mail",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "187": {
+    "Index": 187,
+    "Name": "Scale, merchant's",
+    "Slug": "scale-merchants",
+    "URL": "/api/2014/equipment/scale-merchants",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "188": {
+    "Index": 188,
+    "Name": "Scholar's Pack",
+    "Slug": "scholars-pack",
+    "URL": "/api/2014/equipment/scholars-pack",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "189": {
+    "Index": 189,
+    "Name": "Scimitar",
+    "Slug": "scimitar",
+    "URL": "/api/2014/equipment/scimitar",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "190": {
+    "Index": 190,
+    "Name": "Sealing wax",
+    "Slug": "sealing-wax",
+    "URL": "/api/2014/equipment/sealing-wax",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "191": {
+    "Index": 191,
+    "Name": "Shawm",
+    "Slug": "shawm",
+    "URL": "/api/2014/equipment/shawm",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "192": {
+    "Index": 192,
+    "Name": "Shield",
+    "Slug": "shield",
+    "URL": "/api/2014/equipment/shield",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "193": {
+    "Index": 193,
+    "Name": "Shortbow",
+    "Slug": "shortbow",
+    "URL": "/api/2014/equipment/shortbow",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "194": {
+    "Index": 194,
+    "Name": "Shortsword",
+    "Slug": "shortsword",
+    "URL": "/api/2014/equipment/shortsword",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "195": {
+    "Index": 195,
+    "Name": "Shovel",
+    "Slug": "shovel",
+    "URL": "/api/2014/equipment/shovel",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "196": {
+    "Index": 196,
+    "Name": "Sickle",
+    "Slug": "sickle",
+    "URL": "/api/2014/equipment/sickle",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "197": {
+    "Index": 197,
+    "Name": "Signal whistle",
+    "Slug": "signal-whistle",
+    "URL": "/api/2014/equipment/signal-whistle",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "198": {
+    "Index": 198,
+    "Name": "Signet ring",
+    "Slug": "signet-ring",
+    "URL": "/api/2014/equipment/signet-ring",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "199": {
+    "Index": 199,
+    "Name": "Sled",
+    "Slug": "sled",
+    "URL": "/api/2014/equipment/sled",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "200": {
+    "Index": 200,
+    "Name": "Sling",
+    "Slug": "sling",
+    "URL": "/api/2014/equipment/sling",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "201": {
+    "Index": 201,
+    "Name": "Sling bullet",
+    "Slug": "sling-bullet",
+    "URL": "/api/2014/equipment/sling-bullet",
+    "IsWeapon": false,
+    "ItemType": "ammo"
+  },
+  "202": {
+    "Index": 202,
+    "Name": "Small knife",
+    "Slug": "small-knife",
+    "URL": "/api/2014/equipment/small-knife",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "203": {
+    "Index": 203,
+    "Name": "Smith's Tools",
+    "Slug": "smiths-tools",
+    "URL": "/api/2014/equipment/smiths-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "204": {
+    "Index": 204,
+    "Name": "Soap",
+    "Slug": "soap",
+    "URL": "/api/2014/equipment/soap",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "205": {
+    "Index": 205,
+    "Name": "Spear",
+    "Slug": "spear",
+    "URL": "/api/2014/equipment/spear",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "206": {
+    "Index": 206,
+    "Name": "Spellbook",
+    "Slug": "spellbook",
+    "URL": "/api/2014/equipment/spellbook",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "207": {
+    "Index": 207,
+    "Name": "Spike, iron",
+    "Slug": "spike-iron",
+    "URL": "/api/2014/equipment/spike-iron",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "208": {
+    "Index": 208,
+    "Name": "Splint Armor",
+    "Slug": "splint-armor",
+    "URL": "/api/2014/equipment/splint-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "209": {
+    "Index": 209,
+    "Name": "Sprig of mistletoe",
+    "Slug": "sprig-of-mistletoe",
+    "URL": "/api/2014/equipment/sprig-of-mistletoe",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "210": {
+    "Index": 210,
+    "Name": "Spyglass",
+    "Slug": "spyglass",
+    "URL": "/api/2014/equipment/spyglass",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "211": {
+    "Index": 211,
+    "Name": "Stabling (1 day)",
+    "Slug": "stabling-1-day",
+    "URL": "/api/2014/equipment/stabling-1-day",
+    "IsWeapon": false,
+    "ItemType": "mount_item"
+  },
+  "212": {
+    "Index": 212,
+    "Name": "Staff",
+    "Slug": "staff",
+    "URL": "/api/2014/equipment/staff",
+    "IsWeapon": false,
+    "ItemType": "weapon"
+  },
+  "213": {
+    "Index": 213,
+    "Name": "String (10 feet)",
+    "Slug": "string-10-feet",
+    "URL": "/api/2014/equipment/string-10-feet",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "214": {
+    "Index": 214,
+    "Name": "Studded Leather Armor",
+    "Slug": "studded-leather-armor",
+    "URL": "/api/2014/equipment/studded-leather-armor",
+    "IsWeapon": false,
+    "ItemType": "armor"
+  },
+  "215": {
+    "Index": 215,
+    "Name": "Tent, two-person",
+    "Slug": "tent-two-person",
+    "URL": "/api/2014/equipment/tent-two-person",
+    "IsWeapon": false,
+    "ItemType": "gear"
+  },
+  "216": {
+    "Index": 216,
+    "Name": "Thieves' Tools",
+    "Slug": "thieves-tools",
+    "URL": "/api/2014/equipment/thieves-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "217": {
+    "Index": 217,
+    "Name": "Tinderbox",
+    "Slug": "tinderbox",
+    "URL": "/api/2014/equipment/tinderbox",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "218": {
+    "Index": 218,
+    "Name": "Tinker's Tools",
+    "Slug": "tinkers-tools",
+    "URL": "/api/2014/equipment/tinkers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "219": {
+    "Index": 219,
+    "Name": "Torch",
+    "Slug": "torch",
+    "URL": "/api/2014/equipment/torch",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "220": {
+    "Index": 220,
+    "Name": "Totem",
+    "Slug": "totem",
+    "URL": "/api/2014/equipment/totem",
+    "IsWeapon": false,
+    "ItemType": "furnishing"
+  },
+  "221": {
+    "Index": 221,
+    "Name": "Trident",
+    "Slug": "trident",
+    "URL": "/api/2014/equipment/trident",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "222": {
+    "Index": 222,
+    "Name": "Vestments",
+    "Slug": "vestments",
+    "URL": "/api/2014/equipment/vestments",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "223": {
+    "Index": 223,
+    "Name": "Vial",
+    "Slug": "vial",
+    "URL": "/api/2014/equipment/vial",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "224": {
+    "Index": 224,
+    "Name": "Viol",
+    "Slug": "viol",
+    "URL": "/api/2014/equipment/viol",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "225": {
+    "Index": 225,
+    "Name": "Wagon",
+    "Slug": "wagon",
+    "URL": "/api/2014/equipment/wagon",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "226": {
+    "Index": 226,
+    "Name": "Wand",
+    "Slug": "wand",
+    "URL": "/api/2014/equipment/wand",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "227": {
+    "Index": 227,
+    "Name": "War pick",
+    "Slug": "war-pick",
+    "URL": "/api/2014/equipment/war-pick",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "228": {
+    "Index": 228,
+    "Name": "Warhammer",
+    "Slug": "warhammer",
+    "URL": "/api/2014/equipment/warhammer",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "229": {
+    "Index": 229,
+    "Name": "Warhorse",
+    "Slug": "warhorse",
+    "URL": "/api/2014/equipment/warhorse",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "230": {
+    "Index": 230,
+    "Name": "Warship",
+    "Slug": "warship",
+    "URL": "/api/2014/equipment/warship",
+    "IsWeapon": false,
+    "ItemType": "mount"
+  },
+  "231": {
+    "Index": 231,
+    "Name": "Waterskin",
+    "Slug": "waterskin",
+    "URL": "/api/2014/equipment/waterskin",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "232": {
+    "Index": 232,
+    "Name": "Weaver's Tools",
+    "Slug": "weavers-tools",
+    "URL": "/api/2014/equipment/weavers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "233": {
+    "Index": 233,
+    "Name": "Whetstone",
+    "Slug": "whetstone",
+    "URL": "/api/2014/equipment/whetstone",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "234": {
+    "Index": 234,
+    "Name": "Whip",
+    "Slug": "whip",
+    "URL": "/api/2014/equipment/whip",
+    "IsWeapon": true,
+    "ItemType": "weapon"
+  },
+  "235": {
+    "Index": 235,
+    "Name": "Woodcarver's Tools",
+    "Slug": "woodcarvers-tools",
+    "URL": "/api/2014/equipment/woodcarvers-tools",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "236": {
+    "Index": 236,
+    "Name": "Wooden staff",
+    "Slug": "wooden-staff",
+    "URL": "/api/2014/equipment/wooden-staff",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "237": {
+    "Index": 237,
+    "Name": "Yew wand",
+    "Slug": "yew-wand",
+    "URL": "/api/2014/equipment/yew-wand",
+    "IsWeapon": true,
+    "ItemType": "tool"
+  },
+  "238": {
+    "Index": 238,
+    "Name": "Hempen rope (50 feet)",
+    "Slug": "hempen-rope-50-feet",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "239": {
+    "Index": 239,
+    "Name": "Costume",
+    "Slug": "costume",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "apparel"
+  },
+  "240": {
+    "Index": 240,
+    "Name": "Book of lore",
+    "Slug": "book-of-lore",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "241": {
+    "Index": 241,
+    "Name": "Bottle of ink",
+    "Slug": "bottle-of-ink",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "242": {
+    "Index": 242,
+    "Name": "Parchment",
+    "Slug": "parchment",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "prof_item"
+  },
+  "243": {
+    "Index": 243,
+    "Name": "Bag of sand",
+    "Slug": "bag-of-sand",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "244": {
+    "Index": 244,
+    "Name": "Pitons",
+    "Slug": "pitons",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "245": {
+    "Index": 245,
+    "Name": "Bag of 1,000 ball bearings",
+    "Slug": "bag-of-1,000-ball-bearings",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "246": {
+    "Index": 246,
+    "Name": "Hooded lantern",
+    "Slug": "hooded-lantern",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  },
+  "247": {
+    "Index": 247,
+    "Name": "Oil flask",
+    "Slug": "oil-flask",
+    "URL": "",
+    "IsWeapon": false,
+    "ItemType": "tool"
+  }
+}

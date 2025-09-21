@@ -1,0 +1,1569 @@
+{
+  "64": {
+    "index": 64,
+    "name": "Club",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 1,
+      "unit": "sp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "IndexNumber": 37
+  },
+  "74": {
+    "index": 74,
+    "name": "Dagger",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 1,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      },
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "throw_range": {
+      "normal": 20,
+      "long": 60
+    },
+    "IndexNumber": 46
+  },
+  "97": {
+    "index": 97,
+    "name": "Greatclub",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 2,
+      "unit": "sp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 10,
+    "properties": [
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 64
+  },
+  "103": {
+    "index": 103,
+    "name": "Handaxe",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "throw_range": {
+      "normal": 20,
+      "long": 60
+    },
+    "IndexNumber": 70
+  },
+  "115": {
+    "index": 115,
+    "name": "Javelin",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "sp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "throw_range": {
+      "normal": 30,
+      "long": 120
+    },
+    "IndexNumber": 80
+  },
+  "134": {
+    "index": 134,
+    "name": "Mace",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 4,
+    "properties": [
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "IndexNumber": 95
+  },
+  "167": {
+    "index": 167,
+    "name": "Quarterstaff",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 2,
+      "unit": "sp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 4,
+    "properties": [
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "two_handed_damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "IndexNumber": 125
+  },
+  "196": {
+    "index": 196,
+    "name": "Sickle",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "IndexNumber": 146
+  },
+  "205": {
+    "index": 205,
+    "name": "Spear",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Melee",
+    "category_range": "Simple Melee",
+    "cost": {
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "throw_range": {
+      "normal": 20,
+      "long": 60
+    },
+    "two_handed_damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "IndexNumber": 153
+  },
+  "71": {
+    "index": 71,
+    "name": "Crossbow, light",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Ranged",
+    "category_range": "Simple Ranged",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 80,
+      "long": 320
+    },
+    "weight": 5,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "loading",
+        "name": "Loading"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 43
+  },
+  "75": {
+    "index": 75,
+    "name": "Dart",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Ranged",
+    "category_range": "Simple Ranged",
+    "cost": {
+      "quantity": 5,
+      "unit": "cp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 20,
+      "long": 60
+    },
+    "weight": 0.25,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      },
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      }
+    ],
+    "throw_range": {
+      "normal": 20,
+      "long": 60
+    },
+    "IndexNumber": 47
+  },
+  "193": {
+    "index": 193,
+    "name": "Shortbow",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Ranged",
+    "category_range": "Simple Ranged",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 80,
+      "long": 320
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 143
+  },
+  "200": {
+    "index": 200,
+    "name": "Sling",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Simple",
+    "weapon_range": "Ranged",
+    "category_range": "Simple Ranged",
+    "cost": {
+      "quantity": 1,
+      "unit": "sp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 30,
+      "long": 120
+    },
+    "weight": 0,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      }
+    ],
+    "IndexNumber": 149
+  },
+  "27": {
+    "index": 27,
+    "name": "Battleaxe",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 4,
+    "properties": [
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      }
+    ],
+    "two_handed_damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "IndexNumber": 12
+  },
+  "88": {
+    "index": 88,
+    "name": "Flail",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [],
+    "IndexNumber": 57
+  },
+  "93": {
+    "index": 93,
+    "name": "Glaive",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 20,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 6,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "reach",
+        "name": "Reach"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 60
+  },
+  "96": {
+    "index": 96,
+    "name": "Greataxe",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 30,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d12",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 7,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 63
+  },
+  "98": {
+    "index": 98,
+    "name": "Greatsword",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "2d6",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 6,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 65
+  },
+  "99": {
+    "index": 99,
+    "name": "Halberd",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 20,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 6,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "reach",
+        "name": "Reach"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 66
+  },
+  "121": {
+    "index": 121,
+    "name": "Lance",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d12",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 6,
+    "properties": [
+      {
+        "index": "reach",
+        "name": "Reach"
+      },
+      {
+        "index": "special",
+        "name": "Special"
+      }
+    ],
+    "special": [
+      "You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted."
+    ],
+    "IndexNumber": 83
+  },
+  "131": {
+    "index": 131,
+    "name": "Longsword",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 15,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      }
+    ],
+    "two_handed_damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "IndexNumber": 92
+  },
+  "139": {
+    "index": 139,
+    "name": "Maul",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "2d6",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 10,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 100
+  },
+  "142": {
+    "index": 142,
+    "name": "Morningstar",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 15,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 4,
+    "properties": [],
+    "IndexNumber": 103
+  },
+  "155": {
+    "index": 155,
+    "name": "Pike",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 18,
+    "properties": [
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "reach",
+        "name": "Reach"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 116
+  },
+  "170": {
+    "index": 170,
+    "name": "Rapier",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      }
+    ],
+    "IndexNumber": 128
+  },
+  "189": {
+    "index": 189,
+    "name": "Scimitar",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 25,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      },
+      {
+        "index": "light",
+        "name": "Light"
+      }
+    ],
+    "IndexNumber": 139
+  },
+  "194": {
+    "index": 194,
+    "name": "Shortsword",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      },
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "monk",
+        "name": "Monk"
+      }
+    ],
+    "IndexNumber": 144
+  },
+  "221": {
+    "index": 221,
+    "name": "Trident",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 4,
+    "properties": [
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      }
+    ],
+    "throw_range": {
+      "normal": 20,
+      "long": 60
+    },
+    "two_handed_damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "IndexNumber": 167
+  },
+  "227": {
+    "index": 227,
+    "name": "War pick",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [],
+    "IndexNumber": 173
+  },
+  "228": {
+    "index": 228,
+    "name": "Warhammer",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 15,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "versatile",
+        "name": "Versatile"
+      }
+    ],
+    "two_handed_damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "bludgeoning",
+        "name": "Bludgeoning"
+      }
+    },
+    "IndexNumber": 174
+  },
+  "234": {
+    "index": 234,
+    "name": "Whip",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Melee",
+    "category_range": "Martial Melee",
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d4",
+      "damage_type": {
+        "index": "slashing",
+        "name": "Slashing"
+      }
+    },
+    "range": {
+      "normal": 5
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "finesse",
+        "name": "Finesse"
+      },
+      {
+        "index": "reach",
+        "name": "Reach"
+      }
+    ],
+    "IndexNumber": 178
+  },
+  "34": {
+    "index": 34,
+    "name": "Blowgun",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 25,
+      "long": 100
+    },
+    "weight": 1,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "loading",
+        "name": "Loading"
+      }
+    ],
+    "IndexNumber": 17
+  },
+  "69": {
+    "index": 69,
+    "name": "Crossbow, hand",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 75,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d6",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 30,
+      "long": 120
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "light",
+        "name": "Light"
+      },
+      {
+        "index": "loading",
+        "name": "Loading"
+      }
+    ],
+    "IndexNumber": 41
+  },
+  "70": {
+    "index": 70,
+    "name": "Crossbow, heavy",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d10",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 100,
+      "long": 400
+    },
+    "weight": 18,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "loading",
+        "name": "Loading"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "image": "/api/images/equipment/crossbow-heavy.png",
+    "IndexNumber": 42
+  },
+  "129": {
+    "index": 129,
+    "name": "Longbow",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 50,
+      "unit": "gp"
+    },
+    "damage": {
+      "damage_dice": "1d8",
+      "damage_type": {
+        "index": "piercing",
+        "name": "Piercing"
+      }
+    },
+    "range": {
+      "normal": 150,
+      "long": 600
+    },
+    "weight": 2,
+    "properties": [
+      {
+        "index": "ammunition",
+        "name": "Ammunition"
+      },
+      {
+        "index": "heavy",
+        "name": "Heavy"
+      },
+      {
+        "index": "two-handed",
+        "name": "Two-Handed"
+      }
+    ],
+    "IndexNumber": 91
+  },
+  "145": {
+    "index": 145,
+    "name": "Net",
+    "equipment_category": {
+      "index": "weapon",
+      "name": "Weapon"
+    },
+    "weapon_category": "Martial",
+    "weapon_range": "Ranged",
+    "category_range": "Martial Ranged",
+    "cost": {
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "range": {
+      "normal": 5,
+      "long": 15
+    },
+    "weight": 3,
+    "properties": [
+      {
+        "index": "thrown",
+        "name": "Thrown"
+      },
+      {
+        "index": "special",
+        "name": "Special"
+      }
+    ],
+    "special": [
+      "A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net. When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make."
+    ],
+    "throw_range": {
+      "normal": 5,
+      "long": 15
+    },
+    "IndexNumber": 106
+  },
+  "175": {
+    "index": 175,
+    "name": "Rod",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "arcane-foci",
+      "name": "Arcane Foci"
+    },
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 2,
+    "desc": [
+      "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+    ],
+    "IndexNumber": 132
+  },
+  "212": {
+    "index": 212,
+    "name": "Staff",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "arcane-foci",
+      "name": "Arcane Foci"
+    },
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 4,
+    "desc": [
+      "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+    ],
+    "IndexNumber": 158
+  },
+  "226": {
+    "index": 226,
+    "name": "Wand",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "arcane-foci",
+      "name": "Arcane Foci"
+    },
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "desc": [
+      "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+    ],
+    "IndexNumber": 172
+  },
+  "236": {
+    "index": 236,
+    "name": "Wooden staff",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "druidic-foci",
+      "name": "Druidic Foci"
+    },
+    "cost": {
+      "quantity": 5,
+      "unit": "gp"
+    },
+    "weight": 4,
+    "desc": [
+      "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+    ],
+    "IndexNumber": 180
+  },
+  "237": {
+    "index": 237,
+    "name": "Yew wand",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "druidic-foci",
+      "name": "Druidic Foci"
+    },
+    "cost": {
+      "quantity": 10,
+      "unit": "gp"
+    },
+    "weight": 1,
+    "desc": [
+      "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+    ],
+    "IndexNumber": 181
+  },
+  "101": {
+    "index": 101,
+    "name": "Hammer",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "standard-gear",
+      "name": "Standard Gear"
+    },
+    "cost": {
+      "quantity": 1,
+      "unit": "gp"
+    },
+    "weight": 3,
+    "IndexNumber": 68
+  },
+  "102": {
+    "index": 102,
+    "name": "Hammer, sledge",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "standard-gear",
+      "name": "Standard Gear"
+    },
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 10,
+    "IndexNumber": 69
+  },
+  "154": {
+    "index": 154,
+    "name": "Pick, miner's",
+    "equipment_category": {
+      "index": "adventuring-gear",
+      "name": "Adventuring Gear"
+    },
+    "gear_category": {
+      "index": "standard-gear",
+      "name": "Standard Gear"
+    },
+    "cost": {
+      "quantity": 2,
+      "unit": "gp"
+    },
+    "weight": 10,
+    "IndexNumber": 115
+  }
+}

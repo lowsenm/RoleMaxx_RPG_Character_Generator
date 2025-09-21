@@ -1,0 +1,247 @@
+Abacus,prof_item
+Acid (vial),tool
+Alchemist's fire (flask),tool
+Alchemist's Supplies,prof_item
+Alms box,furnishing
+Amulet,apparel
+Animal Feed (1 day),mount_item
+Antitoxin (vial),tool
+Arrow,ammo
+Backpack,gear
+Bagpipes,prof_item
+"Ball bearings (bag of 1,000)",tool
+Barding: Breastplate,mount_item
+Barding: Chain mail,mount_item
+Barding: Chain shirt,mount_item
+Barding: Half plate,mount_item
+Barding: Hide,mount_item
+Barding: Leather,mount_item
+Barding: Padded,mount_item
+Barding: Plate,mount_item
+Barding: Ring mail,mount_item
+Barding: Scale mail,mount_item
+Barding: Splint,mount_item
+Barding: Studded Leather,mount_item
+Barrel,furnishing
+Basket,gear
+Battleaxe,weapon
+Bedroll,gear
+Bell,prof_item
+Bit and bridle,mount_item
+Blanket,gear
+Block and tackle,mount_item
+Block of incense,prof_item
+Blowgun,weapon
+Blowgun needle,ammo
+Book,prof_item
+"Bottle, glass",furnishing
+Breastplate,armor
+Brewer's Supplies,prof_item
+Bucket,furnishing
+Burglar's Pack,prof_item
+Calligrapher's Supplies,prof_item
+Caltrops,tool
+Camel,mount_item
+Candle,gear
+Carpenter's Tools,prof_item
+Carriage,mount_item
+Cart,mount_item
+Cartographer's Tools,prof_item
+"Case, crossbow bolt",ammo
+"Case, map or scroll",gear
+Censer,prof_item
+Chain (10 feet),armor
+Chain Mail,armor
+Chain Shirt,armor
+Chalk (1 piece),gear
+Chariot,mount_item
+Chest,furnishing
+Climber's Kit,prof_item
+"Clothes, common",apparel
+"Clothes, costume",apparel
+"Clothes, fine",apparel
+"Clothes, traveler's",apparel
+Club,weapon
+Cobbler's Tools,prof_item
+Component pouch,gear
+Cook's utensils,prof_item
+Crossbow bolt,ammo
+"Crossbow, hand",weapon
+"Crossbow, heavy",weapon
+"Crossbow, light",weapon
+Crowbar,tool
+Crystal,prof_item
+Dagger,weapon
+Dart,ammo
+Dice Set,prof_item
+Diplomat's Pack,prof_item
+Disguise Kit,prof_item
+Donkey,mount_item
+Drum,prof_item
+Dulcimer,prof_item
+Dungeoneer's Pack,prof_item
+Elephant,mount_item
+Emblem,furnishing
+Entertainer's Pack,prof_item
+Explorer's Pack,prof_item
+Fishing tackle,tool
+Flail,weapon
+Flask or tankard,furnishing
+Flute,prof_item
+Forgery Kit,prof_item
+Galley,mount_item
+Glaive,weapon
+Glassblower's Tools,prof_item
+Grappling hook,tool
+Greataxe,weapon
+Greatclub,weapon
+Greatsword,weapon
+Halberd,weapon
+Half Plate Armor,armor
+Hammer,weapon
+"Hammer, sledge",weapon
+Handaxe,weapon
+Healer's Kit,prof_item
+Herbalism Kit,prof_item
+Hide Armor,armor
+Holy water (flask),tool
+Horn,tool
+"Horse, draft",mount_item
+"Horse, riding",mount_item
+Hourglass,prof_item
+Hunting trap,tool
+Ink (1 ounce bottle),prof_item
+Ink pen,prof_item
+Javelin,weapon
+Jeweler's Tools,prof_item
+Jug or pitcher,furnishing
+Keelboat,mount_item
+Ladder (10-foot),tool
+Lamp,tool
+Lance,weapon
+"Lantern, bullseye",tool
+"Lantern, hooded",tool
+Leather Armor,armor
+Leatherworker's Tools,prof_item
+Light hammer,tool
+Little bag of sand,tool
+Lock,tool
+Longbow,weapon
+Longship,mount_item
+Longsword,weapon
+Lute,prof_item
+Lyre,prof_item
+Mace,weapon
+Magnifying glass,tool
+Manacles,tool
+Mason's Tools,prof_item
+Mastiff,prof_item
+Maul,tool
+Mess Kit,gear
+"Mirror, steel",gear
+Morningstar,weapon
+Mule,mount_item
+Navigator's Tools,prof_item
+Net,tool
+Oil (flask),tool
+Orb,prof_item
+Padded Armor,armor
+Painter's Supplies,prof_item
+Pan flute,prof_item
+Paper (one sheet),prof_item
+Parchment (one sheet),prof_item
+Perfume (vial),gear
+"Pick, miner's",gear
+Pike,weapon
+Piton,tool
+Plate Armor,armor
+Playing Card Set,furnishing
+"Poison, basic (vial)",tool
+Poisoner's Kit,prof_item
+Pole (10-foot),tool
+Pony,mount_item
+"Pot, iron",furnishing
+Potter's Tools,prof_item
+Pouch,gear
+Priest's Pack,prof_item
+Quarterstaff,weapon
+Quiver,ammo
+"Ram, portable",tool
+Rapier,weapon
+Rations (1 day),gear
+Reliquary,prof_item
+Ring Mail,armor
+Robes,apparel
+Rod,
+"Rope, hempen (50 feet)",tool
+"Rope, silk (50 feet)",tool
+Rowboat,mount_item
+Sack,gear
+"Saddle, Exotic",mount_item
+"Saddle, Military",mount_item
+"Saddle, Pack",mount_item
+"Saddle, Riding",mount_item
+Saddlebags,mount_item
+Sailing ship,mount_item
+Scale Mail,armor
+"Scale, merchant's",prof_item
+Scholar's Pack,prof_item
+Scimitar,weapon
+Sealing wax,prof_item
+Shawm,prof_item
+Shield,armor
+Shortbow,weapon
+Shortsword,weapon
+Shovel,tool
+Sickle,tool
+Signal whistle,tool
+Signet ring,apparel
+Sled,mount_item
+Sling,weapon
+Sling bullet,ammo
+Small knife,tool
+Smith's Tools,prof_item
+Soap,furnishing
+Spear,weapon
+Spellbook,tool
+"Spike, iron",tool
+Splint Armor,armor
+Sprig of mistletoe,furnishing
+Spyglass,tool
+Stabling (1 day),mount_item
+Staff,weapon
+String (10 feet),tool
+Studded Leather Armor,armor
+"Tent, two-person",gear
+Thieves' Tools,prof_item
+Tinderbox,tool
+Tinker's Tools,prof_item
+Torch,tool
+Totem,furnishing
+Trident,weapon
+Vestments,apparel
+Vial,tool
+Viol,prof_item
+Wagon,mount_item
+Wand,tool
+War pick,weapon
+Warhammer,weapon
+Warhorse,mount_item
+Warship,mount_item
+Waterskin,tool
+Weaver's Tools,prof_item
+Whetstone,prof_item
+Whip,weapon
+Woodcarver's Tools,prof_item
+Wooden staff,tool
+Yew wand,tool
+Hempen rope (50 feet),tool
+Costume,apparel
+Book of lore,tool
+Bottle of ink,prof_item
+Parchment,prof_item
+Bag of sand,tool
+Pitons,tool
+"Bag of 1,000 ball bearings",tool
+Hooded lantern,tool
+Oil flask,tool

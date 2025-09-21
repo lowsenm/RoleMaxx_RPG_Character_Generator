@@ -1,0 +1,221 @@
+{
+  "Table A": [
+    {
+      "min": 1,
+      "max": 50,
+      "item": "Potion of healing"
+    },
+    {
+      "min": 51,
+      "max": 60,
+      "item": "Spell scroll (cantrip)"
+    },
+    {
+      "min": 61,
+      "max": 70,
+      "item": "Potion of climbing"
+    },
+    {
+      "min": 71,
+      "max": 90,
+      "item": "Spell scroll (1st level)"
+    },
+    {
+      "min": 91,
+      "max": 94,
+      "item": "Spell scroll (2nd level)"
+    },
+    {
+      "min": 95,
+      "max": 98,
+      "item": "Potion of greater healing"
+    },
+    {
+      "min": 99,
+      "max": 99,
+      "item": "Bag of holding"
+    },
+    {
+      "min": 0,
+      "max": 0,
+      "item": "Driftglobe"
+    }
+  ],
+  "Table B": [
+    {
+      "min": 1,
+      "max": 15,
+      "item": "Potion of greater healing"
+    },
+    {
+      "min": 16,
+      "max": 22,
+      "item": "Potion of fire breath"
+    },
+    {
+      "min": 23,
+      "max": 29,
+      "item": "Potion of resistance"
+    },
+    {
+      "min": 30,
+      "max": 34,
+      "item": "Ammunition, +1"
+    },
+    {
+      "min": 35,
+      "max": 39,
+      "item": "Potion of animal friendship"
+    },
+    {
+      "min": 40,
+      "max": 44,
+      "item": "Potion of hill giant strength"
+    },
+    {
+      "min": 45,
+      "max": 49,
+      "item": "Potion of growth"
+    },
+    {
+      "min": 50,
+      "max": 54,
+      "item": "Potion of water breathing"
+    },
+    {
+      "min": 55,
+      "max": 59,
+      "item": "Spell scroll (2nd level)"
+    },
+    {
+      "min": 60,
+      "max": 64,
+      "item": "Spell scroll (3rd level)"
+    },
+    {
+      "min": 65,
+      "max": 67,
+      "item": "Bag of holding"
+    },
+    {
+      "min": 68,
+      "max": 70,
+      "item": "Keoghtom's ointment"
+    },
+    {
+      "min": 71,
+      "max": 73,
+      "item": "Oil of slipperiness"
+    },
+    {
+      "min": 74,
+      "max": 75,
+      "item": "Dust of disappearance"
+    },
+    {
+      "min": 76,
+      "max": 77,
+      "item": "Dust of dryness"
+    },
+    {
+      "min": 78,
+      "max": 79,
+      "item": "Dust of sneezing and choking"
+    },
+    {
+      "min": 80,
+      "max": 81,
+      "item": "Elemental gem"
+    },
+    {
+      "min": 82,
+      "max": 83,
+      "item": "Philter of love"
+    },
+    {
+      "min": 84,
+      "max": 84,
+      "item": "Alchemy jug"
+    },
+    {
+      "min": 85,
+      "max": 85,
+      "item": "Cap of water breathing"
+    },
+    {
+      "min": 86,
+      "max": 86,
+      "item": "Cloak of the manta ray"
+    },
+    {
+      "min": 87,
+      "max": 87,
+      "item": "Driftglobe"
+    },
+    {
+      "min": 88,
+      "max": 88,
+      "item": "Goggles of night"
+    },
+    {
+      "min": 89,
+      "max": 89,
+      "item": "Helm of comprehending languages"
+    },
+    {
+      "min": 90,
+      "max": 90,
+      "item": "Immovable rod"
+    },
+    {
+      "min": 91,
+      "max": 91,
+      "item": "Lantern of revealing"
+    },
+    {
+      "min": 92,
+      "max": 92,
+      "item": "Mariner's armor"
+    },
+    {
+      "min": 93,
+      "max": 93,
+      "item": "Mithral armor"
+    },
+    {
+      "min": 94,
+      "max": 94,
+      "item": "Potion of poison"
+    },
+    {
+      "min": 95,
+      "max": 95,
+      "item": "Ring of swimming"
+    },
+    {
+      "min": 96,
+      "max": 96,
+      "item": "Robe of useful items"
+    },
+    {
+      "min": 97,
+      "max": 97,
+      "item": "Rope of climbing"
+    },
+    {
+      "min": 98,
+      "max": 98,
+      "item": "Saddle of the cavalier"
+    },
+    {
+      "min": 99,
+      "max": 99,
+      "item": "Wand of magic detection"
+    },
+    {
+      "min": 100,
+      "max": 100,
+      "item": "Wand of secrets"
+    }
+  ]
+}

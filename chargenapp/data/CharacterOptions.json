@@ -1,0 +1,28 @@
+{
+  "Race": [
+    "Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"
+  ],
+  "Class": [
+    "Fighter", "Wizard", "Rogue", "Cleric", "Barbarian", "Bard", "Druid", "Monk", "Paladin", "Ranger", "Sorcerer", "Warlock"
+  ],
+  "Background": [
+    "Soldier", "Sage", "Noble", "Outlander", "Scholar", "Shoemaker", "Artisan", "Criminal Organization", "Performer",
+    "Petty Crook", "Trader-Traveler", "Street Urchin", "Spy", "Acolyte", "Ascetic", "Herder", "Farmer", "Local Hero",
+    "Montaignard", "Forester", "Riverman"
+  ],
+  "Alignment": [
+    "Lawful Good", "Neutral", "Chaotic Evil", "Lawful Neutral", "Lawful Evil", "Neutral Good", "True Neutral",
+    "Neutral Evil", "Chaotic Good", "Chaotic Neutral"
+  ],
+  "Language": [
+    "Common", "Elvish", "Dwarvish", "Orc", "Giant", "Gnomish", "Goblin", "Halfling", "Abyssal", "Celestial",
+    "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Underworld"
+  ],
+  "Level": [
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+    "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"
+  ],
+  "Sex": [
+    "Male", "Female", "Surprise me!"
+  ]
+}

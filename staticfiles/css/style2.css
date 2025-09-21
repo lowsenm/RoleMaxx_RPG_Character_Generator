@@ -1,0 +1,176 @@
+/* General styles */
+#parchment-form {
+    font-family: 'Papyrus', 'Garamond', serif;
+    color: #e30a0a;
+}
+
+h1 {
+    font-family: 'MedievalSharp', cursive;
+    color: #4b2e0e;
+    text-shadow: 2px 2px 4px #000000;
+    text-align: center;
+    font-size: 4.00rem;
+}
+
+/* Layout: Three equal columns with responsive fallback */
+.form-columns {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.form-col {
+    flex: 1 1 30%;
+    min-width: 250px;
+}
+
+/* Label for each field title */
+.form-col > label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+/* Box styling around each field */
+.form-field-group {
+    margin-bottom: 1.5rem;
+}
+
+.field-label {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.form-field-wrapper {
+    padding: 0.5rem;
+    border: 2px solid #b30000;
+    border-radius: 10px;
+    background-color: #fffaf7;
+    box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+    transition: box-shadow 0.2s ease;
+}
+
+.form-field-wrapper:focus-within {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+    border-color: #e60000;
+}
+
+.form-field-wrapper.no-border {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+.form-field-wrapper.no-border input {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.7);
+    border-color: #e60000;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    font-size: 1rem;
+}
+
+/* Keep outer red-glow box, remove border from the input inside */
+.form-field-wrapper.no-inner-border input {
+    border: none;
+    background: #fffdfb;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    outline: none;
+    font-size: 1.1rem;
+    padding: 6px 12px;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.form-field-wrapper label {
+    display: inline;
+    margin-right: 0.6rem;
+    margin-bottom: 0.2rem;
+    cursor: pointer;
+}
+
+/* Submit button */
+button {
+    background: rgba(255, 69, 0, 0.1); /* semi-transparent fiery orange */
+    color: #ff4500;
+    border: 2px solid #ff4500;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    box-shadow: 0 0 8px rgba(255, 69, 0, 0.6);
+    transition: all 0.3s ease;
+    cursor: url('../images/3232pointsword.png'), auto;
+}
+
+button:hover {
+    color: #ffd700;
+    border-color: #ffd700;
+    background: rgba(255, 69, 0, 0.2); /* stronger glow on hover */
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.9), 0 0 24px rgba(255, 69, 0, 0.8);
+    transform: scale(1.05);
+    cursor: url('../images/3232pointsword.png'), auto;
+}
+
+/* Checkbox hover effect */
+input[type="checkbox"]:hover {
+    cursor: url("../images/3232scepter.png"), 1 1, auto;
+}
+
+/* Two-column layout for level radio buttons */
+/* Limit total width to prevent stretching across the page */
+.form-field-wrapper.two-column-options {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Force two equal-width columns */
+.two-column-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+}
+
+/* Wrap long labels and keep clean spacing */
+.two-column-options label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin: 0;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+}
+
+
+
+/* Three-column layout for level radio buttons */
+.three-column-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem 1rem;
+}
+
+.three-column-options label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0;
+}
+
+/* Tighten radio/label spacing inside two-column layout */
+.two-column-options label {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
