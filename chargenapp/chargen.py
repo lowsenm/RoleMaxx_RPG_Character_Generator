@@ -105,7 +105,7 @@ def chargen_call(character_data):
         # Add saving throws and treasure
     character_data.update(calculate_saving_throws(character_data))
     character_data.update(assign_treasure(character_data))
-    print(character_data)
+    print("ALL CHARACTER DATA:/r", character_data)
 
     # Write the pdf w/ pdfrw
     print("😉 Writing PDF")
