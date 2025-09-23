@@ -63,16 +63,11 @@
         "DexterityST": {"x": 247.3, "y": 640.7, "size": 10, "align": "center"},
         "EP": {"x": 382.2, "y": 409.2, "size": 10, "align": "left"},
         "Equipment": {"x": 54.1, "y": 226.5, "size": 10, "align": "left"},
-        "EquipmentIdx": {"x": 335.9, "y": 244.1, "size": 10, "align": "left"},
-        "Eyes": {"x": , "y": , "size": , "align": "left"},
         "GP": {"x": 330.9, "y": 409.2, "size": 10, "align": "left"},
         "HPMax": {"x": 69.2, "y": 729.6, "size": 10, "align": "left"},
-        "Hair": {"x": , "y": , "size": , "align": "left"},
-        "Height": {"x": , "y": , "size": , "align": "left"},
         "History": {"x": 322.8, "y": 564.5, "size": 10, "align": "left"},
         "HistoryCB": {"x": 320.8, "y": 580.1, "size": 10, "align": "left"},
         "HitDice": {"x": 95.4, "y": 502, "size": 10, "align": "left"},
-        "Ideals": {"x": , "y": , "size": , "align": "left"},
         "Initiative": {"x": 243.3, "y": 731.5, "size": 10, "align": "left"},
         "Insight": {"x": 365.7, "y": 566.7, "size": 10, "align": "left"},
         "InsightCB": {"x": 360.6, "y": 580.5, "size": 10, "align": "left"},
@@ -119,12 +114,11 @@
         "Survival": {"x": 360.8, "y": 466, "size": 10, "align": "left"},
         "SurvivalCB": {"x": 358.8, "y": 482.8, "size": 10, "align": "left"},
         "Treasure": {"x": 420.8, "y": 233.1, "size": 10, "align": "left"},
-        "WeaponIndices": {"x": , "y": , "size": , "align": ""},
         "WisCB": {"x": 360.5, "y": 651, "size": 11, "align": "center"},
         "WisMod": {"x": 369.5, "y": 665.5, "size": 12, "align": "center"},
         "Wisdom": {"x": 359.6, "y": 683.9, "size": 13, "align": "center"},
         "WisdomST": {"x": 369.5, "y": 629.7, "size": 14, "align": "center"},
-        "XP": {"x": 68.4, "y": 572.6, "size": , "align": ""}
+        "XP": {"x": 68.4, "y": 572.6, "size": 12, "align": ""}
       }
     },
     {
