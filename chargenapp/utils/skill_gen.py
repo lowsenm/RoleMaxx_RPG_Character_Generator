@@ -37,9 +37,9 @@ def skillgen(character_data):
 
         if has_prof:
             mod += prof_bonus
-            result[checkbox_field_map[skill]] = "Yes"
+            result[checkbox_field_map[skill]] = "•"
         else:
-            result[checkbox_field_map[skill]] = "Off"
+            result[checkbox_field_map[skill]] = " "
 
         result[skill] = "" if mod == 0 else f"{mod:+d}" if mod > 0 else str(mod)
 
