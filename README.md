@@ -13,5 +13,10 @@ git push origin main
 
 3. "PULL TO PYTHONANYWHERE
 cd ~/RPG_Character_Generator  # or wherever your site lives
-git pull origin main
+(use this console: https://www.pythonanywhere.com/user/lowsenm/consoles/)
+git pull origin main (enter github username / token)
+"
+4. "RELOAD ON PYTHONANYWHERE
+Hit RELOAD here: https://www.pythonanywhere.com/user/lowsenm/webapps/#tab_id_www_lowsen_com
+Then goto site
 "
