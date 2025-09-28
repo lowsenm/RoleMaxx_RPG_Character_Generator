@@ -3,7 +3,7 @@ import os
 import random
 
 
-# Spell loader?
+# Spell loader
 def get_spell_data():
     with open(os.path.join(os.path.dirname(__file__), "../data/spells.json"), "r", encoding="utf-8") as f:
         spells = json.load(f)
@@ -57,88 +57,78 @@ def fill_spellcasting_info(char_class, character_data):
         "paladin": "Paladin",
         "ranger": "Ranger",
         "druid": "Druid",
-        "artificer": "Artificer"
+        "artificer": "Artificer",
     }
     char_class_key = canonical_class_map.get(char_class.lower(), char_class)
 
     class_spells = SPELLS.get(char_class_key, {})
     spellcasting_ability = (
         "Charisma" if char_class_key in {"Sorcerer", "Warlock", "Bard", "Paladin"} else
-        "Wisdom" if char_class_key in {"Cleric", "Druid", "Ranger"} else
+        "Wisdom"   if char_class_key in {"Cleric", "Druid", "Ranger"} else
         "Intelligence"
     )
 
-    # Determine available slots
+    # Determine available slots for the character's class at this level
     slots_by_level = {}
     if char_class_key in SPELL_SLOTS:
         sorted_levels = sorted(SPELL_SLOTS[char_class_key].keys(), reverse=True)
         for lvl in sorted_levels:
             if level >= lvl:
-                slots_by_level = SPELL_SLOTS[char_class_key][lvl]
+                slots_by_level = SPELL_SLOTS[char_class_key][lvl]  # nested dict uses string keys ("1".."9")
                 break
         if not slots_by_level and sorted_levels:
             slots_by_level = SPELL_SLOTS[char_class_key][sorted_levels[0]]
 
-
-    # Define pools of high-damage cantrips per class
+    # Preferred high-damage cantrips by class
     top_cantrip_pool = {
-        "Warlock": ["Eldritch Blast (Evocation)"],
-        "Wizard": ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)", "Toll The Dead (Necromancy)", "Chill Touch (Necromancy)"],
-        "Sorcerer": ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)"],
-        "Cleric": ["Sacred Flame (Evocation)", "Toll The Dead (Necromancy)"],
-        "Druid": ["Produce Flame (Conjuration)", "Thorn Whip (Transmutation)"]
+        "Warlock":   ["Eldritch Blast (Evocation)"],
+        "Wizard":    ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)", "Toll The Dead (Necromancy)", "Chill Touch (Necromancy)"],
+        "Sorcerer":  ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)"],
+        "Cleric":    ["Sacred Flame (Evocation)", "Toll The Dead (Necromancy)"],
+        "Druid":     ["Produce Flame (Conjuration)", "Thorn Whip (Transmutation)"],
     }
 
-    # Pull cantrip list
+    # Cantrip selection (up to 3, favoring one from the preferred pool)
     available_cantrips = class_spells.get(0, [])
     preferred_pool = top_cantrip_pool.get(char_class_key, [])
+    valid_preferred = [s for s in preferred_pool if s in available_cantrips]
 
-    # Filter to preferred cantrips that the class actually has access to
-    valid_preferred = [spell for spell in preferred_pool if spell in available_cantrips]
-
-    # Randomly include one preferred cantrip if available
     cantrips = set()
     if valid_preferred:
         cantrips.add(random.choice(valid_preferred))
 
-    # Fill remaining cantrips randomly
-    remaining_choices = [spell for spell in available_cantrips if spell not in cantrips]
-    cantrips.update(random.sample(remaining_choices, min(3 - len(cantrips), len(remaining_choices))))
+    remaining_cantrips = [s for s in available_cantrips if s not in cantrips]
+    cantrips.update(random.sample(remaining_cantrips, min(3 - len(cantrips), len(remaining_cantrips))))
 
-        # Compute spellcasting stats
+    # Compute spellcasting stats
     prof_bonus = int(character_data.get("ProficiencyBonus", 2))
-    ability_mod = int(character_data.get(spellcasting_ability, 10))
-    ability_modifier = (ability_mod - 10) // 2
+    ability_score = int(character_data.get(spellcasting_ability, 10))
+    ability_mod = (ability_score - 10) // 2
 
-    spell_save_dc = 8 + prof_bonus + ability_modifier
-    spell_attack_bonus = prof_bonus + ability_modifier
+    spell_save_dc = 8 + prof_bonus + ability_mod
+    spell_attack_bonus = prof_bonus + ability_mod
 
-    spellcasting_info = {
+    # Build unified spell list
+    all_spells = []
+
+    # Add cantrips (Level 0)
+    for spell in sorted(cantrips):
+        all_spells.append(f"Level 0: {spell}")
+
+    # Add leveled spells according to available slots (keys in slots_by_level are strings "1".."9")
+    for circle in range(1, 10):
+        spells_at_level = class_spells.get(circle, [])
+        slots = int(slots_by_level.get(str(circle), 0)) if slots_by_level else 0
+        if slots > 0 and spells_at_level:
+            known_spells = random.sample(spells_at_level, min(slots, len(spells_at_level)))
+            for spell in known_spells:
+                all_spells.append(f"Level {circle}: {spell}")
+
+    # Final return: single list of prefixed spells + key stats
+    return {
         "SpellcastingClass": char_class_key,
         "SpellcastingAbility": spellcasting_ability,
         "SpellSaveDC": str(spell_save_dc),
         "SpellAttackBonus": f"+{spell_attack_bonus}" if spell_attack_bonus >= 0 else str(spell_attack_bonus),
-        "Cantrips": "\n".join(sorted(cantrips))
+        "Spells": all_spells,  # e.g., ["Level 0: Fire Bolt (Evocation)", "Level 1: Shield (Abjuration)", ...]
     }
-
-    for circle in range(1, 10):
-        key_circle = f"Circle{circle}"
-        key_slots = f"Slots{circle}"
-        key_exp = f"Exp{circle}"
-        spells = class_spells.get(circle, [])
-        slots = slots_by_level.get(str(circle), 0)
-
-        if slots > 0 and spells:
-            known_spells = random.sample(spells, min(slots, len(spells)))
-            spellcasting_info[key_circle] = "\n".join(known_spells)
-            spellcasting_info[key_slots] = str(slots)
-            spellcasting_info[key_exp] = ""
-        else:
-            spellcasting_info[key_circle] = ""
-            spellcasting_info[key_slots] = ""
-            spellcasting_info[key_exp] = ""
-
-    spellcasting_info["Exp1"] = spellcasting_info.get("Exp1", "")
-    spellcasting_info["Circle1"] = spellcasting_info.get("Circle1", "")
-
-    return spellcasting_info
