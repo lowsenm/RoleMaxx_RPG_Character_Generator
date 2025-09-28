@@ -113,14 +113,14 @@
         "background_pdf_page": 1
       },
       "fields": {
-        "Backstory": {"x": 21.9, "y": 365.5, "size": 10, "align": "left"},
-        "Appearance": {"x": 33, "y": 571.6, "size": 10, "align": "left"},
+        "Appearance": {"type": "image", "x": 33, "y": 571.6, "size": 10, "align": "left"},
+        "Backstory": {"x": 21.9, "y": 365.5, "size": 10, "max_width": 140, "align": "left"},
         "CharacterNameA": {"x": 25, "y": 723, "size": 10, "align": "left"},
         "OtherProficiencies&Languages": {"x": 25, "y": 505, "size": 10, "align": "left"},
         "SpellSaveDC": {"x": 463.5, "y": 710.4, "size": 10, "align": "left"},
         "SpellcastingAbility": {"x": 396.4, "y": 710.4, "size": 10, "align": "left"},
         "SpellcastingClass": {"x": 424.9, "y": 757.8, "size": 10, "align": "left"},
-        "Spells": {"x": 197, "y": 631.2, "size": 10, "align": "left"},
+        "Spells": {"x": 197, "y": 631.2, "size": 10, "max_width": 340, "align": "left"},
         "SpellAttackBonus": {"x": 534.7, "y": 710.4, "size": 200, "align": "left"}
       }
     }

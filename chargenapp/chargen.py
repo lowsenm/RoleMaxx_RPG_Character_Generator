@@ -23,6 +23,7 @@ from .utils.openai_gen import generate_character_image
 from .utils.final_stats import calculate_saving_throws, assign_treasure
 import os
 from django.conf import settings
+from .utils.logdata import log_character
 
 
 # MAIN GENERATE ROUTINE
@@ -129,5 +130,9 @@ def chargen_call(character_data):
         fillpdf(f"{settings.BASE_DIR}/char_sheet_template2.pdf", pdf_path, character_data)
     else:
         fillpdf(f"{settings.BASE_DIR}/char_sheet_template2.pdf", pdf_path, character_data)
+
+    # Log character data
+    file_path = os.path.join(settings.BASE_DIR, "chargenapp/data/chardatalog.json")
+    log_character(character_data, file_path)
 
     return pdf_path
