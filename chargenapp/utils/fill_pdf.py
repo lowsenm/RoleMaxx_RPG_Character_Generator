@@ -86,19 +86,16 @@ def _rl_wrap_and_draw(c: rl_canvas.Canvas,
                       size: float = 10.0,
                       align: str = "left",
                       max_width: float | None = None,
-                      line_height: float | None = None) -> None:
-    """
-    Draws text at (x,y) with optional wrapping to max_width and custom line_height.
-    align ∈ {"left","center","right"}.
-    """
-    c.setFont("Helvetica", size)
+                      line_height: float | None = None,
+                      font: str = "Helvetica") -> None:   # <— optional font support
+    c.setFont(font, size)
     if line_height is None:
         line_height = size + 2.0
 
     txt = "" if txt is None else str(txt)
 
+    # If no wrapping needed, honor explicit newlines
     if max_width is None:
-        # Simple multi-line with '\n'
         for i, ln in enumerate(txt.split("\n")):
             if align == "center":
                 c.drawCentredString(x, y - i * line_height, ln)
@@ -108,21 +105,26 @@ def _rl_wrap_and_draw(c: rl_canvas.Canvas,
                 c.drawString(x, y - i * line_height, ln)
         return
 
-    # Wrap to width using ReportLab width measurements
-    words = txt.split()
+    # --- NEW: honor explicit newlines even when wrapping ---
+    paragraphs = txt.split("\n")
     lines: List[str] = []
-    cur = ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        if c.stringWidth(test, "Helvetica", size) <= max_width:
-            cur = test
-        else:
-            if cur:
-                lines.append(cur)
-            cur = w
-    if cur:
-        lines.append(cur)
+    for para in paragraphs:
+        # Use expandtabs so tabs behave even in proportional fonts
+        para = para.expandtabs(4)  # or 8 if you prefer wider tabs
+        words = para.split(" ")
+        cur = ""
+        for w in words:
+            test = (cur + " " + w).strip()
+            if c.stringWidth(test, font, size) <= max_width:
+                cur = test
+            else:
+                if cur:
+                    lines.append(cur)
+                cur = w
+        if cur:
+            lines.append(cur)
 
+    # Draw all resulting lines
     for i, ln in enumerate(lines):
         if align == "center":
             c.drawCentredString(x, y - i * line_height, ln)

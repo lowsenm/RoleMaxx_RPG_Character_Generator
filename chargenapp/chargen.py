@@ -127,9 +127,8 @@ def chargen_call(character_data):
     # If the class is a spellcaster, call fill_spellcasting_info
     if char_class in spellcasting_classes:
         character_data.update(fill_spellcasting_info(char_class, character_data))
-        fillpdf(f"{settings.BASE_DIR}/char_sheet_template2.pdf", pdf_path, character_data)
-    else:
-        fillpdf(f"{settings.BASE_DIR}/char_sheet_template2.pdf", pdf_path, character_data)
+
+    fillpdf(f"{settings.BASE_DIR}/char_sheet_template2.pdf", pdf_path, character_data)
 
     # Log character data
     file_path = os.path.join(settings.BASE_DIR, "chargenapp/data/chardatalog.json")
