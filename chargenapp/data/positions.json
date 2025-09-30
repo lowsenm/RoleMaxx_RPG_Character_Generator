@@ -120,7 +120,7 @@
         "SpellSaveDC": {"x": 463.5, "y": 710.4, "size": 10, "align": "left"},
         "SpellcastingAbility": {"x": 396.4, "y": 710.4, "size": 10, "align": "left"},
         "SpellcastingClass": {"x": 424.9, "y": 757.8, "size": 10, "align": "left"},
-        "Spells": {"x": 197, "y": 631.2, "size": 10, "max_width": 340, "align": "left"},
+        "Spells": {"x": 197, "y": 631.2, "size": 10, "align": "left"},
         "SpellAttackBonus": {"x": 534.7, "y": 710.4, "size": 200, "align": "left"}
       }
     }
