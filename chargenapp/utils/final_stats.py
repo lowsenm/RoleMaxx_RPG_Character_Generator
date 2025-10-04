@@ -29,7 +29,7 @@ def calculate_saving_throws(character_data):
         checkbox_field = ability[:3] + "CB"
 
         saving_throws[save_field] = bonus_str
-        saving_throws[checkbox_field] = "Yes" if ability in proficient_saves else "Off"
+        saving_throws[checkbox_field] = "•" if ability in proficient_saves else " "
 
     return saving_throws
 
@@ -57,6 +57,6 @@ def assign_treasure(character_data):
     assigned_loot = random.sample(mundane_treasures, min(count, len(mundane_treasures)))
 
     treasure_list = assigned_magic + assigned_loot
-    character_data["Treasure"] = "; ".join(treasure_list)
+    character_data["Treasure"] = "/n".join(treasure_list)
 
     return character_data

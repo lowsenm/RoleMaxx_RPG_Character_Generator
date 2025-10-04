@@ -99,14 +99,10 @@ def chargen_call(character_data):
 
     character_data.update({"Appearance": generate_character_image(character_data)})
 
-        # Add modifiers - REDUNDANT
-    #stat_mods = calculate_modifiers(stats)
-    #character_data.update(stat_mods)
-
         # Add saving throws and treasure
     character_data.update(calculate_saving_throws(character_data))
     character_data.update(assign_treasure(character_data))
-    print("⭐ ⭐ ⭐ ALL CHARACTER DATA SO FAR: ⭐ ⭐ ⭐/r", character_data)
+    # print("⭐ ⭐ ⭐ ALL CHARACTER DATA SO FAR: ⭐ ⭐ ⭐/r", character_data)
 
     # Write the pdf w/ pdfrw
     print("😉 Writing PDF")
