@@ -68,18 +68,18 @@ def fill_spellcasting_info(char_class, character_data):
         "Intelligence"
     )
 
-    # Determine available slots for the character's class at this level
+    # Determine available spell slots
     slots_by_level = {}
     if char_class_key in SPELL_SLOTS:
         sorted_levels = sorted(SPELL_SLOTS[char_class_key].keys(), reverse=True)
         for lvl in sorted_levels:
             if level >= lvl:
-                slots_by_level = SPELL_SLOTS[char_class_key][lvl]  # nested dict uses string keys ("1".."9")
+                slots_by_level = SPELL_SLOTS[char_class_key][lvl]
                 break
         if not slots_by_level and sorted_levels:
             slots_by_level = SPELL_SLOTS[char_class_key][sorted_levels[0]]
 
-    # Preferred high-damage cantrips by class
+    # Preferred cantrips
     top_cantrip_pool = {
         "Warlock":   ["Eldritch Blast (Evocation)"],
         "Wizard":    ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)", "Toll The Dead (Necromancy)", "Chill Touch (Necromancy)"],
@@ -88,7 +88,6 @@ def fill_spellcasting_info(char_class, character_data):
         "Druid":     ["Produce Flame (Conjuration)", "Thorn Whip (Transmutation)"],
     }
 
-    # Cantrip selection (up to 3, favoring one from the preferred pool)
     available_cantrips = class_spells.get(0, [])
     preferred_pool = top_cantrip_pool.get(char_class_key, [])
     valid_preferred = [s for s in preferred_pool if s in available_cantrips]
@@ -100,37 +99,45 @@ def fill_spellcasting_info(char_class, character_data):
     remaining_cantrips = [s for s in available_cantrips if s not in cantrips]
     cantrips.update(random.sample(remaining_cantrips, min(3 - len(cantrips), len(remaining_cantrips))))
 
-    # Compute spellcasting stats
+    # Spellcasting stats
     prof_bonus = int(character_data.get("ProficiencyBonus", 2))
     ability_score = int(character_data.get(spellcasting_ability, 10))
     ability_mod = (ability_score - 10) // 2
-
     spell_save_dc = 8 + prof_bonus + ability_mod
     spell_attack_bonus = prof_bonus + ability_mod
 
-    # Build unified spell list
+    # Build properly structured spell list
     all_spells = []
 
-    # Add cantrips (Level 0)
+    # Cantrips
     for spell in sorted(cantrips):
-        all_spells.append(f"Cantrip {spell}")
+        # Example: "Fire Bolt (Evocation)"
+        if "(" in spell and spell.endswith(")"):
+            name, school = spell[:-1].split(" (")
+        else:
+            name, school = spell, "Unknown"
+        all_spells.append((0, name.strip(), school.strip()))
 
-    # Add leveled spells according to available slots (keys in slots_by_level are strings "1".."9")
+    # Higher-level spells
     for circle in range(1, 10):
         spells_at_level = class_spells.get(circle, [])
         slots = int(slots_by_level.get(str(circle), 0)) if slots_by_level else 0
         if slots > 0 and spells_at_level:
             known_spells = random.sample(spells_at_level, min(slots, len(spells_at_level)))
             for spell in known_spells:
-                all_spells.append(f"{circle}: {spell}")
+                if "(" in spell and spell.endswith(")"):
+                    name, school = spell[:-1].split(" (")
+                else:
+                    name, school = spell, "Unknown"
+                all_spells.append((circle, name.strip(), school.strip()))
 
-    formatted_spells = "\n".join(f"{circle}\t{spell}\t{school}" for (circle, spell, school) in all_spells)
+    # Format into tab- and line-separated list
+    formatted_spells = "\n".join(f"{circle}\t{name}\t{school}" for (circle, name, school) in all_spells)
 
-    # Final return: single list of prefixed spells + key stats
     return {
         "SpellcastingClass": char_class_key,
         "SpellcastingAbility": spellcasting_ability,
         "SpellSaveDC": str(spell_save_dc),
         "SpellAttackBonus": f"+{spell_attack_bonus}" if spell_attack_bonus >= 0 else str(spell_attack_bonus),
-        "Spells": formatted_spells  # e.g., ["Level 0: Fire Bolt (Evocation)", "Level 1: Shield (Abjuration)", ...]
+        "Spells": formatted_spells
     }
