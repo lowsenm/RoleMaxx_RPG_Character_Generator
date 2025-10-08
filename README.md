@@ -20,3 +20,10 @@ git pull origin main (enter github username / token)
 Hit RELOAD here: https://www.pythonanywhere.com/user/lowsenm/webapps/#tab_id_www_lowsen_com
 Then goto site
 "
+"Or all together:
+C:\Users\lowse\Documents\Games\CharGen\chargen3pa
+git add .
+git commit -m "new grid sys"
+git push origin main
+git pull origin main
+"

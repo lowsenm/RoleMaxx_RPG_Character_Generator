@@ -57,6 +57,6 @@ def assign_treasure(character_data):
     assigned_loot = random.sample(mundane_treasures, min(count, len(mundane_treasures)))
 
     treasure_list = assigned_magic + assigned_loot
-    character_data["Treasure"] = "/n".join(treasure_list)
+    character_data["Treasure"] = "\n".join(treasure_list)
 
     return character_data
