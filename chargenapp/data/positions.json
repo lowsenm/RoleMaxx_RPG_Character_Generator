@@ -16,6 +16,7 @@
         "Alignment": {"x": 60, "y": 435, "size": 10, "align": "left"},
         "AnimalHandling": {"x": 380, "y": 575, "size": 10, "align": "left"},
         "AnimalHandlingCB": {"x": 380, "y": 595, "size": 10, "align": "left"},
+        "Appearance": {"type": "image", "x": 420, "y": 575, "size": 10, "align": "left"},
         "Arcana": {"x": 340, "y": 575, "size": 10, "align": "left"},
         "ArcanaCB": {"x": 340, "y": 595, "size": 10, "align": "left"},
         "Athletics": {"x": 220, "y": 575, "size": 10, "align": "left"},
@@ -33,7 +34,7 @@
         "CharacterName": {"x": 0, "y": 0, "size": 10, "align": "left"},
         "Charisma": {"x": 300, "y": 675, "size": 10, "align": "center"},
         "CharismaST": {"x": 300, "y": 635, "size": 10, "align": "center"},
-        "Class": {"x": 0, "y": 15, "size": 10, "align": "left"},
+        "Class": {"x": 595, "y": 60, "size": 10, "align": "left"},
         "ConCB": {"x": 180, "y": 635, "size": 10, "align": "center"},
         "ConMod": {"x": 180, "y": 655, "size": 10, "align": "center"},
         "Constitution": {"x": 180, "y": 675, "size": 10, "align": "center"},
@@ -81,7 +82,7 @@
         "PersuasionCB": {"x": 300, "y": 475, "size": 10, "align": "left"},
         "PlayerName": {"x": 0, "y": 0, "size": 10, "align": "left"},
         "ProficiencyBonus": {"x": 220, "y": 0, "size": 10, "align": "left"},
-        "Race": {"x": 60, "y": 0, "size": 10, "align": "left"},
+        "Race": {"x": 60, "y": 675, "size": 10, "align": "left"},
         "Religion": {"x": 340, "y": 415, "size": 10, "align": "left"},
         "ReligionCB": {"x": 340, "y": 435, "size": 10, "align": "left"},
         "Size": {"x": 60, "y": 395, "size": 10, "align": "left"},
@@ -113,15 +114,15 @@
         "background_pdf_page": 1
       },
       "fields": {
-        "Backstory": {"x": 60, "y": 455, "size": 10, "align": "left"},
-        "Appearance": {"type": "image", "x": 100, "y": 555, "size": 10, "align": "left"},
+        "Backstory": {"x": 60, "y": 455, "size": 10, "max_width": 140, "align": "left"},
         "CharacterNameA": {"x": 100, "y": 735, "size": 10, "align": "left"},
         "OtherProficiencies&Languages": {"x": 60, "y": 535, "size": 10, "align": "left"},
         "SpellSaveDC": {"x": 420, "y": 715, "size": 10, "align": "left"},
         "SpellcastingAbility": {"x": 340, "y": 715, "size": 10, "align": "left"},
         "SpellcastingClass": {"x": 100, "y": 715, "size": 10, "align": "left"},
         "Spells": {"x": 220, "y": 635, "size": 10, "align": "left"},
-        "SpellAttackBonus": {"x": 500, "y": 715, "size": 10, "align": "left"}
+        "SpellAttackBonus": {"x": 500, "y": 715, "size": 10, "align": "left"},
+        "AdditionalFeatures&Traits": {"x": 60, "y": 655, "size": 10, "align": "left"}
       }
     }
   ]

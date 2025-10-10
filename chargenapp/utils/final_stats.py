@@ -1,3 +1,8 @@
+import os
+import json
+import random
+
+
 def calculate_saving_throws(character_data):
     class_saves = {
         "Barbarian": ["Strength", "Constitution"],
@@ -33,19 +38,30 @@ def calculate_saving_throws(character_data):
 
     return saving_throws
 
-import random
 
 def assign_treasure(character_data):
     level = int(character_data.get("Level", 1))
     count = max(1, level // 3)  # 1 item minimum
 
-    # Example tables — you can replace these with real entries from your JSON
-    magic_items = [
-        "Potion of healing", "Bag of holding", "Ring of protection",
-        "Wand of magic missiles", "Cloak of invisibility", "Boots of speed",
-        "Sword of sharpness", "Amulet of health"
-    ]
+    # Load magic items from the JSON file
+    json_path = os.path.join(os.path.dirname(__file__), "../data/magic_items.json")
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            magic_items_data = json.load(f)
+        magic_items = [item["name"] for item in magic_items_data if "name" in item]
+    except Exception as e:
+        print(f"Error loading magic items: {e}")
+        magic_items = []
 
+    # Fallback if loading fails
+    if not magic_items:
+        magic_items = [
+            "Potion of Healing", "Bag of Holding", "Ring of Protection",
+            "Wand of Magic Missiles", "Cloak of Invisibility", "Boots of Speed",
+            "Sword of Sharpness", "Amulet of Health"
+        ]
+
+    # Mundane treasure table
     mundane_treasures = [
         "50 gp in assorted coins", "Jade statuette (25 gp)",
         "Ruby pendant (100 gp)", "Silk robe embroidered with gold (75 gp)",
