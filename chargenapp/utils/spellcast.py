@@ -1,122 +1,138 @@
 import json
 import os
 import random
+from typing import Dict, List, Any
 
-# Load spell data
-def get_spell_data():
-    with open(os.path.join(os.path.dirname(__file__), "../data/spells.json"), "r", encoding="utf-8") as f:
-        spells = json.load(f)
-    return {spell["name"]: spell for spell in spells if "name" in spell}
+# ---------- File loading helpers ----------
 
-# Load SRD spells
-SPELL_FILE = os.path.join(os.path.dirname(__file__), "../data/spells.json")
-with open(SPELL_FILE, "r", encoding="utf-8") as f:
-    RAW_SPELLS = json.load(f)
+def _resolve_spells_path() -> str:
+    """
+    Tries the project-relative data path first (../data/spells.json),
+    then falls back to an absolute path override via env (SPELLS_JSON),
+    and finally tries a local file next to this module.
+    """
+    here = os.path.dirname(__file__)
+    candidates = [
+        os.path.normpath(os.path.join(here, "../data/spells.json")),
+        os.environ.get("SPELLS_JSON"),
+        os.path.join(here, "spells.json"),
+    ]
+    for c in candidates:
+        if c and os.path.exists(c):
+            return c
+    raise FileNotFoundError("Could not locate spells.json in expected paths.")
 
-# Organize spells by class and level
-SPELLS = {}
-for spell in RAW_SPELLS:
-    level_str = spell.get("level", "")
-    level = 0 if level_str.lower() == "cantrip" else int(level_str)
-    name = spell.get("name", "Unknown Spell")
-    school = spell.get("school", "Unknown")
+def _load_spells() -> List[Dict[str, Any]]:
+    path = _resolve_spells_path()
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-    for cls in spell.get("tags", []):
-        SPELLS.setdefault(cls.title(), {}).setdefault(level, []).append(name)
+# ---------- Normalization helpers ----------
 
-# Load spell slot progression
-slot_file = os.path.join(os.path.dirname(__file__), "../data/spell_slots.json")
-with open(slot_file, "r") as f:
-    raw_slots = json.load(f)
+def _norm_level(level_val: Any) -> int:
+    """
+    Converts 'cantrip' -> 0, numeric strings -> int, otherwise 0 as safe fallback.
+    """
+    if isinstance(level_val, str):
+        if level_val.strip().lower() == "cantrip":
+            return 0
+        try:
+            return int(level_val.strip())
+        except ValueError:
+            return 0
+    if isinstance(level_val, (int, float)):
+        return int(level_val)
+    return 0
 
-SPELL_SLOTS = {}
-for cls, slots in raw_slots.items():
-    if isinstance(slots, str) and slots.startswith("same as "):
-        ref_cls = slots.replace("same as ", "").strip()
-        ref_data = raw_slots.get(ref_cls, {})
-    else:
-        ref_data = slots
-    SPELL_SLOTS[cls] = {int(k): v for k, v in ref_data.items()}
+def _spell_belongs_to_class(spell: Dict[str, Any], cls_lc: str) -> bool:
+    """
+    Determines whether a spell belongs to a given class (lowercase key),
+    primarily via 'classes' field; falls back to 'tags' if needed.
+    """
+    classes = spell.get("classes") or []
+    if any(isinstance(c, str) and c.lower() == cls_lc for c in classes):
+        return True
+    tags = spell.get("tags") or []
+    if any(isinstance(t, str) and t.lower() == cls_lc for t in tags):
+        return True
+    return False
 
+def _crm_string(spell: Dict[str, Any]) -> str:
+    """
+    Builds a Components/Ritual/Materials string from the spell record.
+    Uses components.raw if present; appends '; ritual' if ritual is True.
+    """
+    comp = spell.get("components") or {}
+    raw = comp.get("raw")
+    if not isinstance(raw, str):
+        # Fallback: construct from booleans/material text if needed
+        parts = []
+        if comp.get("verbal"): parts.append("V")
+        if comp.get("somatic"): parts.append("S")
+        if comp.get("material"):
+            mats = comp.get("materials_needed")
+            if isinstance(mats, list) and mats:
+                parts.append("M (" + ", ".join(mats) + ")")
+            else:
+                parts.append("M")
+        raw = ", ".join(parts) if parts else ""
+    out = raw or ""
+    if spell.get("ritual") is True:
+        out = f"{out}; ritual" if out else "ritual"
+    return out
 
-def fill_spellcasting_info(char_class, character_data):
-    level = int(character_data.get("Level", 1))
+def _clean_desc(text: Any) -> str:
+    """
+    Ensures description is a clean single-line string (newlines → spaces).
+    """
+    if not isinstance(text, str):
+        return ""
+    return " ".join(text.splitlines()).strip()
 
-    # Normalize class names
-    canonical_class_map = {
-        "sorcerer": "Sorcerer",
-        "wizard": "Wizard",
-        "cleric": "Cleric",
-        "bard": "Bard",
-        "warlock": "Warlock",
-        "paladin": "Paladin",
-        "ranger": "Ranger",
-        "druid": "Druid",
-        "artificer": "Artificer",
-    }
-    char_class_key = canonical_class_map.get(char_class.lower(), char_class)
+# ---------- Public API ----------
 
-    class_spells = SPELLS.get(char_class_key, {})
-    spellcasting_ability = (
-        "Charisma" if char_class_key in {"Sorcerer", "Warlock", "Bard", "Paladin"} else
-        "Wisdom" if char_class_key in {"Cleric", "Druid", "Ranger"} else
-        "Intelligence"
-    )
+def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> Dict[str, str]:
+    """
+    Returns a dict with the seven requested newline-joined fields for the character's class.
+    Does not mutate character_data; call character_data.update(...) with the result.
+    """
+    # Normalize class to lowercase for matching in spells.json
+    cls_lc = (char_class or "").strip().lower()
+    all_spells = _load_spells()
 
-    # Determine available slots
-    slots_by_level = {}
-    if char_class_key in SPELL_SLOTS:
-        sorted_lvls = sorted(SPELL_SLOTS[char_class_key].keys(), reverse=True)
-        for lvl in sorted_lvls:
-            if level >= lvl:
-                slots_by_level = SPELL_SLOTS[char_class_key][lvl]
-                break
-        if not slots_by_level and sorted_lvls:
-            slots_by_level = SPELL_SLOTS[char_class_key][sorted_lvls[0]]
+    # Filter spells for this class
+    class_spells = [s for s in all_spells if _spell_belongs_to_class(s, cls_lc)]
 
-    # Build list of chosen spells
-    spell_data_map = get_spell_data()
-    selected_spells = []
-
-    for lvl in range(0, 10):
-        spell_names = class_spells.get(lvl, [])
-        slots = int(slots_by_level.get(str(lvl), 0)) if slots_by_level else 0
-        if lvl == 0:  # cantrips
-            num = 3
-        else:
-            num = min(slots, len(spell_names))
-        if num > 0:
-            chosen = random.sample(spell_names, num)
-            for name in chosen:
-                sdata = spell_data_map.get(name, {})
-                selected_spells.append({
-                    "level": str(lvl),
-                    "name": name,
-                    "time": sdata.get("casting_time", ""),
-                    "range": sdata.get("range", ""),
-                    "crms": sdata.get("components", ""),
-                    "school": sdata.get("school", ""),
-                    "desc": sdata.get("desc", "").replace("\n", " ")
-                })
+    # If you want to limit quantity or choose randomly, you can do so here.
+    # Current behavior: include all class spells, ordered by (level, name).
+    class_spells.sort(key=lambda s: (_norm_level(s.get("level")), str(s.get("name") or "")))
 
     # Build parallel lists
-    Spell_Levels = [s["level"] for s in selected_spells]
-    Spell_Names = [s["name"] for s in selected_spells]
-    Spell_Times = [s["time"] for s in selected_spells]
-    Spell_Ranges = [s["range"] for s in selected_spells]
-    Spell_CRMs = [s["crms"] for s in selected_spells]
-    Spell_School = [s["school"] for s in selected_spells]
-    Spell_Description = [s["desc"] for s in selected_spells]
+    levels: List[str] = []
+    names: List[str] = []
+    times: List[str] = []
+    ranges: List[str] = []
+    crms: List[str] = []
+    schools: List[str] = []
+    descs: List[str] = []
 
-    # Add to character_data
+    for s in class_spells:
+        lvl = _norm_level(s.get("level"))
+        levels.append(str(lvl))
+        names.append(str(s.get("name") or "").strip())
+        times.append(str(s.get("casting_time") or "").strip())
+        ranges.append(str(s.get("range") or "").strip())
+        crms.append(_crm_string(s))
+        schools.append(str(s.get("school") or "").strip())
+        descs.append(_clean_desc(s.get("description")))
+
+    # Join with single newline characters
     return {
-        "SpellcastingClass": char_class_key,
-        "SpellcastingAbility": spellcasting_ability,
-        "Spell_Levels": "\n\n".join(Spell_Levels),
-        "Spell_Names": "\n\n".join(Spell_Names),
-        "Spell_Times": "\n\n".join(Spell_Times),
-        "Spell_Ranges": "\n\n".join(Spell_Ranges),
-        "Spell_CRMs": "\n\n".join(Spell_CRMs),
-        "Spell_School": "\n\n".join(Spell_School),
-        "Spell_Description": "\n\n".join(Spell_Description)
+        "Spell_Levels": "\n\n".join(levels),
+        "Spell_Names": "\n\n".join(names),
+        "Spell_Times": "\n\n".join(times),
+        "Spell_Ranges": "\n\n".join(ranges),
+        "Spell_CRMs": "\n\n".join(crms),
+        "Spell_School": "\n\n".join(schools),
+        "Spell_Description": "\n\n".join(descs),
     }
