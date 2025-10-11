@@ -11,7 +11,7 @@
         "AC": {"x": 300, "y": 715, "size": 10, "align": "left"},
         "Acrobatics": {"x": 260, "y": 575, "size": 10, "align": "left"},
         "AcrobaticsCB": {"x": 260, "y": 595, "size": 10, "align": "left"},
-        "Appearance": {"x": 420, "y": 575, "size": 10, "align": "left"},
+        "Appearance": {"type": "image", "x": 420, "y": 575, "size": 10, "align": "left"},
         "Alignment": {"x": 60, "y": 435, "size": 10, "align": "left"},
         "AnimalHandling": {"x": 380, "y": 575, "size": 10, "align": "left"},
         "AnimalHandlingCB": {"x": 380, "y": 595, "size": 10, "align": "left"},
@@ -112,15 +112,16 @@
         "background_pdf_page": 1
       },
       "fields": {
-        "Backstory": {"x": 60, "y": 455, "size": 10, "max_width": 140, "align": "left"},
-        "CharacterNameA": {"x": 100, "y": 735, "size": 10, "align": "left"},
-        "OtherProficiencies&Languages": {"x": 60, "y": 535, "size": 10, "align": "left"},
-        "SpellSaveDC": {"x": 420, "y": 715, "size": 10, "align": "left"},
-        "SpellcastingAbility": {"x": 340, "y": 715, "size": 10, "align": "left"},
-        "SpellcastingClass": {"x": 100, "y": 715, "size": 10, "align": "left"},
-        "Spells": {"x": 220, "y": 635, "size": 10, "align": "left"},
-        "SpellAttackBonus": {"x": 500, "y": 715, "size": 10, "align": "left"},
-        "AdditionalFeatures&Traits": {"x": 60, "y": 655, "size": 10, "align": "left"}
+        "Backstory": {"x": 35, "y": 447, "size": 10, "align": "left"},
+        "CharacterNameA": {"x": 100, "y": 792, "size": 10, "align": "left"},
+        "OtherProficiencies&Languages": {"x": 60, "y": 573, "size": 10, "align": "left"},
+        "SpellSaveDC": {"x": 420, "y": 762, "size": 10, "align": "left"},
+        "SpellcastingAbility": {"x": 340, "y": 762, "size": 10, "align": "left"},
+        "SpellcastingClass": {"x": 100, "y": 762, "size": 10, "align": "left"},
+        "Spells": {"x": 220, "y": 657, "size": 10, "align": "left"},
+        "SpellAttackBonus": {"x": 500, "y": 762, "size": 10, "align": "left"},
+        "AdditionalFeatures&Traits": {"x": 60, "y": 678, "size": 10, "align": "left"},
+        "AdditionalFeatures&TraitsA": {"x": 300, "y": 195, "size": 10, "align": "left"}
       }
     }
   ]
