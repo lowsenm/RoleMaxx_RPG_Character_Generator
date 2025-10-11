@@ -130,11 +130,11 @@ def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> D
         descs.append(_clean_desc(s.get("description") if "description" in s else s.get("desc")))
 
     return {
-        "Spell_Levels": "\n\n".join(levels),
-        "Spell_Names": "\n\n".join(names),
-        "Spell_Times": "\n\n".join(times),
-        "Spell_Ranges": "\n\n".join(ranges),
-        "Spell_CRMs": "\n\n".join(crms),
-        "Spell_School": "\n\n".join(schools),
-        "Spell_Description": "\n\n".join(descs),
+        "SpellLevels": "\n\n".join(levels),
+        "SpellNames": "\n\n".join(names),
+        "SpellTimes": "\n\n".join(times),
+        "SpellRanges": "\n\n".join(ranges),
+        "SpellCRMs": "\n\n".join(crms),
+        "SpellSchools": "\n\n".join(schools),
+        "SpellDescriptions": "\n\n".join(descs),
     }
