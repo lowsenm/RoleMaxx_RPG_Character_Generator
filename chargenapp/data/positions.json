@@ -96,7 +96,7 @@
         "StrengthST": {"x": 220, "y": 635, "size": 10, "align": "center"},
         "Survival": {"x": 380, "y": 415, "size": 10, "align": "left"},
         "SurvivalCB": {"x": 380, "y": 435, "size": 10, "align": "left"},
-        "Treasure": {"x": 420, "y": 195, "size": 10, "align": "left"},
+        "Treasure": {"max_width": 100, "x": 420, "y": 195, "size": 10, "align": "left"},
         "WisCB": {"x": 380, "y": 635, "size": 10, "align": "center"},
         "WisMod": {"x": 380, "y": 655, "size": 10, "align": "center"},
         "Wisdom": {"x": 380, "y": 675, "size": 10, "align": "center"},
@@ -112,16 +112,21 @@
         "background_pdf_page": 1
       },
       "fields": {
-        "Backstory": {"x": 35, "y": 447, "size": 10, "align": "left"},
+        "Backstory": {"max_width": 100, "x": 35, "y": 447, "size": 10, "align": "left"},
         "CharacterNameA": {"x": 100, "y": 792, "size": 10, "align": "left"},
         "OtherProficiencies&Languages": {"x": 60, "y": 573, "size": 10, "align": "left"},
         "SpellSaveDC": {"x": 420, "y": 762, "size": 10, "align": "left"},
         "SpellcastingAbility": {"x": 340, "y": 762, "size": 10, "align": "left"},
         "SpellcastingClass": {"x": 100, "y": 762, "size": 10, "align": "left"},
-        "Spells": {"x": 220, "y": 657, "size": 10, "align": "left"},
         "SpellAttackBonus": {"x": 500, "y": 762, "size": 10, "align": "left"},
         "AdditionalFeatures&Traits": {"x": 60, "y": 678, "size": 10, "align": "left"},
-        "AdditionalFeatures&TraitsA": {"x": 300, "y": 195, "size": 10, "align": "left"}
+        "AdditionalFeatures&TraitsA": {"x": 300, "y": 195, "size": 10, "align": "left"},
+        "SpellLevels": {"x": 220, "y": 657, "size": 10, "align": "left"},
+        "SpellNames": {"x": 260, "y": 657, "size": 10, "align": "left"},
+        "SpellTimes": {"x": 380, "y": 657, "size": 10, "align": "left"},
+        "SpellRanges": {"x": 420, "y": 657, "size": 10, "align": "left"},
+        "SpellCRMs": {"x": 460, "y": 657, "size": 10, "align": "left"},
+        "SpellSchools": {"x": 500, "y": 657, "size": 10, "align": "left"}
       }
     }
   ]

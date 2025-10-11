@@ -2,38 +2,33 @@ import json
 import os
 import random
 
-
-# Spell loader
+# Load spell data
 def get_spell_data():
     with open(os.path.join(os.path.dirname(__file__), "../data/spells.json"), "r", encoding="utf-8") as f:
         spells = json.load(f)
-    
-    # Convert list to dict: name -> spell data
     return {spell["name"]: spell for spell in spells if "name" in spell}
-    
-# Load raw SRD spells with metadata
-spell_file = os.path.join(os.path.dirname(__file__), "../data/spells.json")
-with open(spell_file, "r", encoding="utf-8") as f:
+
+# Load SRD spells
+SPELL_FILE = os.path.join(os.path.dirname(__file__), "../data/spells.json")
+with open(SPELL_FILE, "r", encoding="utf-8") as f:
     RAW_SPELLS = json.load(f)
 
-# Transform raw spell data into structured class/level dictionary
+# Organize spells by class and level
 SPELLS = {}
 for spell in RAW_SPELLS:
     level_str = spell.get("level", "")
     level = 0 if level_str.lower() == "cantrip" else int(level_str)
-    school = spell.get("school", "Unknown")
     name = spell.get("name", "Unknown Spell")
+    school = spell.get("school", "Unknown")
 
     for cls in spell.get("tags", []):
-        cls_title = cls.strip().title()
-        SPELLS.setdefault(cls_title, {}).setdefault(level, []).append(f"{name} ({school})")
+        SPELLS.setdefault(cls.title(), {}).setdefault(level, []).append(name)
 
-# Load spell slots from JSON
+# Load spell slot progression
 slot_file = os.path.join(os.path.dirname(__file__), "../data/spell_slots.json")
 with open(slot_file, "r") as f:
     raw_slots = json.load(f)
 
-# Define available slots
 SPELL_SLOTS = {}
 for cls, slots in raw_slots.items():
     if isinstance(slots, str) and slots.startswith("same as "):
@@ -47,7 +42,7 @@ for cls, slots in raw_slots.items():
 def fill_spellcasting_info(char_class, character_data):
     level = int(character_data.get("Level", 1))
 
-    # Normalize class name
+    # Normalize class names
     canonical_class_map = {
         "sorcerer": "Sorcerer",
         "wizard": "Wizard",
@@ -64,80 +59,64 @@ def fill_spellcasting_info(char_class, character_data):
     class_spells = SPELLS.get(char_class_key, {})
     spellcasting_ability = (
         "Charisma" if char_class_key in {"Sorcerer", "Warlock", "Bard", "Paladin"} else
-        "Wisdom"   if char_class_key in {"Cleric", "Druid", "Ranger"} else
+        "Wisdom" if char_class_key in {"Cleric", "Druid", "Ranger"} else
         "Intelligence"
     )
 
-    # Determine available spell slots
+    # Determine available slots
     slots_by_level = {}
     if char_class_key in SPELL_SLOTS:
-        sorted_levels = sorted(SPELL_SLOTS[char_class_key].keys(), reverse=True)
-        for lvl in sorted_levels:
+        sorted_lvls = sorted(SPELL_SLOTS[char_class_key].keys(), reverse=True)
+        for lvl in sorted_lvls:
             if level >= lvl:
                 slots_by_level = SPELL_SLOTS[char_class_key][lvl]
                 break
-        if not slots_by_level and sorted_levels:
-            slots_by_level = SPELL_SLOTS[char_class_key][sorted_levels[0]]
+        if not slots_by_level and sorted_lvls:
+            slots_by_level = SPELL_SLOTS[char_class_key][sorted_lvls[0]]
 
-    # Preferred cantrips
-    top_cantrip_pool = {
-        "Warlock":   ["Eldritch Blast (Evocation)"],
-        "Wizard":    ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)", "Toll The Dead (Necromancy)", "Chill Touch (Necromancy)"],
-        "Sorcerer":  ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)"],
-        "Cleric":    ["Sacred Flame (Evocation)", "Toll The Dead (Necromancy)"],
-        "Druid":     ["Produce Flame (Conjuration)", "Thorn Whip (Transmutation)"],
-    }
+    # Build list of chosen spells
+    spell_data_map = get_spell_data()
+    selected_spells = []
 
-    available_cantrips = class_spells.get(0, [])
-    preferred_pool = top_cantrip_pool.get(char_class_key, [])
-    valid_preferred = [s for s in preferred_pool if s in available_cantrips]
-
-    cantrips = set()
-    if valid_preferred:
-        cantrips.add(random.choice(valid_preferred))
-
-    remaining_cantrips = [s for s in available_cantrips if s not in cantrips]
-    cantrips.update(random.sample(remaining_cantrips, min(3 - len(cantrips), len(remaining_cantrips))))
-
-    # Spellcasting stats
-    prof_bonus = int(character_data.get("ProficiencyBonus", 2))
-    ability_score = int(character_data.get(spellcasting_ability, 10))
-    ability_mod = (ability_score - 10) // 2
-    spell_save_dc = 8 + prof_bonus + ability_mod
-    spell_attack_bonus = prof_bonus + ability_mod
-
-    # Build properly structured spell list
-    all_spells = []
-
-    # Cantrips
-    for spell in sorted(cantrips):
-        # Example: "Fire Bolt (Evocation)"
-        if "(" in spell and spell.endswith(")"):
-            name, school = spell[:-1].split(" (")
+    for lvl in range(0, 10):
+        spell_names = class_spells.get(lvl, [])
+        slots = int(slots_by_level.get(str(lvl), 0)) if slots_by_level else 0
+        if lvl == 0:  # cantrips
+            num = 3
         else:
-            name, school = spell, "Unknown"
-        all_spells.append((0, name.strip(), school.strip()))
+            num = min(slots, len(spell_names))
+        if num > 0:
+            chosen = random.sample(spell_names, num)
+            for name in chosen:
+                sdata = spell_data_map.get(name, {})
+                selected_spells.append({
+                    "level": str(lvl),
+                    "name": name,
+                    "time": sdata.get("casting_time", ""),
+                    "range": sdata.get("range", ""),
+                    "crms": sdata.get("components", ""),
+                    "school": sdata.get("school", ""),
+                    "desc": sdata.get("desc", "").replace("\n", " ")
+                })
 
-    # Higher-level spells
-    for circle in range(1, 10):
-        spells_at_level = class_spells.get(circle, [])
-        slots = int(slots_by_level.get(str(circle), 0)) if slots_by_level else 0
-        if slots > 0 and spells_at_level:
-            known_spells = random.sample(spells_at_level, min(slots, len(spells_at_level)))
-            for spell in known_spells:
-                if "(" in spell and spell.endswith(")"):
-                    name, school = spell[:-1].split(" (")
-                else:
-                    name, school = spell, "Unknown"
-                all_spells.append((circle, name.strip(), school.strip()))
+    # Build parallel lists
+    Spell_Levels = [s["level"] for s in selected_spells]
+    Spell_Names = [s["name"] for s in selected_spells]
+    Spell_Times = [s["time"] for s in selected_spells]
+    Spell_Ranges = [s["range"] for s in selected_spells]
+    Spell_CRMs = [s["crms"] for s in selected_spells]
+    Spell_School = [s["school"] for s in selected_spells]
+    Spell_Description = [s["desc"] for s in selected_spells]
 
-    # Format into tab- and line-separated list
-    formatted_spells = "\n".join(f"{circle}\t{name}\t{school}" for (circle, name, school) in all_spells)
-
+    # Add to character_data
     return {
         "SpellcastingClass": char_class_key,
         "SpellcastingAbility": spellcasting_ability,
-        "SpellSaveDC": str(spell_save_dc),
-        "SpellAttackBonus": f"+{spell_attack_bonus}" if spell_attack_bonus >= 0 else str(spell_attack_bonus),
-        "Spells": formatted_spells
+        "Spell_Levels": "\n\n".join(Spell_Levels),
+        "Spell_Names": "\n\n".join(Spell_Names),
+        "Spell_Times": "\n\n".join(Spell_Times),
+        "Spell_Ranges": "\n\n".join(Spell_Ranges),
+        "Spell_CRMs": "\n\n".join(Spell_CRMs),
+        "Spell_School": "\n\n".join(Spell_School),
+        "Spell_Description": "\n\n".join(Spell_Description)
     }
