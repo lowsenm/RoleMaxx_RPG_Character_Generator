@@ -23,7 +23,7 @@ Then goto site
 "Or all together:
 C:\Users\lowse\Documents\Games\CharGen\chargen3pa
 git add .
-git commit -m "new grid sys p2"
+git commit -m "shifting fields"
 git push origin main
 git pull origin main
 "
