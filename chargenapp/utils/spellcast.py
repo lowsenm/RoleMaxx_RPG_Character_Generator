@@ -7,9 +7,8 @@ from typing import Dict, List, Any
 
 def _resolve_spells_path() -> str:
     """
-    Tries the project-relative data path first (../data/spells.json),
-    then falls back to an absolute path override via env (SPELLS_JSON),
-    and finally tries a local file next to this module.
+    Prefer ../data/spells.json relative to this file; support env override (SPELLS_JSON);
+    finally try a local spells.json next to this module.
     """
     here = os.path.dirname(__file__)
     candidates = [
@@ -27,14 +26,23 @@ def _load_spells() -> List[Dict[str, Any]]:
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
+# ---------- Back-compat helper (expected by chargen.py) ----------
+
+def get_spell_data() -> Dict[str, Dict[str, Any]]:
+    """
+    Backward-compatible API expected by chargen.py.
+    Returns a dict mapping spell name -> spell record.
+    """
+    spells = _load_spells()
+    return {s["name"]: s for s in spells if isinstance(s, dict) and "name" in s}
+
 # ---------- Normalization helpers ----------
 
 def _norm_level(level_val: Any) -> int:
-    """
-    Converts 'cantrip' -> 0, numeric strings -> int, otherwise 0 as safe fallback.
-    """
+    """'cantrip' -> 0, numeric strings -> int, else safe 0."""
     if isinstance(level_val, str):
-        if level_val.strip().lower() == "cantrip":
+        lv = level_val.strip().lower()
+        if lv == "cantrip":
             return 0
         try:
             return int(level_val.strip())
@@ -46,8 +54,8 @@ def _norm_level(level_val: Any) -> int:
 
 def _spell_belongs_to_class(spell: Dict[str, Any], cls_lc: str) -> bool:
     """
-    Determines whether a spell belongs to a given class (lowercase key),
-    primarily via 'classes' field; falls back to 'tags' if needed.
+    True if the spell is available to the given class (lowercase key),
+    checking 'classes' primarily and falling back to 'tags'.
     """
     classes = spell.get("classes") or []
     if any(isinstance(c, str) and c.lower() == cls_lc for c in classes):
@@ -59,13 +67,13 @@ def _spell_belongs_to_class(spell: Dict[str, Any], cls_lc: str) -> bool:
 
 def _crm_string(spell: Dict[str, Any]) -> str:
     """
-    Builds a Components/Ritual/Materials string from the spell record.
-    Uses components.raw if present; appends '; ritual' if ritual is True.
+    Build the Components/Ritual/Materials string.
+    Prefer components.raw; otherwise synthesize from booleans/materials.
+    Append '; ritual' if ritual == True.
     """
     comp = spell.get("components") or {}
     raw = comp.get("raw")
     if not isinstance(raw, str):
-        # Fallback: construct from booleans/material text if needed
         parts = []
         if comp.get("verbal"): parts.append("V")
         if comp.get("somatic"): parts.append("S")
@@ -82,9 +90,7 @@ def _crm_string(spell: Dict[str, Any]) -> str:
     return out
 
 def _clean_desc(text: Any) -> str:
-    """
-    Ensures description is a clean single-line string (newlines → spaces).
-    """
+    """Return single-line description (newlines → spaces)."""
     if not isinstance(text, str):
         return ""
     return " ".join(text.splitlines()).strip()
@@ -93,21 +99,17 @@ def _clean_desc(text: Any) -> str:
 
 def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> Dict[str, str]:
     """
-    Returns a dict with the seven requested newline-joined fields for the character's class.
-    Does not mutate character_data; call character_data.update(...) with the result.
+    Returns seven newline-joined fields for the character's class:
+    Spell_Levels, Spell_Names, Spell_Times, Spell_Ranges, Spell_CRMs, Spell_School, Spell_Description.
+    Does not mutate character_data.
     """
-    # Normalize class to lowercase for matching in spells.json
     cls_lc = (char_class or "").strip().lower()
     all_spells = _load_spells()
 
-    # Filter spells for this class
+    # Filter to this class and sort by (level, name)
     class_spells = [s for s in all_spells if _spell_belongs_to_class(s, cls_lc)]
-
-    # If you want to limit quantity or choose randomly, you can do so here.
-    # Current behavior: include all class spells, ordered by (level, name).
     class_spells.sort(key=lambda s: (_norm_level(s.get("level")), str(s.get("name") or "")))
 
-    # Build parallel lists
     levels: List[str] = []
     names: List[str] = []
     times: List[str] = []
@@ -124,9 +126,9 @@ def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> D
         ranges.append(str(s.get("range") or "").strip())
         crms.append(_crm_string(s))
         schools.append(str(s.get("school") or "").strip())
-        descs.append(_clean_desc(s.get("description")))
+        # Your json might use "description" (common) or "desc" (older)
+        descs.append(_clean_desc(s.get("description") if "description" in s else s.get("desc")))
 
-    # Join with single newline characters
     return {
         "Spell_Levels": "\n\n".join(levels),
         "Spell_Names": "\n\n".join(names),
