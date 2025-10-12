@@ -288,67 +288,13 @@ def _pick_leveled_spells(spells: List[Dict[str,Any]], max_lvl:int, want_total:in
 # ==============================
 # Spell ordering
 # ==============================
-def _order_spells_for_display(chosen: List[Dict[str, Any]], max_lvl: int) -> List[Dict[str, Any]]:
-    """
-    Reorder spells for display:
-      • All cantrips (0) first (sorted by name)
-      • Then round-robin drain of levels >5 (max_lvl..6) so higher levels show up first
-      • Then leveled spells in repeating order: 5,4,3,2,1
-    Deterministic: name-sorted within each level bucket.
-    """
-    # bucket by level
-    buckets: Dict[int, List[Dict[str, Any]]] = {}
-    for s in chosen:
-        lv = _norm_level(s.get("level"))
-        buckets.setdefault(lv, []).append(s)
+def _order_spells_level_asc(chosen: list) -> list:
+    """Order by spell level 0..9, then by name."""
+    return sorted(
+        chosen,
+        key=lambda s: (_norm_level(s.get("level")), str(s.get("name") or "")),
+    )
 
-    # sort within each bucket by name
-    for lv in buckets:
-        buckets[lv].sort(key=lambda x: str(x.get("name") or ""))
-
-    ordered: List[Dict[str, Any]] = []
-
-    # 1) cantrips first
-    ordered.extend(buckets.get(0, []))
-    buckets[0] = []
-
-    # 2) drain high levels above 5 (e.g., 8,7,6) in round-robin, high→low
-    if max_lvl > 5:
-        high_levels = [lvl for lvl in range(max_lvl, 5, -1) if buckets.get(lvl)]
-        while high_levels:
-            progressed = False
-            # iterate a snapshot so we can mutate buckets/high_levels safely
-            for lvl in list(high_levels):
-                if buckets.get(lvl):
-                    ordered.append(buckets[lvl].pop(0))
-                    progressed = True
-                    if not buckets[lvl]:
-                        high_levels.remove(lvl)
-            if not progressed:
-                break  # safety: nothing moved this pass
-
-    # 3) cycle 5→1 repeatedly until those buckets empty (cap by max_lvl)
-    lo_hi = min(max_lvl, 5)
-    cycle_levels = [lvl for lvl in range(lo_hi, 0, -1) if buckets.get(lvl)]
-    if cycle_levels:
-        remaining = sum(len(buckets[lvl]) for lvl in cycle_levels)
-        for lvl in cycle(cycle_levels):
-            if remaining == 0:
-                break
-            if buckets.get(lvl):
-                ordered.append(buckets[lvl].pop(0))
-                remaining -= 1
-                # if a level empties, rebuild cycle_levels on the fly
-                if not buckets[lvl]:
-                    cycle_levels = [L for L in cycle_levels if buckets.get(L)]
-                    if not cycle_levels:
-                        break
-    # 4) any leftovers (shouldn't happen, but just in case): dump high→low
-    for lvl in range(max_lvl, 0, -1):
-        if buckets.get(lvl):
-            ordered.extend(buckets[lvl])
-
-    return ordered
 
 # ==============================
 # Public API
@@ -390,7 +336,8 @@ def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> D
 
     # --- build parallel lists from 'chosen' only ---
 
-    chosen = _order_spells_for_display(chosen, max_lvl)
+    chosen = _order_spells_level_asc(chosen)
+
     levels: List[str] = []
     names: List[str] = []
     times: List[str] = []
