@@ -1,15 +1,11 @@
 import json
 import os
-import random
+import re
 from typing import Dict, List, Any
 
 # ---------- File loading helpers ----------
 
 def _resolve_spells_path() -> str:
-    """
-    Prefer ../data/spells.json relative to this file; support env override (SPELLS_JSON);
-    finally try a local spells.json next to this module.
-    """
     here = os.path.dirname(__file__)
     candidates = [
         os.path.normpath(os.path.join(here, "../data/spells.json")),
@@ -29,17 +25,12 @@ def _load_spells() -> List[Dict[str, Any]]:
 # ---------- Back-compat helper (expected by chargen.py) ----------
 
 def get_spell_data() -> Dict[str, Dict[str, Any]]:
-    """
-    Backward-compatible API expected by chargen.py.
-    Returns a dict mapping spell name -> spell record.
-    """
     spells = _load_spells()
     return {s["name"]: s for s in spells if isinstance(s, dict) and "name" in s}
 
 # ---------- Normalization helpers ----------
 
 def _norm_level(level_val: Any) -> int:
-    """'cantrip' -> 0, numeric strings -> int, else safe 0."""
     if isinstance(level_val, str):
         lv = level_val.strip().lower()
         if lv == "cantrip":
@@ -53,10 +44,6 @@ def _norm_level(level_val: Any) -> int:
     return 0
 
 def _spell_belongs_to_class(spell: Dict[str, Any], cls_lc: str) -> bool:
-    """
-    True if the spell is available to the given class (lowercase key),
-    checking 'classes' primarily and falling back to 'tags'.
-    """
     classes = spell.get("classes") or []
     if any(isinstance(c, str) and c.lower() == cls_lc for c in classes):
         return True
@@ -66,11 +53,6 @@ def _spell_belongs_to_class(spell: Dict[str, Any], cls_lc: str) -> bool:
     return False
 
 def _crm_string(spell: Dict[str, Any]) -> str:
-    """
-    Build the Components/Ritual/Materials string.
-    Prefer components.raw; otherwise synthesize from booleans/materials.
-    Append '; ritual' if ritual == True.
-    """
     comp = spell.get("components") or {}
     raw = comp.get("raw")
     if not isinstance(raw, str):
@@ -90,18 +72,90 @@ def _crm_string(spell: Dict[str, Any]) -> str:
     return out
 
 def _clean_desc(text: Any) -> str:
-    """Return single-line description (newlines → spaces)."""
     if not isinstance(text, str):
         return ""
     return " ".join(text.splitlines()).strip()
+
+# ---------- Ability / Proficiency helpers ----------
+
+_CLASS_TO_ABILITY = {
+    "artificer": "Intelligence",
+    "bard": "Charisma",
+    "cleric": "Wisdom",
+    "druid": "Wisdom",
+    "paladin": "Charisma",
+    "ranger": "Wisdom",
+    "sorcerer": "Charisma",
+    "warlock": "Charisma",
+    "wizard": "Intelligence",
+}
+
+def _canonical_class(char_class: str) -> str:
+    cls = (char_class or "").strip()
+    return cls[:1].upper() + cls[1:].lower()
+
+def _spellcasting_ability_for_class(char_class: str) -> str:
+    key = (char_class or "").strip().lower()
+    return _CLASS_TO_ABILITY.get(key, "Intelligence")
+
+def _parse_int_any(x: Any, default: int = 0) -> int:
+    if isinstance(x, (int, float)): 
+        return int(x)
+    if isinstance(x, str):
+        m = re.search(r"-?\d+", x)
+        if m:
+            try:
+                return int(m.group(0))
+            except ValueError:
+                pass
+    return default
+
+def _ability_mod_from_score(score: int) -> int:
+    return (int(score) - 10) // 2
+
+def _get_ability_mod(character_data: Dict[str, Any], ability: str) -> int:
+    # Try common modifier keys
+    candidates = [
+        f"{ability}Mod",
+        f"{ability} Mod",
+        f"{ability[:3].upper()}_mod",
+        f"{ability[:3].upper()}_MOD",
+        f"{ability[:3].upper()}Mod",
+        f"{ability[:3].upper()} Mod",
+    ]
+    for k in candidates:
+        if k in character_data:
+            return _parse_int_any(character_data[k], 0)
+
+    # Try to compute from score if present
+    for key in [ability, ability.upper(), ability[:3].upper(), f"{ability} Score", f"{ability}Score"]:
+        if key in character_data:
+            return _ability_mod_from_score(_parse_int_any(character_data[key], 10))
+
+    # Fallback
+    return 0
+
+def _get_proficiency_bonus(character_data: Dict[str, Any]) -> int:
+    if "ProficiencyBonus" in character_data:
+        return _parse_int_any(character_data["ProficiencyBonus"], 2)
+    lvl = _parse_int_any(character_data.get("Level", 1), 1)
+    if lvl <= 4: return 2
+    if lvl <= 8: return 3
+    if lvl <= 12: return 4
+    if lvl <= 16: return 5
+    return 6
+
+def _format_bonus(n: int) -> str:
+    return f"+{n}" if n >= 0 else str(n)
 
 # ---------- Public API ----------
 
 def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> Dict[str, str]:
     """
-    Returns seven newline-joined fields for the character's class:
-    Spell_Levels, Spell_Names, Spell_Times, Spell_Ranges, Spell_CRMs, Spell_School, Spell_Description.
-    Does not mutate character_data.
+    Returns:
+      - Seven newline-joined fields:
+        Spell_Levels, Spell_Names, Spell_Times, Spell_Ranges, Spell_CRMs, Spell_School, Spell_Description
+      - Plus: SpellcastingClass, SpellcastingAbility, SpellAttackBonus
     """
     cls_lc = (char_class or "").strip().lower()
     all_spells = _load_spells()
@@ -126,15 +180,24 @@ def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> D
         ranges.append(str(s.get("range") or "").strip())
         crms.append(_crm_string(s))
         schools.append(str(s.get("school") or "").strip())
-        # Your json might use "description" (common) or "desc" (older)
         descs.append(_clean_desc(s.get("description") if "description" in s else s.get("desc")))
 
+    # Compute casting ability & attack bonus
+    casting_ability = _spellcasting_ability_for_class(char_class)
+    ability_mod = _get_ability_mod(character_data, casting_ability)
+    prof = _get_proficiency_bonus(character_data)
+    spell_attack_bonus = ability_mod + prof
+
     return {
-        "SpellLevels": "\n\n".join(levels),
-        "SpellNames": "\n\n".join(names),
-        "SpellTimes": "\n\n".join(times),
-        "SpellRanges": "\n\n".join(ranges),
-        "SpellCRMs": "\n\n".join(crms),
-        "SpellSchools": "\n\n".join(schools),
-        "SpellDescriptions": "\n\n".join(descs),
+        "SpellcastingClass": _canonical_class(char_class),
+        "SpellcastingAbility": casting_ability,
+        "SpellAttackBonus": _format_bonus(spell_attack_bonus),
+
+        "Spell_Levels": "\n".join(levels),
+        "Spell_Names": "\n".join(names),
+        "Spell_Times": "\n".join(times),
+        "Spell_Ranges": "\n".join(ranges),
+        "Spell_CRMs": "\n".join(crms),
+        "Spell_School": "\n".join(schools),
+        "Spell_Description": "\n".join(descs),
     }

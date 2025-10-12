@@ -119,7 +119,7 @@
         "SpellcastingAbility": {"x": 340, "y": 762, "size": 10, "align": "left"},
         "SpellcastingClass": {"x": 100, "y": 762, "size": 10, "align": "left"},
         "SpellAttackBonus": {"x": 500, "y": 762, "size": 10, "align": "left"},
-        "AdditionalFeatures&Traits": {"x": 60, "y": 678, "size": 10, "align": "left"},
+        "AdditionalFeatures&Traits": {"max_width": 100, "x": 60, "y": 657, "size": 10, "align": "left"},
         "AdditionalFeatures&TraitsA": {"x": 300, "y": 195, "size": 10, "align": "left"},
         "SpellLevels": {"x": 220, "y": 657, "size": 10, "align": "left"},
         "SpellNames": {"x": 260, "y": 657, "size": 10, "align": "left"},
