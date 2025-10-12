@@ -1,3 +1,64 @@
+import json
+import os
+import re
+from .spellcast import get_spell_data
+
+
+# Load weapon data
+#with open(os.path.join(os.path.dirname(__file__), "../data/weapons.json"), "r", encoding="utf-8") as f:
+#    weapon_data = json.load(f)    
+#damage_list = {weapon_data[str(item)]["damage"] for item in weaponlist}
+
+
+# Load weapon data as a dict of dicts
+with open(os.path.join(os.path.dirname(__file__), "../data/weapons.json"), "r", encoding="utf-8") as f:
+    weapon_data = json.load(f)
+
+# Ensure keys are integers if they were stored as strings
+weapon_data = {int(k): v for k, v in weapon_data.items()}
+
+
+def build_weapon_by_index(character_data, weapon_data):
+    """
+    Build WEAPON_BY_INDEX dict using only the indices in character_data["WeaponsIndices"].
+    Each entry will include name and damage.
+    """
+    weapon_indices = character_data.get("WeaponIndices", [])
+
+    weapon_by_index = {}
+
+    for idx in weapon_indices:
+        weapon = weapon_data.get(idx)
+        if not weapon:
+            print(f"⚠️ Weapon index {idx} not found in weapon_data.")
+            continue
+
+        # Check for required fields
+        if "name" not in weapon or "damage" not in weapon or "damage_dice" not in weapon["damage"] or "damage_type" not in weapon["damage"]:
+            print(f"⚠️ Incomplete damage info for weapon at index {idx}. Skipping.")
+            continue
+
+        # Build entry
+        weapon_by_index[idx] = {
+            "name": weapon["name"],
+            "damage": weapon["damage"]  # ← leave it as a dict
+        }
+
+    return weapon_by_index
+
+
+
+def average_damage(damage_str):
+    """Compute expected average for a damage dice string like '1d8' or '2d6'."""
+    try:
+        match = re.match(r"(\d+)d(\d+)", damage_str.lower())
+        if match:
+            count, size = map(int, match.groups())
+            return (count * (1 + size)) / 2
+    except:
+        pass
+    return 0
+
 def parse_attacks(character_data):
     """
     Build top-3 attacks with these guarantees:
