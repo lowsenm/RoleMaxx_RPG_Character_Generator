@@ -285,12 +285,16 @@ def _pick_leveled_spells(spells: List[Dict[str,Any]], max_lvl:int, want_total:in
 
     return chosen
 
+# ==============================
+# Spell ordering
+# ==============================
 def _order_spells_for_display(chosen: List[Dict[str, Any]], max_lvl: int) -> List[Dict[str, Any]]:
     """
     Reorder spells for display:
       • All cantrips (0) first (sorted by name)
-      • Then leveled spells in repeating order: 5,4,3,2,1 (capped by min(max_lvl, 5)),
-        skipping empty levels, deterministic (name-sorted within each level).
+      • Then round-robin drain of levels >5 (max_lvl..6) so higher levels show up first
+      • Then leveled spells in repeating order: 5,4,3,2,1
+    Deterministic: name-sorted within each level bucket.
     """
     # bucket by level
     buckets: Dict[int, List[Dict[str, Any]]] = {}
@@ -308,23 +312,42 @@ def _order_spells_for_display(chosen: List[Dict[str, Any]], max_lvl: int) -> Lis
     ordered.extend(buckets.get(0, []))
     buckets[0] = []
 
-    # 2) leveled in pattern 5→1, repeated, capped by max level available
-    hi = min(max_lvl, 5)
-    cycle_levels = [lvl for lvl in range(hi, 0, -1) if buckets.get(lvl)]
-    if not cycle_levels:
-        # fallback: just dump remaining in descending level, then name
-        for lv in sorted([k for k in buckets.keys() if k > 0], reverse=True):
-            ordered.extend(buckets[lv])
-        return ordered
+    # 2) drain high levels above 5 (e.g., 8,7,6) in round-robin, high→low
+    if max_lvl > 5:
+        high_levels = [lvl for lvl in range(max_lvl, 5, -1) if buckets.get(lvl)]
+        while high_levels:
+            progressed = False
+            # iterate a snapshot so we can mutate buckets/high_levels safely
+            for lvl in list(high_levels):
+                if buckets.get(lvl):
+                    ordered.append(buckets[lvl].pop(0))
+                    progressed = True
+                    if not buckets[lvl]:
+                        high_levels.remove(lvl)
+            if not progressed:
+                break  # safety: nothing moved this pass
 
-    remaining = sum(len(v) for lv, v in buckets.items() if lv > 0)
-    for lv in cycle(cycle_levels):
-        if remaining == 0:
-            break
-        if buckets.get(lv):
-            ordered.append(buckets[lv].pop(0))
-            remaining -= 1
-        # if a level empties, it's naturally skipped on next loops
+    # 3) cycle 5→1 repeatedly until those buckets empty (cap by max_lvl)
+    lo_hi = min(max_lvl, 5)
+    cycle_levels = [lvl for lvl in range(lo_hi, 0, -1) if buckets.get(lvl)]
+    if cycle_levels:
+        remaining = sum(len(buckets[lvl]) for lvl in cycle_levels)
+        for lvl in cycle(cycle_levels):
+            if remaining == 0:
+                break
+            if buckets.get(lvl):
+                ordered.append(buckets[lvl].pop(0))
+                remaining -= 1
+                # if a level empties, rebuild cycle_levels on the fly
+                if not buckets[lvl]:
+                    cycle_levels = [L for L in cycle_levels if buckets.get(L)]
+                    if not cycle_levels:
+                        break
+    # 4) any leftovers (shouldn't happen, but just in case): dump high→low
+    for lvl in range(max_lvl, 0, -1):
+        if buckets.get(lvl):
+            ordered.extend(buckets[lvl])
+
     return ordered
 
 # ==============================
