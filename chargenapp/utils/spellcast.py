@@ -3,6 +3,7 @@ import json
 import os
 import re
 from typing import Dict, List, Any
+from itertools import cycle
 
 # ==============================
 # Data loading
@@ -284,6 +285,48 @@ def _pick_leveled_spells(spells: List[Dict[str,Any]], max_lvl:int, want_total:in
 
     return chosen
 
+def _order_spells_for_display(chosen: List[Dict[str, Any]], max_lvl: int) -> List[Dict[str, Any]]:
+    """
+    Reorder spells for display:
+      • All cantrips (0) first (sorted by name)
+      • Then leveled spells in repeating order: 5,4,3,2,1 (capped by min(max_lvl, 5)),
+        skipping empty levels, deterministic (name-sorted within each level).
+    """
+    # bucket by level
+    buckets: Dict[int, List[Dict[str, Any]]] = {}
+    for s in chosen:
+        lv = _norm_level(s.get("level"))
+        buckets.setdefault(lv, []).append(s)
+
+    # sort within each bucket by name
+    for lv in buckets:
+        buckets[lv].sort(key=lambda x: str(x.get("name") or ""))
+
+    ordered: List[Dict[str, Any]] = []
+
+    # 1) cantrips first
+    ordered.extend(buckets.get(0, []))
+    buckets[0] = []
+
+    # 2) leveled in pattern 5→1, repeated, capped by max level available
+    hi = min(max_lvl, 5)
+    cycle_levels = [lvl for lvl in range(hi, 0, -1) if buckets.get(lvl)]
+    if not cycle_levels:
+        # fallback: just dump remaining in descending level, then name
+        for lv in sorted([k for k in buckets.keys() if k > 0], reverse=True):
+            ordered.extend(buckets[lv])
+        return ordered
+
+    remaining = sum(len(v) for lv, v in buckets.items() if lv > 0)
+    for lv in cycle(cycle_levels):
+        if remaining == 0:
+            break
+        if buckets.get(lv):
+            ordered.append(buckets[lv].pop(0))
+            remaining -= 1
+        # if a level empties, it's naturally skipped on next loops
+    return ordered
+
 # ==============================
 # Public API
 # ==============================
@@ -323,6 +366,8 @@ def fill_spellcasting_info(char_class: str, character_data: Dict[str, Any]) -> D
         chosen += _pick_leveled_spells(class_spells, max_lvl, known)
 
     # --- build parallel lists from 'chosen' only ---
+
+    chosen = _order_spells_for_display(chosen, max_lvl)
     levels: List[str] = []
     names: List[str] = []
     times: List[str] = []
