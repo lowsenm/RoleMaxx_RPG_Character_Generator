@@ -245,11 +245,44 @@ def _pick_cantrips(spells: List[Dict[str,Any]], want:int) -> List[Dict[str,Any]]
     return pool[:want] if want <= len(pool) else pool
 
 def _pick_leveled_spells(spells: List[Dict[str,Any]], max_lvl:int, want_total:int) -> List[Dict[str,Any]]:
-    pool = [s for s in spells if 1 <= _norm_level(s.get("level")) <= max_lvl]
-    # Deterministic: prefer lower level first, then name
-    pool.sort(key=lambda s: (_norm_level(s.get("level")), str(s.get("name") or "")))
-    return pool[:want_total] if want_total <= len(pool) else pool
+    """
+    Balanced picker for prepared/known leveled spells:
+    1) Ensure at least one spell from each level 1..max_lvl (high → low) if available.
+    2) Fill remaining picks by cycling levels high → low to bias toward higher slots,
+       keeping selection deterministic (sorted by name inside each level).
+    """
+    # bucket by level
+    by_level: Dict[int, List[Dict[str,Any]]] = {lvl: [] for lvl in range(1, max_lvl+1)}
+    for s in spells:
+        lv = _norm_level(s.get("level"))
+        if 1 <= lv <= max_lvl:
+            by_level[lv].append(s)
 
+    # sort each bucket by name for determinism
+    for lv in by_level:
+        by_level[lv].sort(key=lambda x: str(x.get("name") or ""))
+
+    chosen: List[Dict[str,Any]] = []
+
+    # Pass 1: guarantee at least one per level (top-down)
+    for lv in range(max_lvl, 0, -1):
+        bucket = by_level.get(lv, [])
+        if bucket:
+            chosen.append(bucket.pop(0))
+            if len(chosen) >= want_total:
+                return chosen
+
+    # Pass 2: fill remaining, bias high levels by cycling high→low
+    lv = max_lvl
+    while len(chosen) < want_total and any(by_level.values()):
+        bucket = by_level.get(lv, [])
+        if bucket:
+            chosen.append(bucket.pop(0))
+        lv -= 1
+        if lv == 0:
+            lv = max_lvl
+
+    return chosen
 
 # ==============================
 # Public API
