@@ -100,7 +100,7 @@ def calculate_combat_stats(character_data):
     # Observant feat: +5 to passive Perception (and Investigation) while you can see.
     # Misc bonuses: add static bonuses that apply to ability checks (e.g., Stone of Good Luck +1). Temporary dice like guidance or Bardic Inspiration don’t apply—there’s no roll.
 
-    WisMod = int(character_data["WidMod"])
+    WisMod = int(character_data["WisMod"])
     if character_data["Perception"] == "•":
         ProBo = int(character_data["ProficiencyBonus"])
     else:
