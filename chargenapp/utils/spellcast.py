@@ -92,7 +92,7 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     # in dict form like: {"name": "...", "level": 0..9, "casting_time": "...", "range": "...",
     #                     "components": "...", "school": "...", "classes": ["bard", ...]}
     # We'll assume you already have: `all_spells = _load_spells()` and `_row_from_spell(sp)`
-    all_spells = _load_spells()
+    all_spells = _load_spells_default()
 
     def class_matches(sp: Mapping[str, Any]) -> bool:
         classes = [c.strip().lower() for c in sp.get("classes", [])]
