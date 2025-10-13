@@ -1,7 +1,7 @@
 import json
 import os
 import re
-from .spellcast import get_spell_data
+from .spellcast import _load_spells_default
 
 
 # Load weapon data
@@ -141,7 +141,7 @@ def parse_attacks(character_data):
     # Collect SPELL attacks
     # -----------------------
     # get_spell_data() now returns a dict {name: record}; keep robust in case older list form is ever used
-    _spells_raw = get_spell_data()
+    _spells_raw = _load_spells_default()
     if isinstance(_spells_raw, dict):
         spell_lookup = {k.lower(): v for k, v in _spells_raw.items()}
     else:
