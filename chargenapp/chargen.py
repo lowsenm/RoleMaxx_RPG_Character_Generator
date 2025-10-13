@@ -45,7 +45,7 @@ def chargen_call(character_data):
 
     # Generate background
     name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = backgen(name, sex, alignment, race, char_class, background, known_languages)
-#non-gen test line: "A", "B", "C", "D", "E", {}, "G"
+    #non-gen test line: "A", "B", "C", "D", "E", {}, "G"
 
     # Create char data to send to pdfrw
     char_stats = generate_character_stats(race, char_class, level)

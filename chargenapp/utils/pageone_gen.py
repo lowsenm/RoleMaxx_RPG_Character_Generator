@@ -238,8 +238,8 @@ def add_features_traits_and_gear(character_data):
     character_data["Equipment"] = "\n".join(equipment_names[:13])
     if len(equipment_names) > 13:
         print("\n cont. in ADDITIONAL FEATURES & TRAITS")
-    character_data["AdditionalFeatures&Traits"] = "\n".join(equipment_names[13:28]) if len(equipment_names) > 13 else ""
-    character_data["AdditionalFeatures&TraitsA"] = "\n".join(equipment_names[28:43]) if len(equipment_names) > 28 else ""
+    character_data["EquipmentB"] = "\n".join(equipment_names[13:28]) if len(equipment_names) > 13 else ""
+    character_data["EquipmentC"] = "\n".join(equipment_names[28:43]) if len(equipment_names) > 28 else ""
 
     # Find the weapons
     weaponlist = []

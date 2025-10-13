@@ -32,8 +32,10 @@ def _crm_from_components(comp: Optional[Mapping[str, Any]]) -> str:
     return ", ".join(parts)
 
 def _row_from_spell(sp: Mapping[str, Any]) -> List[str]:
+    # normalize "cantrip" → 0 for the level column
+    lvl = str(_norm_level_to_int(sp.get("level", 0)))
     return [
-        str(sp.get("level", "0")),
+        lvl,                                   # level (0 for cantrips)
         str(sp.get("name", "")),
         str(sp.get("casting_time", "")),
         str(sp.get("range", "")),
@@ -95,7 +97,12 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     all_spells = _load_spells_default()
 
     def class_matches(sp: Mapping[str, Any]) -> bool:
-        classes = [c.strip().lower() for c in sp.get("classes", [])]
+        cls = sp.get("classes", [])
+        # tolerate comma-separated strings or lists
+        if isinstance(cls, str):
+            classes = [c.strip().lower() for c in cls.split(",") if c.strip()]
+        else:
+            classes = [str(c).strip().lower() for c in (cls or [])]
         return class_name.strip().lower() in classes
 
     eligible = [
