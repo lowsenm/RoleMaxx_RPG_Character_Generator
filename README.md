@@ -23,7 +23,7 @@ Then goto site
 "Or all together:
 C:\Users\lowse\Documents\Games\CharGen\chargen3pa
 git add .
-git commit -m "shifting fields2"
+git commit -m "shifting fields3"
 git push origin main
 git pull origin main
 "

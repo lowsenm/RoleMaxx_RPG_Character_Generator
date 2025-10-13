@@ -46,8 +46,6 @@ def build_weapon_by_index(character_data, weapon_data):
 
     return weapon_by_index
 
-
-
 def average_damage(damage_str):
     """Compute expected average for a damage dice string like '1d8' or '2d6'."""
     try:
@@ -58,6 +56,7 @@ def average_damage(damage_str):
     except:
         pass
     return 0
+
 
 def parse_attacks(character_data):
     """

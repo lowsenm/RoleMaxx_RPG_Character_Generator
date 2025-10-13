@@ -91,3 +91,18 @@ def calculate_combat_stats(character_data):
         "tiefling": 30
     }
     character_data["Speed"] = str(speed_by_race.get(race, 30))
+
+    # --- Passive Perception ---
+    # Passive Perception = 10 + Wisdom modifier + proficiency (if proficient) + any other bonuses.
+    # Proficiency: add your proficiency bonus if you’re proficient in Perception; double it if you have Expertise.
+    # Bard’s Jack of All Trades: add half proficiency if you’re not proficient in Perception.
+    # Advantage/Disadvantage: treat as +5 for advantage or –5 for disadvantage to the passive score (DMG rule of thumb).
+    # Observant feat: +5 to passive Perception (and Investigation) while you can see.
+    # Misc bonuses: add static bonuses that apply to ability checks (e.g., Stone of Good Luck +1). Temporary dice like guidance or Bardic Inspiration don’t apply—there’s no roll.
+
+    WisMod = int(character_data["WidMod"])
+    if character_data["Perception"] == "•":
+        ProBo = int(character_data["ProficiencyBonus"])
+    else:
+        ProBo = 0
+    character_data["PassivePerception"] = 10 + WisMod + ProBo

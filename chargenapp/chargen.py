@@ -17,7 +17,7 @@ from .utils.skill_gen import skillgen
 from .utils.pageone_gen import add_features_traits_and_gear
 from .utils.back_gen import backgen, generate_physical_traits
 from .utils.combat_stats import calculate_combat_stats
-from .utils.spellcast import fill_spellcasting_info, get_spell_data
+from .utils.spellcast import fill_spellcasting_info
 from .utils.attackparser import parse_attacks
 from .utils.openai_gen import generate_character_image
 from .utils.final_stats import calculate_saving_throws, assign_treasure
