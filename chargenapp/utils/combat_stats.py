@@ -101,7 +101,7 @@ def calculate_combat_stats(character_data):
     # Misc bonuses: add static bonuses that apply to ability checks (e.g., Stone of Good Luck +1). Temporary dice like guidance or Bardic Inspiration don’t apply—there’s no roll.
 
     WisMod = int(character_data["WisMod"])
-    if character_data["Perception"] == "•":
+    if character_data["PerceptionCB"] == "•":
         ProBo = int(character_data["ProficiencyBonus"])
     else:
         ProBo = 0
