@@ -74,6 +74,14 @@ def chargen_call(character_data):
         character_data[ability] = str(stats[ability])
         character_data.update(calculate_modifiers(stats))
 
+    # Define known spellcasting classes & fill_spellcasting_info as applicable
+    spellcasting_classes = {
+        "Bard", "Cleric", "Druid", "Sorcerer", "Wizard", "Warlock",
+        "Paladin", "Ranger", "Artificer"
+    }
+    if char_class in spellcasting_classes:
+        character_data.update(fill_spellcasting_info(char_class, character_data))
+
     # Add combat stats
     calculate_combat_stats(character_data)
 
@@ -99,7 +107,7 @@ def chargen_call(character_data):
 
     character_data.update({"Appearance": generate_character_image(character_data)})
 
-        # Add saving throws and treasure
+    # Add saving throws and treasure
     character_data.update(calculate_saving_throws(character_data))
     character_data.update(assign_treasure(character_data))
     # print("⭐ ⭐ ⭐ ALL CHARACTER DATA SO FAR: ⭐ ⭐ ⭐/r", character_data)
@@ -110,19 +118,9 @@ def chargen_call(character_data):
     file_path = os.path.join(settings.BASE_DIR, "charsheets")
     pdf_path = f"{file_path}/{character_data['CharacterName']}.pdf"
 
-    # Define known spellcasting classes
-    spellcasting_classes = {
-        "Bard", "Cleric", "Druid", "Sorcerer", "Wizard", "Warlock",
-        "Paladin", "Ranger", "Artificer"
-    }
-
     # Transfer DexMod to Initiative
     dex_mod = character_data.get("DexMod", "0")
     character_data["Initiative"] = dex_mod
-
-    # If the class is a spellcaster, call fill_spellcasting_info
-    if char_class in spellcasting_classes:
-        character_data.update(fill_spellcasting_info(char_class, character_data))
 
     fillpdf(f"{settings.BASE_DIR}/charsheet_chart.pdf", pdf_path, character_data)
 

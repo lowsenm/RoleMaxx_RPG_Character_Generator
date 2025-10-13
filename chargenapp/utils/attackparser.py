@@ -58,11 +58,56 @@ def average_damage(damage_str):
     return 0
 
 
+import re
+
+def average_damage(damage_str: str) -> float:
+    """
+    Expected average across ANY number of dice groups in a string.
+    e.g., '2d6', '1d8 + 1d6', '2d6+3' (flat +N is ignored for avg).
+    """
+    if not damage_str:
+        return 0.0
+    total = 0.0
+    for count, size in re.findall(r"(\d+)\s*d\s*(\d+)", damage_str.lower()):
+        c, s = int(count), int(size)
+        total += c * (1 + s) / 2
+    return total
+
+def _get_spell_damage_and_type(sdata: dict) -> tuple[str, str]:
+    """
+    Try several common schemas for spell damage payloads and return (dice_str, type_name).
+    """
+    # 1) Flat string fields commonly used in homebrew datasets
+    if isinstance(sdata.get("damage"), str):
+        return sdata["damage"], sdata.get("damage_type", "varies")
+
+    # 2) 5e-API-like: damage = {"damage_dice":"1d10","damage_type":{"name":"fire"}}
+    dmg = sdata.get("damage") or {}
+    if isinstance(dmg, dict) and "damage_dice" in dmg:
+        dtype = dmg.get("damage_type", {})
+        if isinstance(dtype, dict):
+            dtype = dtype.get("name", "varies")
+        return dmg["damage_dice"], dtype or "varies"
+
+    # 3) Sometimes datasets store top-level fields
+    if "damage_dice" in sdata:
+        dtype = sdata.get("damage_type", {})
+        if isinstance(dtype, dict):
+            dtype = dtype.get("name", "varies")
+        elif not isinstance(dtype, str):
+            dtype = "varies"
+        return sdata["damage_dice"], dtype
+
+    return "", ""
+
+
 def parse_attacks(character_data):
     """
     Build top-3 attacks with these guarantees:
       • Include at least one cantrip if any are known.
       • If the character is a spellcaster and has only ONE weapon, include at least two cantrips (when available).
+
+    Now reads spells from flat fields: Spell1Name/Spell1Level ... Spell30Name/Spell30Level.
     """
 
     # -----------------------
@@ -77,7 +122,6 @@ def parse_attacks(character_data):
         try:
             return int(str(x).lstrip("+"))
         except Exception:
-            # fall back to Level → prof if needed
             try:
                 lvl = int(character_data.get("Level", 1))
             except Exception:
@@ -96,7 +140,7 @@ def parse_attacks(character_data):
         return (s - 10) // 2
 
     # -----------------------
-    # Collect WEAPON attacks
+    # Collect WEAPON attacks (unchanged)
     # -----------------------
     all_attacks = []
     weapon_indices = character_data.get("WeaponIndices", []) or []
@@ -138,16 +182,16 @@ def parse_attacks(character_data):
     weapon_count = len([a for a in all_attacks if a["kind"] == "weapon"])
 
     # -----------------------
-    # Collect SPELL attacks
+    # Collect SPELL attacks from FLAT fields
     # -----------------------
-    # get_spell_data() now returns a dict {name: record}; keep robust in case older list form is ever used
+    # Load spell reference data
     _spells_raw = _load_spells_default()
     if isinstance(_spells_raw, dict):
         spell_lookup = {k.lower(): v for k, v in _spells_raw.items()}
     else:
         spell_lookup = {s["name"].lower(): s for s in (_spells_raw or []) if isinstance(s, dict) and "name" in s}
 
-    # spellcasting ability
+    # Determine spellcasting ability
     spellcasting_stat = {
         "Bard": "Charisma",
         "Cleric": "Wisdom",
@@ -167,47 +211,48 @@ def parse_attacks(character_data):
     cantrip_attacks = []
     leveled_attacks = []
 
-    # Cantrips key
-    for spell in (character_data.get("Cantrips", "") or "").split("\n"):
-        base = spell.split(" (")[0].strip().lower()
-        sdata = spell_lookup.get(base)
+    # Walk Spell1..Spell30
+    for i in range(1, 31):
+        name = (character_data.get(f"Spell{i}Name", "") or "").strip()
+        if not name:
+            continue
+        lvl_raw = (character_data.get(f"Spell{i}Level", "") or "").strip().lower()
+        try:
+            lvl = int(lvl_raw) if lvl_raw != "" else None
+        except ValueError:
+            # sometimes "cantrip" or text
+            lvl = 0 if "cantrip" in lvl_raw else None
+
+        sdata = spell_lookup.get(name.lower())
         if not sdata:
             continue
-        dmg = sdata.get("damage")
-        if not dmg:
-            continue
-        dtype = sdata.get("damage_type", "varies")
-        avg_dmg = average_damage(dmg)
-        cantrip_attacks.append({
-            "name": sdata.get("name", base.title()),
-            "bonus": f"+{total_bonus}",
-            "damage": f"{dmg} {dtype}",
-            "avg": avg_dmg + total_bonus,
-            "is_cantrip": True,
-            "kind": "spell",
-        })
 
-    # Leveled spells Circle1..Circle9
-    for i in range(1, 10):
-        key = f"Circle{i}"
-        for spell in (character_data.get(key, "") or "").split("\n"):
-            base = spell.split(" (")[0].strip().lower()
-            sdata = spell_lookup.get(base)
-            if not sdata:
-                continue
-            dmg = sdata.get("damage")
-            if not dmg:
-                continue
-            dtype = sdata.get("damage_type", "varies")
-            avg_dmg = average_damage(dmg)
-            leveled_attacks.append({
-                "name": sdata.get("name", base.title()),
-                "bonus": f"+{total_bonus}",
-                "damage": f"{dmg} {dtype}",
-                "avg": avg_dmg + total_bonus,
-                "is_cantrip": False,
-                "kind": "spell",
-            })
+        # If level missing in flat fields, fall back to spell DB if it has it
+        if lvl is None:
+            sp_l = sdata.get("level", 0)
+            try:
+                lvl = int(sp_l)
+            except Exception:
+                lvl = 0  # assume cantrip if unknown
+
+        dmg_dice, dmg_type = _get_spell_damage_and_type(sdata)
+        if not dmg_dice:
+            # non-damaging spell; skip for "top attacks" purposes
+            continue
+
+        avg_dmg = average_damage(dmg_dice)
+        entry = {
+            "name": sdata.get("name", name),
+            "bonus": f"+{total_bonus}",
+            "damage": f"{dmg_dice} {dmg_type or 'varies'}",
+            "avg": avg_dmg + total_bonus,
+            "is_cantrip": (lvl == 0),
+            "kind": "spell",
+        }
+        if entry["is_cantrip"]:
+            cantrip_attacks.append(entry)
+        else:
+            leveled_attacks.append(entry)
 
     # Merge into all_attacks
     all_attacks.extend(cantrip_attacks)
@@ -216,7 +261,6 @@ def parse_attacks(character_data):
     # -----------------------
     # Selection with cantrip guarantees
     # -----------------------
-    # Sort sub-pools by average damage first
     cantrip_attacks.sort(key=lambda x: -x["avg"])
     weapon_attacks = [a for a in all_attacks if a["kind"] == "weapon"]
     weapon_attacks.sort(key=lambda x: -x["avg"])
@@ -230,7 +274,7 @@ def parse_attacks(character_data):
         desired_cantrips = 1
         if is_spellcaster(character_data.get("Class", "")) and weapon_count == 1:
             desired_cantrips = 2
-        desired_cantrips = min(desired_cantrips, len(cantrip_attacks))  # cap by availability
+        desired_cantrips = min(desired_cantrips, len(cantrip_attacks))
 
     picked = []
     used_names = set()
@@ -251,13 +295,12 @@ def parse_attacks(character_data):
             picked.append(item)
             used_names.add(item["name"])
 
-    # Choose from the strongest remaining: weapons > leveled spells > extra cantrips
+    # Choose priority: weapons > leveled spells > extra cantrips
     add_from_pool(weapon_attacks)
     add_from_pool(non_cantrip_spell_attacks)
-    # if still not full, allow extra cantrips
     add_from_pool(cantrip_attacks[desired_cantrips:])
 
-    # Safety: if still fewer than 3, just pad with anything left
+    # Safety pad
     if len(picked) < 3:
         leftovers = [a for a in (weapon_attacks + non_cantrip_spell_attacks + cantrip_attacks)
                      if a["name"] not in used_names]
