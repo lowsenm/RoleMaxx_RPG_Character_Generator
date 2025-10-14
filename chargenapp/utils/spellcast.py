@@ -210,7 +210,7 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     level = int(character_data.get("Level", 1) or 1)
     max_lvl = _max_spell_level_for(class_name, level)
 
-    all_spells = _load_spells()  # your existing loader
+    all_spells = _load_spells_default()  # your existing loader
     want = _normalize_class_name(class_name)
 
     def class_matches(sp: Mapping[str, Any]) -> bool:
