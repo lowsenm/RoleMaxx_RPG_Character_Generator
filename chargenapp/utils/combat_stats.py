@@ -80,15 +80,15 @@ def calculate_combat_stats(character_data):
 
     # --- Speed by Race ---
     speed_by_race = {
-        "dwarf": 25,
-        "halfling": 25,
-        "gnome": 25,
-        "human": 30,
-        "elf": 30,
-        "half-elf": 30,
-        "half-orc": 30,
-        "dragonborn": 30,
-        "tiefling": 30
+        "Dwarf": 25,
+        "Halfling": 25,
+        "Gnome": 25,
+        "Human": 30,
+        "Elf": 30,
+        "Half-elf": 30,
+        "Half-orc": 30,
+        "Dragonborn": 30,
+        "Tiefling": 30
     }
     character_data["Speed"] = str(speed_by_race.get(race, 30))
 

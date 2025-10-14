@@ -81,7 +81,7 @@
 
         "Persuasion": {"x": 300, "y": 455, "size": 10, "align": "left"},
         "PersuasionCB": {"x": 300, "y": 475, "size": 10, "align": "left"},
-        "PlayerName": {"x": 420, "y": 10, "size": 10, "align": "left"},
+        "PlayerName": {"x": 420, "y": 25, "size": 10, "align": "left"},
         "ProficiencyBonus": {"x": 220, "y": 715, "size": 10, "align": "left"},
         "Race": {"x": 60, "y": 675, "size": 10, "align": "left"},
         "Religion": {"x": 340, "y": 415, "size": 10, "align": "left"},
