@@ -207,11 +207,28 @@ def _default_spell_quota(class_name: str, level: int, character_data: Mapping[st
 # -------- main API --------
 
 def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -> Dict[str, Any]:
+    out: Dict[str, Any] = {}
+
+    # Spellcasting stats
+    spellcasting_ability = (
+        "Charisma" if class_name in {"Sorcerer", "Warlock", "Bard", "Paladin"} else
+        "Wisdom"   if class_name in {"Cleric", "Druid", "Ranger"} else
+        "Wisdom" if class_name in {"Cleric", "Druid", "Ranger"} else
+        "Intelligence"
+    )
+    prof_bonus = int(character_data.get("ProficiencyBonus", 2))
+    ability_score = int(character_data.get(spellcasting_ability, 10))
+    ability_mod = (ability_score - 10) // 2
+    spell_save_dc = 8 + prof_bonus + ability_mod
+    spell_attack_bonus = prof_bonus + ability_mod
     level = int(character_data.get("Level", 1) or 1)
     max_lvl = _max_spell_level_for(class_name, level)
-
     all_spells = _load_spells_default()  # your existing loader
     want = _normalize_class_name(class_name)
+    out["SpellSaveDC"] = spell_save_dc
+    out["SpellAttackBonus"] = spell_attack_bonus
+    out["SpellcastingAbility"] = spellcasting_ability
+    out["SpellcastingClass"] = class_name
 
     def class_matches(sp: Mapping[str, Any]) -> bool:
         raw = sp.get("classes", [])
@@ -271,7 +288,6 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
             selected.append(sp)
 
     # --- build Spell1.. and flattened columns ---
-    out: Dict[str, Any] = {}
     def _crm_from_components(components) -> str:
         if isinstance(components, str):
             return components
