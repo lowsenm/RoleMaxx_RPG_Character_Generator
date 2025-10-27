@@ -26,33 +26,6 @@ def pick_languages(existing, extra_count):
 
 def build_character(known_languages, race, sex, char_class, background, level, alignment):
 
-    races = [
-        "Elf", "Dwarf", "Human", "Halfling", "Dragonborn", "Gnome",
-        "Half-Elf", "Half-Orc", "Tiefling"
-    ]
-
-    sexes = ["Male", "Female", "Surprise me!"]
-
-    classes = [
-        "Fighter", "Wizard", "Rogue", "Barbarian", "Bard", "Cleric", "Druid",
-        "Monk", "Paladin", "Ranger", "Sorcerer", "Warlock"
-    ]
-
-    alignments = [
-        "Lawful Good", "Lawful Neutral", "Lawful Evil",
-        "Neutral Good", "True Neutral", "Neutral Evil",
-        "Chaotic Good", "Chaotic Neutral", "Chaotic Evil"
-    ]
-
-    backgrounds = [
-        "Noble", "Soldier", "Scholar", "Shoemaker", "Artisan", "Criminal Organization",
-        "Performer", "Petty Crook", "Trader-Traveler", "Street Urchin", "Spy",
-        "Acolyte", "Ascetic", "Herder", "Farmer", "Local Hero", "Montaignard",
-        "Forester", "Riverman"
-    ]
-
-    levels = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
-
     racial_languages = {
         "Elf": ["Common", "Elvish"],
         "Dwarf": ["Common", "Dwarvish"],
@@ -67,19 +40,35 @@ def build_character(known_languages, race, sex, char_class, background, level, a
     
     print("🧝 Welcome to the D&D Character Builder 🛠️")
     # generate empty slots if and as required
-    if sex == "":
+
+    if not sex:
         sex = random.choice(["male", "female", "surprise me"])
-    if alignment == "":
-        alignment = random.choice(["Lawful Good", "Neutral", "Chaotic Evil", "Lawful Neutral", "Lawful Evil", "Neutral Good", "True Neutral",
-    "Neutral Evil", "Chaotic Good", "Chaotic Neutral"])
-    if race == "":
-        race = random.choice(["Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"])
-    if char_class == "":
-        char_class = random.choice(["Fighter", "Wizard", "Rogue", "Cleric", "Barbarian", "Bard", "Druid", "Monk", "Paladin", "Ranger", "Sorcerer", "Warlock"])
-    if background == "":
-        background = random.choice(["Soldier", "Sage", "Noble", "Outlander", "Scholar", "Shoemaker", "Artisan", "Criminal Organization", "Performer",
-    "Petty Crook", "Trader-Traveler", "Street Urchin", "Spy", "Acolyte", "Ascetic", "Herder", "Farmer", "Local Hero",
-    "Montaignard", "Forester", "Riverman"])
+
+    if not alignment:
+        alignment = random.choice([
+            "Lawful Good", "Neutral", "Chaotic Evil", "Lawful Neutral", "Lawful Evil",
+            "Neutral Good", "True Neutral", "Neutral Evil", "Chaotic Good", "Chaotic Neutral"
+        ])
+
+    if not race:
+        race = random.choice([
+            "Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome",
+            "Half-Elf", "Half-Orc", "Tiefling"
+        ])
+
+    if not char_class:
+        char_class = random.choice([
+            "Fighter", "Wizard", "Rogue", "Cleric", "Barbarian", "Bard",
+            "Druid", "Monk", "Paladin", "Ranger", "Sorcerer", "Warlock"
+        ])
+
+    if not background:
+        background = random.choice([
+            "Soldier", "Sage", "Noble", "Outlander", "Scholar", "Shoemaker", "Artisan",
+            "Criminal Organization", "Performer", "Petty Crook", "Trader-Traveler",
+            "Street Urchin", "Spy", "Acolyte", "Ascetic", "Herder", "Farmer",
+            "Local Hero", "Montaignard", "Forester", "Riverman"
+        ])
         
     # Start with racial languages
     known_languages = list(racial_languages.get(race, ["Common"]))

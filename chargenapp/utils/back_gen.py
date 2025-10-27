@@ -119,7 +119,7 @@ def generate_physical_traits(race):
 
 def backgen(name, sex, alignment, race, char_class, background, known_languages):
     # generate name if required
-    if name == "":
+    if not name:
         prompt = (
             f"Create a name for a fantasy character. Use one or two words, no more.\n"
             f"Examples:\n"
