@@ -98,4 +98,4 @@ def build_character(known_languages, race, sex, char_class, background, level, a
 
     print("\n🎉 Character Created!")
     
-    return(known_languages)
+    return(known_languages, race, sex, char_class, background, level, alignment)
