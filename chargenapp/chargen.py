@@ -41,11 +41,8 @@ def chargen_call(character_data):
 
     title = get_level_title(char_class, level)
     known_languages = []
-    #troubleshooter
-    print("1", race, sex, char_class, background, level, alignment)
+    
     known_languages, race, sex, char_class, background, level, alignment = build_character(known_languages, race, sex, char_class, background, level, alignment)
-    #troubleshooter
-    print("3", race, sex, char_class, background, level, alignment)
 
     # Generate background
     name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = backgen(name, sex, alignment, race, char_class, background, known_languages)
@@ -66,7 +63,14 @@ def chargen_call(character_data):
         "Flaws": flaw,
         "XP": char_stats["XP"],
         "Level": char_stats["level"],
-        "Allies&Organizations": allies
+        "Allies&Organizations": allies,
+        "Race": race,
+        "Class": char_class,
+        "Background": "background",
+        "Level": "level",
+        "Alignment": "alignment",
+        "Sex": "sex",
+        "PlayerName": str(data["player_name"])
     })
 
     # Add the ability scores
@@ -108,8 +112,7 @@ def chargen_call(character_data):
         "Build": physical_traits.get("Build", ""),
         "Hair": physical_traits.get("Hair", "")
     })
-    #troubleshooter
-    print("4", race, sex, char_class, background, level, alignment)
+
     character_data.update({"Appearance": generate_character_image(character_data)})
 
     # Add saving throws and treasure
