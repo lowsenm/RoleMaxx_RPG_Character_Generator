@@ -66,11 +66,10 @@ def chargen_call(character_data):
         "Allies&Organizations": allies,
         "Race": race,
         "Class": char_class,
-        "Background": "background",
-        "Level": "level",
-        "Alignment": "alignment",
-        "Sex": "sex",
-        "PlayerName": str(data["player_name"])
+        "Background": background,
+        "Level": level,
+        "Alignment": alignment,
+        "Sex": sex
     })
 
     # Add the ability scores
