@@ -22,39 +22,36 @@ class CharacterForm(forms.Form):
         self.fields['alignment'].choices = [(opt, opt) for opt in options['Alignment']]
         self.fields['sex'].choices = [(opt, opt) for opt in options['Sex']]
 
-
-
-
     char_name = forms.CharField(max_length=100, required=False, label='Character Name')
 
     race = forms.ChoiceField(
         choices=[],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label='Select Race'
     )
     char_class = forms.ChoiceField(
         choices=[],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label='Select Class'
     )
     alignment = forms.ChoiceField(
         choices=[],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label='Select Alignment'
     )
     sex = forms.ChoiceField(
         choices=[],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label='This character is...'
     )
     background = forms.ChoiceField(
         choices=[],
         widget=forms.RadioSelect,
-        required=True,
+        required=False,
         label='Select Background'
     )
 
@@ -66,4 +63,4 @@ class CharacterForm(forms.Form):
         label='Select Level'
     )
 
-    player_name = forms.CharField(max_length=100, required=True, label='Player Name')
+    player_name = forms.CharField(max_length=100, required=False, label='Player Name')

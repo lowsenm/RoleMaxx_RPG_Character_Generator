@@ -118,6 +118,7 @@ def generate_physical_traits(race):
 
 
 def backgen(name, sex, alignment, race, char_class, background, known_languages):
+    # generate empty slots if and as required
     if name == "":
         prompt = (
             f"Create a name for a fantasy character. Use one or two words, no more.\n"
@@ -128,8 +129,20 @@ def backgen(name, sex, alignment, race, char_class, background, known_languages)
             f"4. {sex} {race} {char_class}:\n"
         )
         name = str(openaigen(prompt, 5))
-    #Debugger
-#    name, backstory, traits, ideal, bonds, flaw = " ", " ", " ", " ", " ", " "
+
+    if sex == "":
+        sex = random.choice(["male", "female", "surprise me"])
+    if alignment == "":
+        alignment = random.choice(["Lawful Good", "Neutral", "Chaotic Evil", "Lawful Neutral", "Lawful Evil", "Neutral Good", "True Neutral",
+    "Neutral Evil", "Chaotic Good", "Chaotic Neutral"])
+    if race == "":
+        race = random.choice(["Human", "Elf", "Dwarf", "Halfling", "Dragonborn", "Gnome", "Half-Elf", "Half-Orc", "Tiefling"])
+    if char_class == "":
+        char_class = random.choice(["Fighter", "Wizard", "Rogue", "Cleric", "Barbarian", "Bard", "Druid", "Monk", "Paladin", "Ranger", "Sorcerer", "Warlock"])
+    if background == "":
+        background = random.choice(["Soldier", "Sage", "Noble", "Outlander", "Scholar", "Shoemaker", "Artisan", "Criminal Organization", "Performer",
+    "Petty Crook", "Trader-Traveler", "Street Urchin", "Spy", "Acolyte", "Ascetic", "Herder", "Farmer", "Local Hero",
+    "Montaignard", "Forester", "Riverman"])
 
     prompt = f"Create a brief backstory for a {sex} {alignment} {race} {char_class} with {background} background who speaks {known_languages} named {name}. No more than 660 characters. End your response with a complete sentence."
     backstory = str(openaigen(prompt, 175))
