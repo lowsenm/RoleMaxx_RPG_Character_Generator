@@ -69,6 +69,9 @@ def build_character(known_languages, race, sex, char_class, background, level, a
             "Street Urchin", "Spy", "Acolyte", "Ascetic", "Herder", "Farmer",
             "Local Hero", "Montaignard", "Forester", "Riverman"
         ])
+
+    #troubleshooter
+    print("2", race, sex, char_class, background, level, alignment)
         
     # Start with racial languages
     known_languages = list(racial_languages.get(race, ["Common"]))
