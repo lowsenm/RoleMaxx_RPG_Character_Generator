@@ -41,7 +41,7 @@ def chargen_call(character_data):
 
     title = get_level_title(char_class, level)
     known_languages = []
-    known_languages = build_character(known_languages, race, sex, char_class, background, level, alignment)
+    known_languages, race, sex, char_class, background, level, alignment = build_character(known_languages, race, sex, char_class, background, level, alignment)
 
     # Generate background
     name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = backgen(name, sex, alignment, race, char_class, background, known_languages)
