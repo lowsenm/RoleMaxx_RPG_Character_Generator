@@ -24,21 +24,6 @@ def pick_languages(existing, extra_count):
             print("Please enter a number.")
     return chosen
 
-def choose_from_list(prompt, options):
-    """Prompt user to choose from a list."""
-    while True:
-        print(f"\n{prompt}")
-        for i, option in enumerate(options):
-            print(f"  {i + 1}. {option}")
-        try:
-            choice = int(input("Enter number: ")) - 1
-            if 0 <= choice < len(options):
-                return options[choice]
-            else:
-                print("Invalid selection.")
-        except ValueError:
-            print("Please enter a valid number.")
-
 def build_character(known_languages, race, sex, char_class, background, level, alignment):
 
     races = [
@@ -81,18 +66,6 @@ def build_character(known_languages, race, sex, char_class, background, level, a
     }
     
     print("🧝 Welcome to the D&D Character Builder 🛠️")
-    if race == "":
-        race = choose_from_list("Select Race:", races)
-    if sex == "":
-        sex = choose_from_list("This character is:", sexes)
-    if char_class == "":
-        char_class = choose_from_list("Select Class:", classes)
-    if background == "":
-        background = choose_from_list("Select Background:", backgrounds)
-    if level == "":
-        level = choose_from_list("Select Level:", levels)
-    if alignment == "":
-        alignment = choose_from_list("Select Alignment:", alignments)
 
     # Start with racial languages
     known_languages = list(racial_languages.get(race, ["Common"]))
