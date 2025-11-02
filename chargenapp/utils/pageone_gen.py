@@ -3,6 +3,27 @@ import random, json, os
 from django.conf import settings
 
 
+# Level → count plan per ItemType
+# Buckets: "lvl1", "lvl2_4", "lvl5_10", "lvl11_19", "lvl20p"
+ITEMTYPE_COUNTS_BY_LEVEL = {
+    "apparel":    {"lvl1": 1, "lvl2_4": 2, "lvl5_10": 2, "lvl11_19": 2, "lvl20p": 3},
+    "armor":      {"lvl1": 1, "lvl2_4": 1, "lvl5_10": 1, "lvl11_19": 1, "lvl20p": 1},
+    "gear":       {"lvl1": 1, "lvl2_4": 3, "lvl5_10": 5, "lvl11_19": 6, "lvl20p": 7},
+    "mount":      {"lvl1": 0, "lvl2_4": 0, "lvl5_10": 1, "lvl11_19": 1, "lvl20p": 1},
+    "mount_item": {"lvl1": 0, "lvl2_4": 0, "lvl5_10": 1, "lvl11_19": 2, "lvl20p": 3},
+    "prof_item":  {"lvl1": 1, "lvl2_4": 2, "lvl5_10": 3, "lvl11_19": 4, "lvl20p": 5},
+    "tool":       {"lvl1": 1, "lvl2_4": 3, "lvl5_10": 3, "lvl11_19": 5, "lvl20p": 5},
+    "weapon":     {"lvl1": 1, "lvl2_4": 2, "lvl5_10": 3, "lvl11_19": 3, "lvl20p": 3},
+    "container":  {"lvl1": 1, "lvl2_4": 2, "lvl5_10": 2, "lvl11_19": 2, "lvl20p": 3},
+}
+
+def _level_bucket(level: int) -> str:
+    if level <= 1: return "lvl1"
+    if 2 <= level <= 4: return "lvl2_4"
+    if 5 <= level <= 10: return "lvl5_10"
+    if 11 <= level <= 19: return "lvl11_19"
+    return "lvl20p"
+
 top_cantrip_pool = {
     "Warlock": ["Eldritch Blast (Evocation)"],
     "Wizard": ["Fire Bolt (Evocation)", "Ray Of Frost (Evocation)", "Toll The Dead (Necromancy)", "Chill Touch (Necromancy)"],
@@ -100,7 +121,7 @@ with open(file_path, "r", encoding="utf-8") as f:
 
     weapon_indices = set(weapons.keys())
 
-
+# --- Replace your existing select_equipment with this version ---
 
 def select_equipment(race, char_class, background, level):
     # Load equipment data
@@ -108,39 +129,46 @@ def select_equipment(race, char_class, background, level):
     with open(file_path, "r", encoding="utf-8") as ef:
         equipment_data = json.load(ef)
 
-    # Build category-based index pools
+    # Build category pools (case-insensitive ItemType)
     categories = {
         "weapon": [],
         "tool": [],
         "armor": [],
         "gear": [],
         "apparel": [],
-        "mount": []
+        "mount": [],
+        "mount_item": [],
+        "prof_item": [],
+        "container": [],
     }
 
-    for idx, data in equipment_data.items():
-        item_type = data.get("ItemType", "").lower()
+    for idx_str, data in equipment_data.items():
+        try:
+            idx = int(idx_str)
+        except Exception:
+            continue
+        item_type = (data.get("ItemType") or "").strip().lower()
         if item_type in categories:
-            categories[item_type].append(int(idx))
+            categories[item_type].append(idx)
 
-    # Number of items per category
-    num_items = {
-        "weapon": 3,
-        "tool": 4,
-        "armor": 1,
-        "gear": 4,
-        "apparel": 1,
-        "mount": 1 if level >= 10 else 0
+    # Determine counts for this level
+    bucket = _level_bucket(int(level))
+    requested_counts = {
+        itype: ITEMTYPE_COUNTS_BY_LEVEL[itype][bucket]
+        for itype in categories.keys()
     }
 
-    # Random selection
+    # Select items, capped by available pool sizes
     selected = []
-    for cat, count in num_items.items():
-        if categories[cat] and count > 0:
-            selected.extend(random.sample(categories[cat], min(count, len(categories[cat]))))
+    for itype, pool in categories.items():
+        need = requested_counts.get(itype, 0)
+        if not pool or need <= 0:
+            continue
+        # sample without replacement up to pool size
+        take = min(need, len(pool))
+        selected.extend(random.sample(pool, take))
 
     return sorted(selected)
-
 
 def add_features_traits_and_gear(character_data):
     race = character_data.get("Race", "").lower()
