@@ -41,7 +41,7 @@ def calculate_saving_throws(character_data):
 
 def assign_treasure(character_data):
     level = int(character_data.get("Level", 1))
-    count = max(1, level // 3)  # 1 item minimum
+    count = max(0, level // 3)  # 0 item minimum
 
     # Load magic items from the JSON file
     json_path = os.path.join(os.path.dirname(__file__), "../data/magic_items.json")
@@ -69,8 +69,8 @@ def assign_treasure(character_data):
         "Map to a hidden vault", "Set of jeweled dice (60 gp)"
     ]
 
-    assigned_magic = random.sample(magic_items, min(count, len(magic_items)))
-    assigned_loot = random.sample(mundane_treasures, min(count, len(mundane_treasures)))
+    assigned_loot = random.sample(mundane_treasures, min((count//2)+1, len(mundane_treasures)))
+    assigned_magic = random.sample(magic_items, min(count//2, len(magic_items)))
 
     treasure_list = assigned_magic + assigned_loot
     character_data["Treasure"] = "\n".join(treasure_list)

@@ -206,6 +206,88 @@ def _default_spell_quota(class_name: str, level: int, character_data: Mapping[st
 
 # -------- main API --------
 
+# --- NEW: levelups loader + progression extractor ----------------------------
+
+def _load_levelups() -> Dict[str, Any]:
+    """
+    Load ../data/levelups.json (preferred) or ./levelups.json.
+    Returns a dict with keys: "fullTable", "paladinRangerTable".
+    """
+    base = os.path.dirname(__file__)
+    candidates = [
+        os.path.normpath(os.path.join(base, "../data/levelups.json")),
+        os.path.normpath(os.path.join(base, "levelups.json")),
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            with open(path, "r", encoding="utf-8") as f:
+                return json.load(f)
+    raise FileNotFoundError("levelups.json not found next to script or in ../data/")
+
+def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
+    data = _load_levelups()
+    c = _normalize_class_name(class_name)
+    L = max(1, min(20, int(level or 1)))
+
+    # --- Sorcerer branch (uses sorcererTable) -------------------------------
+    if c == "sorcerer":
+        table = data.get("sorcererTable") or data.get("fullTable") or []
+        row = next((r for r in table if int(r.get("level", -1)) == L), None)
+        if not row:
+            return {}
+
+        # pull slots and normalize keys 1..9
+        slots = row.get("spellSlots", {}) or {}
+        spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
+        max_slot = max((lvl for lvl, n in spell_slots.items() if int(n) > 0), default=0)
+
+        # prefer the sorcerer-specific fields; fall back to generic if absent
+        cantrips_known = int(row.get("sorcererCantripsKnown", row.get("cantripsKnown", 0)) or 0)
+        spells_known   = int(row.get("sorcererSpellsKnown",   row.get("spellsKnown",   0)) or 0)
+        spell_points   = int(row.get("sorcererSpellPoints", 0) or 0)
+
+        return {
+            "cantripsKnown": cantrips_known,
+            "spellsKnown": spells_known,
+            "spellSlots": spell_slots,
+            "maxSlotLevel": max_slot,
+            "sorceryPoints": spell_points,   # <- NEW: passthrough
+        }
+
+    # --- Paladin/Ranger branch (as you already have) ------------------------
+    if c in {"paladin", "ranger"}:
+        table = data.get("paladinRangerTable", [])
+        row = next((r for r in table if int(r.get("level", -1)) == L), None)
+        if not row:
+            return {}
+        sc = row.get("spellcasting", {}) or {}
+        slots = sc.get("spellSlots", {}) or {}
+        spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
+        max_slot = max((lvl for lvl, n in spell_slots.items() if int(n) > 0), default=0)
+        return {
+            "cantripsKnown": 0,
+            "spellsKnown": int(sc.get("spellsKnown", 0) or 0),
+            "spellSlots": spell_slots,
+            "maxSlotLevel": max_slot,
+        }
+
+    # --- Default: full casters (Bard/Cleric/Druid/Wizard/etc.) --------------
+    table = data.get("fullTable", [])
+    row = next((r for r in table if int(r.get("level", -1)) == L), None)
+    if not row:
+        return {}
+    slots = row.get("spellSlots", {}) or {}
+    spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
+    max_slot = max((lvl for lvl, n in spell_slots.items() if int(n) > 0), default=0)
+    return {
+        "cantripsKnown": int(row.get("cantripsKnown", 0) or 0),
+        "spellsKnown": int(row.get("spellsKnown", 0) or 0),
+        "spellSlots": spell_slots,
+        "maxSlotLevel": max_slot,
+    }
+
+# --- UPDATED: main API wired to levelups.json --------------------------------
+
 def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -> Dict[str, Any]:
     out: Dict[str, Any] = {}
 
@@ -213,7 +295,6 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     spellcasting_ability = (
         "Charisma" if class_name in {"Sorcerer", "Warlock", "Bard", "Paladin"} else
         "Wisdom"   if class_name in {"Cleric", "Druid", "Ranger"} else
-        "Wisdom" if class_name in {"Cleric", "Druid", "Ranger"} else
         "Intelligence"
     )
     prof_bonus = int(character_data.get("ProficiencyBonus", 2))
@@ -222,13 +303,15 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     spell_save_dc = 8 + prof_bonus + ability_mod
     spell_attack_bonus = prof_bonus + ability_mod
     level = int(character_data.get("Level", 1) or 1)
-    max_lvl = _max_spell_level_for(class_name, level)
-    all_spells = _load_spells_default()  # your existing loader
-    want = _normalize_class_name(class_name)
+
     out["SpellSaveDC"] = spell_save_dc
     out["SpellAttackBonus"] = spell_attack_bonus
     out["SpellcastingAbility"] = spellcasting_ability
     out["SpellcastingClass"] = class_name
+
+    # Load spells and build the class pool
+    all_spells = _load_spells_default()
+    want = _normalize_class_name(class_name)
 
     def class_matches(sp: Mapping[str, Any]) -> bool:
         raw = sp.get("classes", [])
@@ -238,7 +321,29 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
             classes = [str(c).strip().lower() for c in (raw or [])]
         return want in classes
 
-    # pool by spell level
+    # --- NEW: pull progression from levelups.json; fallback to old logic if missing
+    try:
+        prog = _progression_from_levelups(class_name, level)
+    except Exception:
+        prog = {}
+
+    if prog:
+        cantrips_known = int(prog.get("cantripsKnown", 0))
+        spells_known_total = int(prog.get("spellsKnown", 0))
+        slots_map = prog.get("spellSlots", {}) or {}
+        max_lvl_from_slots = int(prog.get("maxSlotLevel", 0))
+        max_lvl = max_lvl_from_slots if max_lvl_from_slots > 0 else _max_spell_level_for(class_name, level)
+        if _normalize_class_name(class_name) == "sorcerer":
+            out["SorceryPoints"] = int(prog.get("sorceryPoints", 0))
+    else:
+        # fallback to original computation if levelups.json not found/incomplete
+        cantrips_known = _CANT_KNOWN.get(want, lambda _L: 0)(level)
+        spells_known_total = 0  # prepared casters/others handled by quota below
+        max_lvl = _max_spell_level_for(class_name, level)
+        slots_map = {i: (1 if i <= max_lvl else 0) for i in range(1, 10)}  # minimal placeholder
+
+    # --- build class spell pool, capped by max level from levelups
+    from collections import defaultdict
     pool_by_level: DefaultDict[int, List[Mapping[str, Any]]] = defaultdict(list)
     for sp in all_spells:
         if not class_matches(sp):
@@ -248,36 +353,54 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
             continue
         pool_by_level[sl].append(sp)
 
-    # stable sort: by level then name
     for sl in pool_by_level:
-        pool_by_level[sl].sort(key=lambda sp: ( _norm_level_to_int(sp.get("level", 0)),
-                                                str(sp.get("name","")).lower()))
+        pool_by_level[sl].sort(key=lambda sp: (_norm_level_to_int(sp.get("level", 0)),
+                                               str(sp.get("name", "")).lower()))
 
-    # quotas: allow override via character_data["SpellQuota"] (as strings "0","1"... or ints)
+    # --- quotas (driven by levelups.json) ------------------------------------
+    # Allow explicit override via character_data["SpellQuota"] (same as before)
     override = character_data.get("SpellQuota", {})
     if override:
         quota: Dict[int, int] = {int(k): int(v) for k, v in override.items()}
     else:
-        quota = _default_spell_quota(class_name, level, character_data)
+        quota = {0: cantrips_known}
 
-    # selection per level according to quota
+        # For leveled spells:
+        # If levelups gave us spellSlots, distribute known/prepared spells across
+        # the slot levels that actually exist, top-down, ensuring 1+ at 1st if any remain.
+        remaining = max(0, int(spells_known_total))
+        levels_in_use = [lvl for lvl in range(1, 10) if int(slots_map.get(lvl, 0)) > 0 and lvl <= max_lvl]
+        levels_in_use.sort(reverse=True)
+
+        # First pass: give at most 2 to higher tiers and 3 to 1st/2nd (keeps variety)
+        for sl in levels_in_use:
+            if remaining <= 0:
+                break
+            cap = 2 if sl >= 3 else 3
+            take = min(cap, remaining)
+            quota[sl] = take
+            remaining -= take
+
+        # If spells remain (e.g., big known lists), dump into 1st
+        if remaining > 0:
+            quota[1] = quota.get(1, 0) + remaining
+
+    # --- select spells per quota (unchanged behavior) ------------------------
     selected: List[Mapping[str, Any]] = []
-    # start from highest level down so we respect quotas for top tiers first
     for sl in sorted(quota.keys(), reverse=True):
         if sl < 0:
             continue
-        need = quota.get(sl, 0)
+        need = int(quota.get(sl, 0))
         if need <= 0:
             continue
         available = pool_by_level.get(sl, [])
         take = min(need, len(available))
         selected.extend(available[:take])
 
-    # If we’re short (not enough spells exist at some level), roll the remainder downwards
+    # If short, roll remainder downwards
     total_quota = sum(max(0, v) for v in quota.values())
     if len(selected) < total_quota:
         missing = total_quota - len(selected)
-        # build a fallback list of all remaining (not yet picked), highest level first
         remaining_pool: List[Tuple[int, Mapping[str, Any]]] = []
         already = {id(s) for s in selected}
         for sl in sorted(pool_by_level.keys(), reverse=True):
@@ -287,7 +410,7 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
         for _, sp in remaining_pool[:missing]:
             selected.append(sp)
 
-    # --- build Spell1.. and flattened columns ---
+    # --- serialize into Spell1..Spell30 + flattened columns ------------------
     def _crm_from_components(components) -> str:
         if isinstance(components, str):
             return components
@@ -308,11 +431,10 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
             str(sp.get("school", "")),
         ]
 
-    # pad / serialize into Spell1..Spell30 and flattened SpellN*
     for i in range(30):
-        row = _row_from_spell(selected[i]) if i < len(selected) else ["","","","","",""]
+        row = _row_from_spell(selected[i]) if i < len(selected) else ["", "", "", "", "", ""]
         out[f"Spell{i+1}"] = row
-        lvl, name, ctime, rng, crm, school = ("" if v is None else str(v) for v in (row + [""]*6)[:6])
+        lvl, name, ctime, rng, crm, school = ("" if v is None else str(v) for v in (row + [""] * 6)[:6])
         out[f"Spell{i+1}Level"]  = lvl
         out[f"Spell{i+1}Name"]   = name
         out[f"Spell{i+1}Time"]   = ctime

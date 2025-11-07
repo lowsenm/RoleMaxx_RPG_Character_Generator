@@ -1,0 +1,825 @@
+{
+  "fullTable": [
+    {
+      "level": 1,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 4,
+      "spellSlots": {"1": 2, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Spellcasting", "Bardic Inspiration (d6)"],
+        "Cleric": ["Spellcasting", "Divine Domain"],
+        "Druid": ["Druidic", "Spellcasting"],
+        "Warlock": ["Otherworldly Patron", "Pact"],
+        "Wizard": ["Spellcasting", "Arcane Recovery"],
+        "Fighter": ["Fighting Style", "Second Wind"],
+        "Monk": ["Unarmored Defense", "Martial Arts"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 2,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 5,
+      "spellSlots": {"1": 3, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Jack of All Trades", "Song of Rest (d6)"],
+        "Cleric": ["Channel Divinity (1/rest)", "Divine Domain feature"],
+        "Druid": ["Wild Shape", "Druid Circle"],
+        "Warlock": ["Eldritch Invocations"],
+        "Wizard": ["Arcane Tradition"],
+        "Fighter": ["Action Surge (one use)"],
+        "Monk": ["Ki", "Unarmored Movement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 3,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 6,
+      "spellSlots": {"1": 4, "2": 2, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Bard College", "Expertise"],
+        "Cleric": [],
+        "Druid": [],
+        "Warlock": ["Pact Boon"],
+        "Wizard": [],
+        "Fighter": ["Martial Archetype"],
+        "Monk": ["Monastic Tradition", "Deflect Missiles"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 4,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 3,
+      "spellsKnown": 7,
+      "spellSlots": {"1": 4, "2": 3, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Ability Score Improvement"],
+        "Cleric": ["Ability Score Improvement"],
+        "Druid": ["Wild Shape improvement", "Ability Score Improvement"],
+        "Warlock": ["Ability Score Improvement"],
+        "Wizard": ["Ability Score Improvement"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ability Score Improvement", "Slow Fall"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 5,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 8,
+      "spellSlots": {"1": 4, "2": 3, "3": 2, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Bardic Inspiration (d8)", "Font of Inspiration"],
+        "Cleric": ["Destroy Undead (CR 1/2)"],
+        "Druid": [],
+        "Warlock": [],
+        "Wizard": [],
+        "Fighter": ["Extra Attack"],
+        "Monk": ["Extra Attack", "Stunning Strike"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 6,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 9,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Countercharm", "Bard College feature"],
+        "Cleric": ["Channel Divinity (2/rest)", "Divine Domain feature"],
+        "Druid": ["Druid Circle feature"],
+        "Warlock": ["Otherworldly Patron feature"],
+        "Wizard": ["Arcane Tradition feature"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ki-Empowered Strikes", "Monastic Tradition feature"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 7,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 10,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 1, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": [],
+        "Cleric": [],
+        "Druid": [],
+        "Warlock": [],
+        "Wizard": [],
+        "Fighter": ["Martial Archetype feature"],
+        "Monk": ["Evasion", "Stillness of Mind"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 8,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 11,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 2, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Ability Score Improvement"],
+        "Cleric": ["Ability Score Improvement", "Destroy Undead (CR 1)", "Divine Domain feature"],
+        "Druid": ["Wild Shape improvement", "Ability Score Improvement"],
+        "Warlock": ["Ability Score Improvement"],
+        "Wizard": ["Ability Score Improvement"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ability Score Improvement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 9,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 3,
+      "spellsKnown": 12,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Song of Rest (d8)"],
+        "Cleric": [],
+        "Druid": [],
+        "Warlock": [],
+        "Wizard": [],
+        "Fighter": ["Indomitable (one use)"],
+        "Monk": ["Unarmored Movement improvement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 10,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 14,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Bardic Inspiration (d10)", "Expertise", "Magical Secrets"],
+        "Cleric": ["Divine Intervention"],
+        "Druid": ["Druid Circle feature"],
+        "Warlock": ["Otherworldly Patron feature"],
+        "Wizard": ["Arcane Tradition feature"],
+        "Fighter": ["Martial Archetype feature"],
+        "Monk": ["Purity of Body"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 11,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 15,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": [],
+        "Cleric": ["Destroy Undead (CR 2)"],
+        "Druid": [],
+        "Warlock": ["Mystic Arcanum (6th level)"],
+        "Wizard": [],
+        "Fighter": ["Extra Attack (2)"],
+        "Monk": ["Monastic Tradition feature"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 12,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 15,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Ability Score Improvement"],
+        "Cleric": ["Ability Score Improvement"],
+        "Druid": ["Ability Score Improvement"],
+        "Warlock": ["Ability Score Improvement"],
+        "Wizard": ["Ability Score Improvement"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ability Score Improvement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 13,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 16,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Song of Rest (d10)"],
+        "Cleric": [],
+        "Druid": [],
+        "Warlock": ["Mystic Arcanum (7th level)"],
+        "Wizard": [],
+        "Fighter": ["Indomitable (two uses)"],
+        "Monk": ["Tongue of the Sun and Moon"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 14,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 18,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 0, "9": 0},
+      "features": {
+        "Bard": ["Magical Secrets", "Bard College feature"],
+        "Cleric": ["Destroy Undead (CR 3)"],
+        "Druid": ["Druid Circle feature"],
+        "Warlock": ["Otherworldly Patron feature"],
+        "Wizard": ["Arcane Tradition feature"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Diamond Soul"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 15,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 19,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 0},
+      "features": {
+        "Bard": ["Bardic Inspiration (d12)"],
+        "Cleric": [],
+        "Druid": [],
+        "Warlock": ["Mystic Arcanum (8th level)"],
+        "Wizard": [],
+        "Fighter": ["Martial Archetype feature"],
+        "Monk": ["Timeless Body"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 16,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 19,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 0},
+      "features": {
+        "Bard": ["Ability Score Improvement"],
+        "Cleric": ["Ability Score Improvement"],
+        "Druid": ["Ability Score Improvement"],
+        "Warlock": ["Ability Score Improvement"],
+        "Wizard": ["Ability Score Improvement"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ability Score Improvement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 17,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 20,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 1},
+      "features": {
+        "Bard": ["Song of Rest (d12)"],
+        "Cleric": ["Destroy Undead (CR 4)", "Divine Domain feature"],
+        "Druid": [],
+        "Warlock": ["Mystic Arcanum (9th level)"],
+        "Wizard": [],
+        "Fighter": ["Action Surge (two uses)", "Indomitable (three uses)"],
+        "Monk": ["Monastic Tradition feature"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 18,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 1, "7": 1, "8": 1, "9": 1},
+      "features": {
+        "Bard": ["Magical Secrets"],
+        "Cleric": ["Channel Divinity (3/rest)"],
+        "Druid": ["Timeless Body", "Beast Spells"],
+        "Warlock": [],
+        "Wizard": ["Spell Mastery"],
+        "Fighter": ["Martial Archetype feature"],
+        "Monk": ["Empty Body"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 19,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 1, "8": 1, "9": 1},
+      "features": {
+        "Bard": ["Ability Score Improvement"],
+        "Cleric": ["Ability Score Improvement"],
+        "Druid": ["Ability Score Improvement"],
+        "Warlock": ["Ability Score Improvement"],
+        "Wizard": ["Ability Score Improvement"],
+        "Fighter": ["Ability Score Improvement"],
+        "Monk": ["Ability Score Improvement"],
+        "Rogue": []
+      }
+    },
+    {
+      "level": 20,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1},
+      "features": {
+        "Bard": ["Superior Inspiration"],
+        "Cleric": ["Divine Intervention improvement"],
+        "Druid": ["Archdruid"],
+        "Warlock": ["Eldritch Master"],
+        "Wizard": ["Signature Spell"],
+        "Fighter": ["Extra Attack (3)"],
+        "Monk": ["Perfect Self"],
+        "Rogue": []
+      }
+    }
+  ],
+  "paladinRangerTable": [
+    {
+      "level": 1,
+      "proficiencyBonus": 2,
+      "spellcasting": {
+        "spellsKnown": 0,
+        "spellSlots": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Divine Sense", "Lay on Hands"],
+        "Ranger": ["Favored Enemy", "Natural Explorer"]
+      }
+    },
+    {
+      "level": 2,
+      "proficiencyBonus": 2,
+      "spellcasting": {
+        "spellsKnown": 2,
+        "spellSlots": {"1": 2, "2": 0, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Fighting Style", "Spellcasting", "Divine Smite"],
+        "Ranger": ["Fighting Style", "Spellcasting"]
+      }
+    },
+    {
+      "level": 3,
+      "proficiencyBonus": 2,
+      "spellcasting": {
+        "spellsKnown": 3,
+        "spellSlots": {"1": 3, "2": 0, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Divine Health", "Sacred Oath"],
+        "Ranger": ["Ranger Archetype", "Primeval Awareness"]
+      }
+    },
+    {
+      "level": 4,
+      "proficiencyBonus": 2,
+      "spellcasting": {
+        "spellsKnown": 3,
+        "spellSlots": {"1": 3, "2": 0, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Ability Score Improvement"],
+        "Ranger": ["Ability Score Improvement"]
+      }
+    },
+    {
+      "level": 5,
+      "proficiencyBonus": 3,
+      "spellcasting": {
+        "spellsKnown": 4,
+        "spellSlots": {"1": 4, "2": 2, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Extra Attack"],
+        "Ranger": ["Extra Attack"]
+      }
+    },
+    {
+      "level": 6,
+      "proficiencyBonus": 3,
+      "spellcasting": {
+        "spellsKnown": 4,
+        "spellSlots": {"1": 4, "2": 2, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Aura of Protection"],
+        "Ranger": ["Favored Enemy and Natural Explorer improvements"]
+      }
+    },
+    {
+      "level": 7,
+      "proficiencyBonus": 3,
+      "spellcasting": {
+        "spellsKnown": 5,
+        "spellSlots": {"1": 4, "2": 3, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Sacred Oath feature"],
+        "Ranger": ["Ranger Archetype feature"]
+      }
+    },
+    {
+      "level": 8,
+      "proficiencyBonus": 3,
+      "spellcasting": {
+        "spellsKnown": 5,
+        "spellSlots": {"1": 4, "2": 3, "3": 0, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Ability Score Improvement"],
+        "Ranger": ["Ability Score Improvement", "Land’s Stride"]
+      }
+    },
+    {
+      "level": 9,
+      "proficiencyBonus": 4,
+      "spellcasting": {
+        "spellsKnown": 6,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": [],
+        "Ranger": []
+      }
+    },
+    {
+      "level": 10,
+      "proficiencyBonus": 4,
+      "spellcasting": {
+        "spellsKnown": 6,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Aura of Courage"],
+        "Ranger": ["Natural Explorer improvement", "Hide in Plain Sight"]
+      }
+    },
+    {
+      "level": 11,
+      "proficiencyBonus": 4,
+      "spellcasting": {
+        "spellsKnown": 7,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Improved Divine Smite"],
+        "Ranger": ["Ranger Archetype feature"]
+      }
+    },
+    {
+      "level": 12,
+      "proficiencyBonus": 4,
+      "spellcasting": {
+        "spellsKnown": 7,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Ability Score Improvement"],
+        "Ranger": ["Ability Score Improvement"]
+      }
+    },
+    {
+      "level": 13,
+      "proficiencyBonus": 5,
+      "spellcasting": {
+        "spellsKnown": 8,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 1, "5": 0}
+      },
+      "features": {
+        "Paladin": [],
+        "Ranger": []
+      }
+    },
+    {
+      "level": 14,
+      "proficiencyBonus": 5,
+      "spellcasting": {
+        "spellsKnown": 8,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 1, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Cleansing Touch"],
+        "Ranger": ["Favored Enemy improvement", "Vanish"]
+      }
+    },
+    {
+      "level": 15,
+      "proficiencyBonus": 5,
+      "spellcasting": {
+        "spellsKnown": 9,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 2, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Sacred Oath feature"],
+        "Ranger": ["Ranger Archetype feature"]
+      }
+    },
+    {
+      "level": 16,
+      "proficiencyBonus": 5,
+      "spellcasting": {
+        "spellsKnown": 9,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 2, "5": 0}
+      },
+      "features": {
+        "Paladin": ["Ability Score Improvement"],
+        "Ranger": ["Ability Score Improvement"]
+      }
+    },
+    {
+      "level": 17,
+      "proficiencyBonus": 6,
+      "spellcasting": {
+        "spellsKnown": 10,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1}
+      },
+      "features": {
+        "Paladin": [],
+        "Ranger": []
+      }
+    },
+    {
+      "level": 18,
+      "proficiencyBonus": 6,
+      "spellcasting": {
+        "spellsKnown": 10,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1}
+      },
+      "features": {
+        "Paladin": ["Aura improvements"],
+        "Ranger": ["Feral Senses"]
+      }
+    },
+    {
+      "level": 19,
+      "proficiencyBonus": 6,
+      "spellcasting": {
+        "spellsKnown": 11,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2}
+      },
+      "features": {
+        "Paladin": ["Ability Score Improvement"],
+        "Ranger": ["Ability Score Improvement"]
+      }
+    },
+    {
+      "level": 20,
+      "proficiencyBonus": 6,
+      "spellcasting": {
+        "spellsKnown": 11,
+        "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2}
+      },
+      "features": {
+        "Paladin": ["Sacred Oath feature"],
+        "Ranger": ["Foe Slayer"]
+      }
+    }
+  ]
+  "sorcererTable": [
+    {
+  "fullTable": [
+    {
+      "level": 1,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 4,
+      "spellSlots": {"1": 2, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": {
+        "Sorcerer": []
+      }
+    },
+    {
+      "level": 2,
+  ]
+  "sorcererTable": [
+    {
+      "level": 1,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 4,
+      "spellSlots": {"1": 2, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Spellcasting", "Sorcerous Origin"] },
+      "sorcererSpellsKnown": 4,
+      "sorcererCantripsKnown": 2,
+      "sorcererSpellPoints": 0
+    },
+    {
+      "level": 2,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 5,
+      "spellSlots": {"1": 3, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Font of Magic"] },
+      "sorcererSpellsKnown": 5,
+      "sorcererCantripsKnown": 2,
+      "sorcererSpellPoints": 2
+    },
+    {
+      "level": 3,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 2,
+      "spellsKnown": 6,
+      "spellSlots": {"1": 4, "2": 2, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Metamagic"] },
+      "sorcererSpellsKnown": 6,
+      "sorcererCantripsKnown": 2,
+      "sorcererSpellPoints": 3
+    },
+    {
+      "level": 4,
+      "proficiencyBonus": 2,
+      "cantripsKnown": 3,
+      "spellsKnown": 7,
+      "spellSlots": {"1": 4, "2": 3, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Ability Score Improvement"] },
+      "sorcererSpellsKnown": 7,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 4
+    },
+    {
+      "level": 5,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 8,
+      "spellSlots": {"1": 4, "2": 3, "3": 2, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 8,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 5
+    },
+    {
+      "level": 6,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 9,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Sorcerous Origin feature"] },
+      "sorcererSpellsKnown": 9,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 6
+    },
+    {
+      "level": 7,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 10,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 1, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 10,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 7
+    },
+    {
+      "level": 8,
+      "proficiencyBonus": 3,
+      "cantripsKnown": 3,
+      "spellsKnown": 11,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 2, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Ability Score Improvement"] },
+      "sorcererSpellsKnown": 11,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 8
+    },
+    {
+      "level": 9,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 3,
+      "spellsKnown": 12,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 1, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 12,
+      "sorcererCantripsKnown": 3,
+      "sorcererSpellPoints": 9
+    },
+    {
+      "level": 10,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 14,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 0, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Metamagic"] },
+      "sorcererSpellsKnown": 14,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 10
+    },
+    {
+      "level": 11,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 15,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 15,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 11
+    },
+    {
+      "level": 12,
+      "proficiencyBonus": 4,
+      "cantripsKnown": 4,
+      "spellsKnown": 15,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 0, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Ability Score Improvement"] },
+      "sorcererSpellsKnown": 15,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 12
+    },
+    {
+      "level": 13,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 16,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 0, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 16,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 13
+    },
+    {
+      "level": 14,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 18,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 0, "9": 0},
+      "features": { "Sorcerer": ["Sorcerous Origin feature"] },
+      "sorcererSpellsKnown": 18,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 14
+    },
+    {
+      "level": 15,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 19,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 0},
+      "features": { "Sorcerer": [] },
+      "sorcererSpellsKnown": 19,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 15
+    },
+    {
+      "level": 16,
+      "proficiencyBonus": 5,
+      "cantripsKnown": 4,
+      "spellsKnown": 19,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 0},
+      "features": { "Sorcerer": ["Ability Score Improvement"] },
+      "sorcererSpellsKnown": 19,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 16
+    },
+    {
+      "level": 17,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 20,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 2, "6": 1, "7": 1, "8": 1, "9": 1},
+      "features": { "Sorcerer": ["Metamagic"] },
+      "sorcererSpellsKnown": 20,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 17
+    },
+    {
+      "level": 18,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 1, "7": 1, "8": 1, "9": 1},
+      "features": { "Sorcerer": ["Sorcerous Origin feature"] },
+      "sorcererSpellsKnown": 22,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 18
+    },
+    {
+      "level": 19,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 1, "8": 1, "9": 1},
+      "features": { "Sorcerer": ["Ability Score Improvement"] },
+      "sorcererSpellsKnown": 22,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 19
+    },
+    {
+      "level": 20,
+      "proficiencyBonus": 6,
+      "cantripsKnown": 4,
+      "spellsKnown": 22,
+      "spellSlots": {"1": 4, "2": 3, "3": 3, "4": 3, "5": 3, "6": 2, "7": 2, "8": 1, "9": 1},
+      "features": { "Sorcerer": ["Sorcerous Restoration"] },
+      "sorcererSpellsKnown": 22,
+      "sorcererCantripsKnown": 4,
+      "sorcererSpellPoints": 20
+    }
+  ]
+}
+

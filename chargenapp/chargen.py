@@ -39,10 +39,11 @@ def chargen_call(character_data):
     alignment = character_data["Alignment"]
     name = character_data["CharacterName"]
 
-    title = get_level_title(char_class, level)
     known_languages = []
     
     known_languages, race, sex, char_class, background, level, alignment = build_character(known_languages, race, sex, char_class, background, level, alignment)
+
+    title = get_level_title(char_class, level)
 
     # Generate background
     name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = backgen(name, sex, alignment, race, char_class, background, known_languages)
@@ -89,13 +90,13 @@ def chargen_call(character_data):
     if char_class in spellcasting_classes:
         character_data.update(fill_spellcasting_info(char_class, character_data))
 
-    # Add combat stats
-    calculate_combat_stats(character_data)
-
     # Add features traits and gear
     add_features_traits_and_gear(character_data)
     #print("chargen chardat WeaponIndices:", character_data["WeaponIndices"])
 
+    # Add combat stats
+    calculate_combat_stats(character_data)
+    
     # Discover key attacks
     parse_attacks(character_data)
 
