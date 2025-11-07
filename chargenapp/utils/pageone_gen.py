@@ -286,4 +286,3 @@ def add_features_traits_and_gear(character_data):
             character_data[key] = str(coins.get(key, 0))
     except Exception as e:
         print("Error generating coin values:", e)
-

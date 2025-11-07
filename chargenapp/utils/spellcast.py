@@ -214,14 +214,10 @@ def _load_levelups() -> Dict[str, Any]:
     Returns a dict with keys: "fullTable", "paladinRangerTable".
     """
     base = os.path.dirname(__file__)
-    candidates = [
-        os.path.normpath(os.path.join(base, "../data/levelups.json")),
-        os.path.normpath(os.path.join(base, "levelups.json")),
-    ]
-    for path in candidates:
-        if os.path.exists(path):
-            with open(path, "r", encoding="utf-8") as f:
-                return json.load(f)
+    path = os.path.normpath(os.path.join(base, "../data/levelups.json"))
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return json.load(f)
     raise FileNotFoundError("levelups.json not found next to script or in ../data/")
 
 def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
