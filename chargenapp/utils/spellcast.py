@@ -216,6 +216,7 @@ def _load_levelups() -> Dict[str, Any]:
     base = os.path.dirname(__file__)
     path = os.path.normpath(os.path.join(base, "../data/levelups.json"))
     if os.path.exists(path):
+        print("🗡️ GOT PATH")
         with open(path, "r", encoding="utf-8") as f:
             return json.load(f)
     raise FileNotFoundError("levelups.json not found next to script or in ../data/")
@@ -254,11 +255,15 @@ def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
         table = data.get("paladinRangerTable", [])
         row = next((r for r in table if int(r.get("level", -1)) == L), None)
         if not row:
+            print("🗡️ ROW NOT FOUND")
             return {}
         sc = row.get("spellcasting", {}) or {}
+        print("🗡️ GOT SC SPELLCASTING:", sc)
         slots = sc.get("spellSlots", {}) or {}
+        print("🗡️ GOT SLOTS SPELLSLOTS", slots)
         spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
         max_slot = max((lvl for lvl, n in spell_slots.items() if int(n) > 0), default=0)
+        print("🗡️ GOT MAX_SLOT", max_slot)
         return {
             "cantripsKnown": 0,
             "spellsKnown": int(sc.get("spellsKnown", 0) or 0),
