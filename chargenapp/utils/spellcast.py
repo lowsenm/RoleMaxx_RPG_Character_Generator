@@ -231,7 +231,6 @@ def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
         row = next((r for r in table if int(r.get("level", -1)) == L), None)
         if not row:
             return {}
-
         # pull slots and normalize keys 1..9
         slots = row.get("spellSlots", {}) or {}
         spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
@@ -320,6 +319,10 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
     # --- NEW: pull progression from levelups.json; fallback to old logic if missing
     try:
         prog = _progression_from_levelups(class_name, level)
+
+#DEBUG
+        print("Variable prog at fill_spellcasting_info:", prog)
+    
     except Exception:
         prog = {}
 
