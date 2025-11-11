@@ -44,6 +44,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://*.pythonanywhere.com"
 ]
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -149,8 +150,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'chargenapp', 'static'),
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+#remove comment for deployment:
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Default primary key field type
@@ -158,10 +162,35 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# SECURITY SETTINGS
-SECURE_SSL_REDIRECT = True
+# DEPLOYMENT SECURITY SETTINGS
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+
+"""
+# DEV / TEST SETTINGS
+DEBUG = True
+
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", "0.0.0.0", "BenTPLaptop"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:8000", "http://127.0.0.1:8000",
+]
+
+# TEST ENV SECURITY SETTINGS
+SECURE_SSL_REDIRECT = False
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False
+X_FRAME_OPTIONS = 'DENY'
+SECURE_BROWSER_XSS_FILTER = False
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_HSTS_SECONDS = 0
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_HSTS_PRELOAD = False
+
+# Don’t pretend we’re behind HTTPS locally
+SECURE_PROXY_SSL_HEADER = None
+USE_X_FORWARDED_HOST = False
+#"""

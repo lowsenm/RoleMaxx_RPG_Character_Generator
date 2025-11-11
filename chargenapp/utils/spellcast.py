@@ -5,10 +5,22 @@ import re
 import re
 from typing import Any, Mapping, Dict, List, Tuple, DefaultDict
 from collections import defaultdict
+from django.conf import settings
+import os, inspect
+
 
 # ----------------
 # HELPERS
-# ----------------
+# ---------------
+
+_dice_re = re.compile(r"^\s*(\d+)\s*[dD]\s*(\d+)\s*$")
+
+def _expected_from_dice(dice: str) -> float:
+    m = _dice_re.match(dice or "")
+    if not m: 
+        return 0.0
+    n, s = int(m.group(1)), int(m.group(2))
+    return n * (s + 1) / 2.0  # average of 1..s is (s+1)/2
 
 # --- level parsing (keeps your "cantrip" -> 0 behavior) ---
 def _norm_level_to_int(v: Any) -> int:
@@ -213,12 +225,9 @@ def _load_levelups() -> Dict[str, Any]:
     Load ../data/levelups.json (preferred) or ./levelups.json.
     Returns a dict with keys: "fullTable", "paladinRangerTable".
     """
-    base = os.path.dirname(__file__)
-    path = os.path.normpath(os.path.join(base, "../data/levelups.json"))
-    if os.path.exists(path):
-        print("🗡️ GOT PATH")
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
+    file_path = os.path.join(settings.BASE_DIR, "chargenapp", "data", "levelups.json")
+    with open(file_path, "r", encoding="utf-8") as f:
+        return json.load(f)
     raise FileNotFoundError("levelups.json not found next to script or in ../data/")
 
 def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
@@ -255,15 +264,11 @@ def _progression_from_levelups(class_name: str, level: int) -> Dict[str, Any]:
         table = data.get("paladinRangerTable", [])
         row = next((r for r in table if int(r.get("level", -1)) == L), None)
         if not row:
-            print("🗡️ ROW NOT FOUND")
             return {}
         sc = row.get("spellcasting", {}) or {}
-        print("🗡️ GOT SC SPELLCASTING:", sc)
         slots = sc.get("spellSlots", {}) or {}
-        print("🗡️ GOT SLOTS SPELLSLOTS", slots)
         spell_slots = {i: int(slots.get(str(i), 0)) for i in range(1, 10)}
         max_slot = max((lvl for lvl, n in spell_slots.items() if int(n) > 0), default=0)
-        print("🗡️ GOT MAX_SLOT", max_slot)
         return {
             "cantripsKnown": 0,
             "spellsKnown": int(sc.get("spellsKnown", 0) or 0),
@@ -323,11 +328,7 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
 
     # --- NEW: pull progression from levelups.json; fallback to old logic if missing
     try:
-        prog = _progression_from_levelups(class_name, level)
-
-#DEBUG
-        print("Variable prog at fill_spellcasting_info:", prog)
-    
+        prog = _progression_from_levelups(class_name, level)    
     except Exception:
         prog = {}
 
@@ -435,6 +436,8 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
             str(sp.get("school", "")),
         ]
 
+    top_spell_candidates = []
+    
     for i in range(30):
         row = _row_from_spell(selected[i]) if i < len(selected) else ["", "", "", "", "", ""]
         out[f"Spell{i+1}"] = row
@@ -445,5 +448,20 @@ def fill_spellcasting_info(class_name: str, character_data: Mapping[str, Any]) -
         out[f"Spell{i+1}Range"]  = rng
         out[f"Spell{i+1}CRM"]    = crm
         out[f"Spell{i+1}School"] = school
+        top_spell_candidates.append({"name": name, "level": lvl, "damage_dice": ((selected[i] if i < len(selected) else {}) or {}).get("basic_damage") or ((selected[i] if i < len(selected) else {}) or {}).get("damage_dice") or ""})
 
+    # ID top spell and cantrip
+
+    top_spell_candidates = sorted(top_spell_candidates, key=lambda x: _expected_from_dice(x.get("damage_dice","")), reverse=True)
+    top_spell_candidates = list(filter(None, [next((s for s in top_spell_candidates if int(s.get("level") or 0) == 0), None), next((s for s in top_spell_candidates if int(s.get("level") or 0) > 0), None)]))
+
+    # Sort descending by expected damage; ties break on level (higher first)
+    top_spell_candidates = sorted(
+        top_spell_candidates,
+        key=lambda x: (_expected_from_dice(x.get("damage_dice", "")), int(x.get("level") or 0)),
+        reverse=True,
+    )
+    print(top_spell_candidates)
+    character_data.update({"SpellCandidates": top_spell_candidates})
+    
     return out

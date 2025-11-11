@@ -45,9 +45,12 @@ def chargen_call(character_data):
 
     title = get_level_title(char_class, level)
 
-    # Generate background
+
+# GENERATE BACKGROUND
     name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = backgen(name, sex, alignment, race, char_class, background, known_languages)
-    #non-gen test line: "A", "B", "C", "D", "E", {}, "G"
+    #non-gen TEST LINE: 
+    #name, backstory, traits, ideal, bonds, flaw, physical_traits, allies = "A", "B", "C", "D", "E", "F", {}, "G"
+
 
     # Create char data to send to pdfrw
     char_stats = generate_character_stats(race, char_class, level)
@@ -113,7 +116,9 @@ def chargen_call(character_data):
         "Hair": physical_traits.get("Hair", "")
     })
 
+# GENERATE PIC
     character_data.update({"Appearance": generate_character_image(character_data)})
+    #character_data.update({"Appearance": ""})
 
     # Add saving throws and treasure
     character_data.update(calculate_saving_throws(character_data))
