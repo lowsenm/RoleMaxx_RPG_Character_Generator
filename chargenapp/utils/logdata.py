@@ -1,31 +1,46 @@
-import json
-import os
-from datetime import datetime
+import json, os, datetime
 
+def log_character(character_data, file_path):
+    # Make sure directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-def log_character(character_data, filename):
-    # Build entry
+    # Load whatever is there
+    container = "list_root"   # or "dict_with_log"
+    data = None
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        data = []
+
+    # Coerce to a list we can append to
+    if isinstance(data, dict):
+        if "log" in data and isinstance(data["log"], list):
+            log = data["log"]
+            container = "dict_with_log"
+        else:
+            # Unexpected dict shape: start a new list but keep dict to preserve future fields
+            log = []
+            container = "dict_with_log"
+            data.setdefault("log", log)
+    elif isinstance(data, list):
+        log = data
+    else:
+        # Corrupt/unknown -> start fresh
+        log = []
+        container = "list_root"
+
+    # Build entry (adjust fields to your needs)
     entry = {
-        "timestamp": datetime.now().isoformat(timespec="seconds"),
-        "character_data": character_data
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
+        "character": character_data,  # or a subset if large
     }
 
-    # Load existing log if present
-    if os.path.exists(filename):
-        with open(filename, "r", encoding="utf-8") as f:
-            try:
-                log = json.load(f)
-            except json.JSONDecodeError:
-                log = []
-    else:
-        log = []
-
-    # Append and write back
     log.append(entry)
-    with open(filename, "w", encoding="utf-8") as f:
-        json.dump(log, f, indent=2, ensure_ascii=False)
 
-    print(f"Logged character at {entry['timestamp']} into {filename}")
-
-if __name__ == "__main__":
-    log_character(character_data)
+    # Write back atomically, preserving original container style
+    to_write = data if container == "dict_with_log" else log
+    tmp = file_path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(to_write, f, ensure_ascii=False, indent=2)
+    os.replace(tmp, file_path)
