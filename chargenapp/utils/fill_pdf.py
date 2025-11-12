@@ -155,7 +155,7 @@ def _draw_image(c: rl_canvas.Canvas, src: str, x: float, y: float, w: float, h: 
 
 # ---------- Public API ----------
 
-def fillpdf(input_pdf_path: str, output_pdf_path: str, data_dict: Dict[str, Any]) -> None:
+def fillpdf(output_pdf_path: str, data_dict: Dict[str, Any]) -> None:
     """
     Render fields from data_dict onto one or more pages using coordinates from positions.json,
     then merge each overlay page on top of the background PDF page(s) declared per page in positions.json.

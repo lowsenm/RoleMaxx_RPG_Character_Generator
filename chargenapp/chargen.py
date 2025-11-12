@@ -135,7 +135,8 @@ def chargen_call(character_data):
     dex_mod = character_data.get("DexMod", "0")
     character_data["Initiative"] = dex_mod
 
-    fillpdf(f"{settings.BASE_DIR}/charsheet_v2.3.pdf", pdf_path, character_data)
+    # Fill the final pdf charsheet - actual background sheets in positions.json
+    fillpdf(pdf_path, character_data)
 
     # Log character data
     file_path = os.path.join(settings.BASE_DIR, "chargenapp/data/chardatalog.json")

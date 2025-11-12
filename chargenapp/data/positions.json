@@ -4,7 +4,7 @@
       "meta": {
         "page_width": 612,
         "page_height": 792,
-        "background_pdf": "charsheet_chart.pdf",
+        "background_pdf": "charsheet_v2.3.pdf",
         "background_pdf_page": 0
       },
       "fields": {
@@ -111,7 +111,7 @@
       "meta": {
         "page_width": 612,
         "page_height": 792,
-        "background_pdf": "charsheet_chart.pdf",
+        "background_pdf": "charsheet_v2.3.pdf",
         "background_pdf_page": 1
       },
       "fields": {
