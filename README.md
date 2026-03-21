@@ -27,7 +27,7 @@ activate"
 "Or all together, on pushing system:
 cd C:\Users\lowse\Documents\Games\CharGen\chargen3pa
 git add .
-git commit -m "testing spellcast"
+git commit -m "fix static & charlog 2"
 git push origin main
 
 On the pulling system:
