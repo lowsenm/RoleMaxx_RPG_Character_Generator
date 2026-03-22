@@ -1,4 +1,4 @@
-# RPG Character Generator
+# 🧙‍♂️ RPG Character Generator 🥷
 - An AI-powered D&D-style character generator designed by Ben Lowsen.
 - Demonstration at lowsen.com
 - It creates complete character sheets, including backstories and optional portraits.
