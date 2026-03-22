@@ -1,50 +1,25 @@
-"# RPG-Create-a-Character" 
-"# a user-filled webpage form that returns a fleshed-out RPG character sheet."
+# RPG Character Generator
+An AI-powered D&D-style character generator designed by Ben Lowsen.
+It creates complete character sheets, including backstories and optional portraits.
+This project is designed to be lightweight, customizable, and easy to run locally.
+NOTE: Users will need to use their own OpenAI API keys.
 
-"## To push changes:"
-1. "STAGE AND RECORD CHANGES
-git add .
-git commit -m "Describe your changes"
-"
+---
+## ✨ Features
+- Generate full RPG characters
+- AI-generated backstories
+- AI-generated character portraits
+- Exportable character sheets (PDF)
+- Customizable prompts and styles
 
-2. "PUSH TO GITHUB
-git push origin main
-"
+---
+## ⚠️ Important: API Keys Required
+This project does **not** include API keys.
+To use AI features, you must provide your own key (e.g. OpenAI).
+Add them to the .env.example file and change the name to .env.
 
-3. "PULL TO PYTHONANYWHERE
-cd ~/RPG_Character_Generator  # or wherever your site lives
-(use this console: https://www.pythonanywhere.com/user/lowsenm/consoles/)
-git pull origin main (enter github username / token)
-"
-4. "RELOAD ON PYTHONANYWHERE
-Hit RELOAD here: https://www.pythonanywhere.com/user/lowsenm/webapps/#tab_id_www_lowsen_com
-Then goto site
-"
-
-5. "VIRTUAL ENVIRONMENT: C:\Users\lowse\Documents\Games\CharGen\older versions\.venv\Scripts
-activate"
-
-"Or all together, on pushing system:
-cd C:\Users\lowse\Documents\Games\CharGen\chargen3pa
-git add .
-git commit -m "fix static & charlog 2"
-git push origin main
-
-On the pulling system:
-git pull origin main
-"
-
-6. "For the dev environment, use the following settings:
-"chargenproj/settings.py - dev settings at bottom; quote out for prod
-chargenapp/chargen.py - switch # GENERATE BACKGROUND and # GENERATE PIC
-TO CHECK if browser demands HTTPS: Chrome/Settings/Privacy & Security: delete cookies and cache
-
-In CLI:
-cd C:\Users\lowse\Documents\Games\CharGen\older versions\.venv\Scripts
-activate
-cd C:\Users\lowse\Documents\Games\CharGen\chargen3pa
-python manage.py runserver
-
-The .venv site:
-http://127.0.0.1:8000/
-"
+---
+## 🚀 Getting Started
+```bash
+git clone https://github.com/lowsenm/chargen3pa.git
+cd chargen3pa
