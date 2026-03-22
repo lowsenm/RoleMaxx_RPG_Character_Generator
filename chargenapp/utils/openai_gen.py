@@ -70,7 +70,6 @@ def generate_character_image(character_data, size="1024x1024"):
     except Exception as e:
         print(f"DALL-E error: {str(e)}")
         print(f"Error type: {type(e)}")
-        raise e
         return None
 
 def openaigen(prompt, tokens=150):
@@ -83,7 +82,7 @@ def openaigen(prompt, tokens=150):
         return completion.choices[0].message.content
     except Exception as e:
         print("Error in openaigen:", e)
-        return None
+        return " "
 
 # Optional test run
 if __name__ == "__main__":

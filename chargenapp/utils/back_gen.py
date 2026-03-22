@@ -5,7 +5,7 @@ from chargenapp.utils.openai_gen import openaigen
 def weight_to_build(weight, thresholds):
     """Determine body type based on weight thresholds."""
     low, high = thresholds
-    print('🤣 LOW & HI:', low, high)
+    #print('🤣 LOW & HI:', low, high)
     if weight < low:
         return random.choice(["slight", "lean", "lithe"])
     elif weight > high:
