@@ -7,6 +7,8 @@
 - ALSO NOTE: Even without the keys, the other features should still work.
 - This is a community-maintained project. I may not actively maintain it, but PRs are welcome.
 
+![Screenshot of the app](staticfiles/images/screenshot1.png)
+
 ## ❤️ Support this project
 - If you like this project, please consider supporting at https://paypal.me/benlowsen
 
@@ -24,3 +26,5 @@
 
 ## 🪪 License
 - This project is licensed under the MIT License - see the LICENSE file for details.
+
+![Screenshot of the resulting character sheet](staticfiles/images/screenshot2.png)
