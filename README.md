@@ -10,7 +10,7 @@
 ![Screenshot of the app](staticfiles/images/screenshot1.png)
 
 ## ❤️ Support this project
-- If you like this project, please consider supporting at https://paypal.me/benlowsen
+- If you like this project, please consider supporting at github or https://paypal.me/benlowsen
 
 ## ✨ Features
 - Generate full RPG characters

@@ -34,14 +34,13 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "rpg-character-generator-lowsenm.pythonanywhere.com",
-    ".pythonanywhere.com",
-    "www.lowsen.com"
+    "lowsen.com",
+    "www.lowsen.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://rpg-character-generator-lowsenm.pythonanywhere.com",
-    "https://*.pythonanywhere.com"
+    "https://lowsen.com",
+    "https://www.lowsen.com",
 ]
 
 
@@ -58,15 +57,16 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # if serving static files
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
 APPEND_SLASH = True
 
 ROOT_URLCONF = 'chargenproj.urls'
@@ -154,9 +154,7 @@ STATICFILES_DIRS = [
 
 #remove comment for deployment:
 #STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -195,3 +193,5 @@ SECURE_HSTS_PRELOAD = False
 SECURE_PROXY_SSL_HEADER = None
 USE_X_FORWARDED_HOST = False
 #"""
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
