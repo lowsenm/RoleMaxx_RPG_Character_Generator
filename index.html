@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>RPG Character Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    label { display:block; margin-top: 1rem; }
+    input, select { width: 100%; padding: .6rem; margin-top: .3rem; }
+    button { margin-top: 1.2rem; padding: .7rem 1rem; }
+    .note { color: #555; margin-top: .75rem; }
+  </style>
+</head>
+<body>
+  <h1>RPG Character Generator</h1>
+
+  <form id="genForm">
+    <label>
+      Character Name
+      <input name="name" required />
+    </label>
+
+    <label>
+      Class
+      <select name="class" required>
+        <option value="">Select…</option>
+        <option>Fighter</option>
+        <option>Wizard</option>
+        <option>Cleric</option>
+        <!-- match your generator’s expected values -->
+      </select>
+    </label>
+
+    <label>
+      Level
+      <input name="level" type="number" min="1" max="20" value="1" required />
+    </label>
+
+    <button type="submit">Generate PDF</button>
+    <div class="note" id="status"></div>
+  </form>
+
+  <script>
+    const API_URL = "REPLACE_WITH_YOUR_API_GATEWAY_URL"; // e.g. https://abc123.execute-api.us-east-1.amazonaws.com/generate
+
+    function formToObject(form) {
+      const data = {};
+      new FormData(form).forEach((v, k) => {
+        // coerce numbers
+        if (k === "level") data[k] = Number(v);
+        else data[k] = v;
+      });
+      return data;
+    }
+
+    document.getElementById("genForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const status = document.getElementById("status");
+      status.textContent = "Generating…";
+
+      const payload = formToObject(e.target);
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          const text = await res.text();
+          throw new Error(text || `HTTP ${res.status}`);
+        }
+
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "character-sheet.pdf";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+
+        URL.revokeObjectURL(url);
+        status.textContent = "Done.";
+      } catch (err) {
+        console.error(err);
+        status.textContent = "Error: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
