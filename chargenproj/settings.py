@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     "localhost",
-    "127.0.0.1",
+    "54.208.211.20",
     "lowsen.com",
     "www.lowsen.com",
 ]
