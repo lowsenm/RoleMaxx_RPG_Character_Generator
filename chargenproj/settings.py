@@ -39,8 +39,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://lowsen.com",
-    "https://www.lowsen.com",
+    "http://lowsen.com",
+    "http://www.lowsen.com",
 ]
 
 
