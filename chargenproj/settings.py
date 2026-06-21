@@ -168,17 +168,15 @@ X_FRAME_OPTIONS = 'DENY'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-#"""
+"""
 # DEV / TEST SETTINGS
 DEBUG = True
 
-"""
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", "0.0.0.0", "BenTPLaptop"]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000", "http://127.0.0.1:8000",
 ]
-"""
 
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
@@ -193,6 +191,6 @@ SECURE_HSTS_PRELOAD = False
 # Don’t pretend we’re behind HTTPS locally
 SECURE_PROXY_SSL_HEADER = None
 USE_X_FORWARDED_HOST = False
-#"""
+"""
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 USE_X_FORWARDED_HOST = True
