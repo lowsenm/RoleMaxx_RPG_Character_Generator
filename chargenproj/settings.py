@@ -172,11 +172,13 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 # DEV / TEST SETTINGS
 DEBUG = True
 
+"""
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", "0.0.0.0", "BenTPLaptop"]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8000", "http://127.0.0.1:8000",
 ]
+"""
 
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
