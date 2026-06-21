@@ -32,15 +32,13 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "54.208.211.20",
     "lowsen.com",
     "www.lowsen.com",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://lowsen.com",
-    "http://www.lowsen.com",
+    "https://lowsen.com",
+    "https://www.lowsen.com",
 ]
 
 
@@ -167,6 +165,8 @@ CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+USE_X_FORWARDED_HOST = True
 
 """
 # DEV / TEST SETTINGS
@@ -192,5 +192,3 @@ SECURE_HSTS_PRELOAD = False
 SECURE_PROXY_SSL_HEADER = None
 USE_X_FORWARDED_HOST = False
 """
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-USE_X_FORWARDED_HOST = True
